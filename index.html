@@ -80,6 +80,7 @@ nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-sha
 
 /* Dropdowns */
 .dropdown{position:relative}
+.dropdown::after{content:'';position:absolute;top:100%;left:0;right:0;height:12px}
 .dropdown-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:12px;width:480px;display:grid;grid-template-columns:1fr 1fr;gap:4px;box-shadow:0 20px 60px rgba(0,40,104,.12);opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-8px);transition:opacity .2s,transform .2s}
 .dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .drop-item{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:var(--r-md);transition:background .15s;cursor:pointer}
@@ -114,7 +115,7 @@ nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-sha
 
 /* ─── TICKER ─── */
 .ticker{background:var(--navy);padding:0;overflow:hidden;height:44px;display:flex;align-items:center}
-.ticker-track{display:flex;width:max-content;animation:ticker-scroll 28s linear infinite}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 30.3s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:flex;align-items:center;gap:10px;padding:0 28px;font-size:13px;font-weight:600;color:rgba(255,255,255,.9);white-space:nowrap}
 .ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--red);flex-shrink:0}
@@ -150,7 +151,7 @@ nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-sha
 .service-card:hover{transform:scale(1.02);box-shadow:0 20px 48px rgba(0,40,104,.12);border-color:var(--navy)}
 .service-card:hover .service-num{color:var(--red)}
 .service-card.featured{background:var(--navy);border-color:var(--navy)}
-.service-card.featured:hover{border-color:var(--red)}
+.service-card.featured:hover{border-color:var(--border)}
 .service-card.featured:hover .service-num{color:var(--red)}
 .service-num{font-family:var(--font-h);font-size:52px;color:var(--border);line-height:1;margin-bottom:16px;transition:color .25s}
 .service-card.featured .service-num{color:rgba(255,255,255,.12)}
@@ -181,14 +182,15 @@ nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);box-sha
 .how-it-works{background:#fff;padding:96px 48px}
 .hiw-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .hiw-left{align-self:start;padding-bottom:120px}
-.hiw-right{align-self:start}
+.hiw-right{align-self:stretch}
 .hiw-h2{font-family:var(--font-h);font-size:52px;color:var(--navy);line-height:1.05;margin-bottom:16px}
 .hiw-h2 span{color:var(--red)}
 .hiw-sub{font-size:16px;color:var(--text2);line-height:1.7;margin-bottom:48px}
 .steps{display:flex;flex-direction:column;gap:16px}
 .step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;transition:all .25s}
 .step:hover{border-color:var(--navy);box-shadow:0 8px 24px rgba(0,40,104,.08)}
-.step-num{font-family:var(--font-h);font-size:32px;color:var(--red);line-height:1;margin-bottom:8px}
+.step-num{font-family:var(--font-h);font-size:32px;color:var(--border);line-height:1;margin-bottom:8px;transition:color .25s}
+.step:hover .step-num{color:var(--red)}
 .step h3{font-family:var(--font-h);font-size:22px;color:var(--navy);margin-bottom:8px}
 .step p{font-size:14px;color:var(--text2);line-height:1.6}
 .promo-card{background:var(--navy);border-radius:var(--r-xl);padding:36px;position:sticky;top:100px}
@@ -336,6 +338,12 @@ footer{background:#001130;padding:64px 48px 0}
   .mobile-menu.open{display:block}
   .mobile-link{display:block;padding:14px 0;font-size:16px;font-weight:600;color:var(--text);border-bottom:1px solid var(--border)}
   .mobile-cta{display:block;margin-top:24px;text-align:center;padding:16px;background:var(--navy);color:#fff;border-radius:var(--r-sm);font-weight:700;font-size:15px}
+.mobile-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.mobile-toggle.open svg{transform:rotate(180deg)}
+.mobile-submenu{display:none;flex-direction:column;padding-left:16px;border-left:2px solid var(--border);margin:4px 0 8px}
+.mobile-submenu.open{display:flex}
+.mobile-sublink{display:block;padding:10px 0;font-size:14px;color:var(--text2);border-bottom:1px solid var(--bg2)}
+.mobile-sublink:last-child{border-bottom:none}
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:32px}
   .hero-sub,.hero-btns{margin-left:auto;margin-right:auto;justify-content:center}
   .hero-visual{justify-content:center}
@@ -366,7 +374,7 @@ footer{background:#001130;padding:64px 48px 0}
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="assets/ccsfooterlogo (1)-Photoroom.png" alt="Carolina Contractor Solutions">
+      <img src="assets/ccslogowhite (1).webp" alt="Carolina Contractor Solutions">
     </a>
 
     <div class="nav-links">
@@ -480,8 +488,28 @@ footer{background:#001130;padding:64px 48px 0}
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" class="mobile-link">Services</a>
-  <a href="#why-ccs" class="mobile-link">Who We Serve</a>
+  <div class="mobile-accordion">
+    <div class="mobile-link mobile-toggle" id="mobileServicesToggle">
+      Services <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+    <div class="mobile-submenu" id="mobileServicesMenu">
+      <a href="#services" class="mobile-sublink">Contractor Websites</a>
+      <a href="#services" class="mobile-sublink">Ad Campaigns</a>
+      <a href="#services" class="mobile-sublink">Content & Photos</a>
+      <a href="#services" class="mobile-sublink">Client Acquisition System</a>
+    </div>
+  </div>
+  <div class="mobile-accordion">
+    <div class="mobile-link mobile-toggle" id="mobileServeToggle">
+      Who We Serve <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+    <div class="mobile-submenu" id="mobileServeMenu">
+      <a href="#why-ccs" class="mobile-sublink">Roofers</a>
+      <a href="#why-ccs" class="mobile-sublink">HVAC</a>
+      <a href="#why-ccs" class="mobile-sublink">Concrete & Hardscaping</a>
+      <a href="#why-ccs" class="mobile-sublink">Landscapers</a>
+    </div>
+  </div>
   <a href="#portfolio" class="mobile-link">Our Work</a>
   <a href="#" class="mobile-link">Resources</a>
   <a href="#contact" class="mobile-cta">Book a Call</a>
@@ -1059,6 +1087,16 @@ footer{background:#001130;padding:64px 48px 0}
   // Close mobile menu on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Mobile accordion submenus
+  document.getElementById('mobileServicesToggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('mobileServicesMenu').classList.toggle('open');
+  });
+  document.getElementById('mobileServeToggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('mobileServeMenu').classList.toggle('open');
   });
 
   // Smooth anchor scrolling offset for fixed nav
