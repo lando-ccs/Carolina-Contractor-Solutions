@@ -68,12 +68,11 @@ a{text-decoration:none;color:inherit}
 .checkmark{color:var(--red);font-weight:700;flex-shrink:0}
 
 /* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3s,box-shadow .3s;background:rgba(247,245,242,0)}
-nav.scrolled{background:rgba(247,245,242,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(247,248,250,.98);box-shadow:0 1px 0 var(--border);padding:6px 0}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 48px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px}
 .nav-logo img{height:40px}
 .nav-links{display:flex;align-items:center;gap:8px}
-.nav-link{position:relative;padding:8px 14px;font-size:14px;font-weight:500;color:var(--text2);border-radius:var(--r-sm);transition:color .2s;display:flex;align-items:center;gap:6px;cursor:pointer}
+.nav-link{position:relative;padding:10px 14px;font-size:18px;font-weight:500;color:var(--text2);border-radius:var(--r-sm);transition:color .2s;display:flex;align-items:center;gap:6px;cursor:pointer}
 .nav-link:hover,.nav-link.active{color:var(--navy)}
 .nav-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
 .nav-link:hover svg{transform:rotate(180deg)}
@@ -92,6 +91,7 @@ nav.scrolled{background:rgba(247,245,242,.97);backdrop-filter:blur(12px);box-sha
 
 /* Nav CTA & Hamburger */
 .nav-cta{display:flex;align-items:center;gap:16px}
+.nav-cta .btn-navy{padding:10px 18px;font-size:13px}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .3s}
 .mobile-menu{display:none}
@@ -314,8 +314,8 @@ footer{background:#001130;padding:64px 48px 0}
 .footer-contact-info a{font-size:13px;color:rgba(255,255,255,.6);transition:color .2s}
 .footer-contact-info a:hover{color:#fff}
 .footer-socials{display:flex;gap:10px}
-.social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.social-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;transition:background-color .2s cubic-bezier(.2,.8,.2,1),border-color .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s cubic-bezier(.2,.8,.2,1)}
+.social-btn:hover{background:rgba(227,18,18,.08);border-color:rgba(227,18,18,.35);box-shadow:0 0 0 2px rgba(227,18,18,.35)}
 .social-btn svg{width:16px;height:16px;stroke:rgba(255,255,255,.7);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .footer-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);display:flex;align-items:center;gap:8px;margin-bottom:20px}
 .footer-col h4::before{content:'';width:16px;height:2px;background:var(--red);border-radius:1px}
@@ -334,7 +334,7 @@ footer{background:#001130;padding:64px 48px 0}
 @media(max-width:900px){
   .nav-links,.nav-cta .btn-navy{display:none}
   .hamburger{display:flex}
-  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#fff;padding:24px;overflow-y:auto;z-index:999}
+  .mobile-menu{display:none;position:fixed;top:88px;left:0;right:0;bottom:0;background:#fff;padding:24px;overflow-y:auto;z-index:999}
   .mobile-menu.open{display:block}
   .mobile-link{display:block;padding:14px 0;font-size:16px;font-weight:600;color:var(--text);border-bottom:1px solid var(--border)}
   .mobile-cta{display:block;margin-top:24px;text-align:center;padding:16px;background:var(--navy);color:#fff;border-radius:var(--r-sm);font-weight:700;font-size:15px}
@@ -1071,12 +1071,6 @@ footer{background:#001130;padding:64px 48px 0}
 
 <!-- ─── SCRIPTS ─── -->
 <script>
-  // Sticky nav scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
-
   // Mobile hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1105,7 +1099,7 @@ footer{background:#001130;padding:64px 48px 0}
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        const offset = 80;
+        const offset = 92;
         window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
       }
     });
