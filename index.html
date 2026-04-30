@@ -50,7 +50,7 @@
 
 /* ─── RESET ─── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
@@ -186,11 +186,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(247,248,250
 .hiw-h2{font-family:var(--font-h);font-size:52px;color:var(--navy);line-height:1.05;margin-bottom:16px}
 .hiw-h2 span{color:var(--red)}
 .hiw-sub{font-size:16px;color:var(--text2);line-height:1.7;margin-bottom:48px}
-.steps{display:flex;flex-direction:column;gap:16px}
-.step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;transition:all .25s}
-.step:hover{border-color:var(--navy);box-shadow:0 8px 24px rgba(0,40,104,.08)}
-.step-num{font-family:var(--font-h);font-size:32px;color:var(--border);line-height:1;margin-bottom:8px;transition:color .25s}
-.step:hover .step-num{color:var(--red)}
+.steps{display:flex;flex-direction:column;gap:16px;position:relative}
+.step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;transition:transform .22s cubic-bezier(.2,.8,.2,1),box-shadow .22s cubic-bezier(.2,.8,.2,1),border-color .22s cubic-bezier(.2,.8,.2,1);scroll-snap-align:center;will-change:transform;position:relative;overflow:hidden;--p:0}
+.step::before{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--border);opacity:.9}
+.step::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--red);transform:scaleX(var(--p));transform-origin:left;transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.step-num{font-family:var(--font-h);font-size:32px;color:var(--border);line-height:1;margin-bottom:8px;transition:color .22s cubic-bezier(.2,.8,.2,1);position:relative;z-index:2}
+.step.active{border-color:var(--navy);box-shadow:0 8px 24px rgba(0,40,104,.08);transform:scale(1.01)}
+.step.active .step-num{color:var(--red)}
 .step h3{font-family:var(--font-h);font-size:22px;color:var(--navy);margin-bottom:8px}
 .step p{font-size:14px;color:var(--text2);line-height:1.6}
 .promo-card{background:var(--navy);border-radius:var(--r-xl);padding:36px;position:sticky;top:100px}
@@ -356,6 +358,11 @@ footer{background:#001130;padding:64px 48px 0}
   .full-service-banner{grid-template-columns:1fr;gap:20px}
   .fs-cta{text-align:left}
   .footer-inner{grid-template-columns:1fr 1fr}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;scroll-snap-type:none}
+  .step,.step-num,.social-btn{transition:none}
 }
 @media(max-width:600px){
   nav .nav-inner{padding:0 24px}
@@ -1104,6 +1111,71 @@ footer{background:#001130;padding:64px 48px 0}
       }
     });
   });
+
+  // How It Works: scroll-activated steps + per-card progress
+  const stepsWrap = document.querySelector('.steps');
+  const steps = Array.from(document.querySelectorAll('.steps .step'));
+  if (stepsWrap && steps.length) {
+    const clamp01 = (n) => Math.min(1, Math.max(0, n));
+
+    const setActiveStep = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let closest = steps[0];
+      let best = Infinity;
+      for (const step of steps) {
+        const rect = step.getBoundingClientRect();
+        const stepCenter = rect.top + rect.height / 2;
+        const d = Math.abs(stepCenter - viewportCenter);
+        if (d < best) { best = d; closest = step; }
+      }
+      steps.forEach(s => s.classList.toggle('active', s === closest));
+    };
+
+    const updateStepProgress = () => {
+      const viewportCenter = window.innerHeight / 2;
+      for (const step of steps) {
+        const rect = step.getBoundingClientRect();
+        const stepCenter = rect.top + rect.height / 2;
+        const dist = Math.abs(stepCenter - viewportCenter);
+        const range = Math.max(220, rect.height * 0.95);
+        const p = clamp01(1 - (dist / range));
+        step.style.setProperty('--p', p.toFixed(4));
+      }
+    };
+
+    const updateAll = () => {
+      setActiveStep();
+      updateStepProgress();
+    };
+
+    // Only run updates while this section is on-screen
+    const hiwSection = document.getElementById('how-it-works');
+    let hiwActive = true;
+
+    let ticking = false;
+    const onScrollOrResize = () => {
+      if (!hiwActive) return;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        updateAll();
+      });
+    };
+
+    const sectionObserver = hiwSection ? new IntersectionObserver((entries) => {
+      const isOnScreen = entries.some(e => e.isIntersecting);
+      hiwActive = isOnScreen;
+      if (hiwActive) onScrollOrResize();
+    }, { root: null, threshold: 0.01 }) : null;
+    if (sectionObserver && hiwSection) sectionObserver.observe(hiwSection);
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+
+    // Initialize
+    updateAll();
+  }
 </script>
 
 </body>
