@@ -168,31 +168,29 @@ export default function BookedSolidPage() {
       </section>
 
       {/* Upsell to Market Domination */}
-      <div style={{ padding: '0 48px 96px', background: '#fff' }}>
-        <div className="section-inner">
-          <div className="service-full-card">
-            <div className="service-full-left">
-              <div className="badge badge-dark"><span className="pulse" />Full System Available</div>
-              <SectionLabel light>Want More?</SectionLabel>
-              <h3>Step Up to Market Domination</h3>
-              <p>Add Meta Ads, 3–5 monthly on-location content shoots, and full GoHighLevel pipeline automation. One contractor per trade per market — permanently locked in.</p>
-              <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
-                See Market Domination <span className="arrow">→</span>
-              </Link>
-            </div>
-            <div className="service-full-right">
-              <p className="includes-label">Market Domination Adds</p>
-              <ul className="includes-grid">
-                <li>Meta Ads Management</li>
-                <li>3–5 Content Shoots/Month</li>
-                <li>GoHighLevel CRM</li>
-                <li>Lead Follow-Up Automation</li>
-                <li>Review Generation</li>
-                <li>Live Lead Dashboard</li>
-                <li>Missed Call Text-Back</li>
-                <li>90-Day Guarantee</li>
-              </ul>
-            </div>
+      <div className="service-full-wrap" style={{ padding: '0 48px 96px', background: '#fff' }}>
+        <div className="service-full-card">
+          <div className="service-full-left">
+            <div className="badge badge-navy"><span className="pulse" />Full System Available</div>
+            <SectionLabel>Want More?</SectionLabel>
+            <h3>Step Up to Market Domination</h3>
+            <p>Add Meta Ads, 3–5 monthly on-location content shoots, and full GoHighLevel pipeline automation. One contractor per trade per market — permanently locked in.</p>
+            <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+              See Market Domination <span className="arrow">→</span>
+            </Link>
+          </div>
+          <div className="service-full-right">
+            <p className="includes-label">Market Domination Adds</p>
+            <ul className="includes-grid">
+              <li>Meta Ads Management</li>
+              <li>3–5 Content Shoots/Month</li>
+              <li>GoHighLevel CRM</li>
+              <li>Lead Follow-Up Automation</li>
+              <li>Review Generation</li>
+              <li>Live Lead Dashboard</li>
+              <li>Missed Call Text-Back</li>
+              <li>90-Day Guarantee</li>
+            </ul>
           </div>
         </div>
       </div>

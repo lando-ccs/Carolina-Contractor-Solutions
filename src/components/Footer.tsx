@@ -1,113 +1,73 @@
 import Link from 'next/link'
 
-const IgIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-  </svg>
-)
-const FbIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-)
-const TkIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.86 4.86 0 0 1-1.01-.07z"/>
-  </svg>
-)
-
-const LogoSVG = () => (
-  <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
-    <rect width="64" height="64" rx="10" fill="#002868"/>
-    <path d="M14 18a8 8 0 1 0 6.8 12.2 6 6 0 1 1-7.2-9A8 8 0 0 1 14 18z" fill="#fff"/>
-    <path d="M33 52c-.6-6-1.2-12 .2-18 .4-1.6 1-3.2 1.8-4.6.4-.7 1.4-.7 1.8 0 .8 1.4 1.4 3 1.8 4.6 1.4 6 .8 12 .2 18H33z" fill="#fff"/>
-    <g fill="#fff">
-      <path d="M36 28c-4-4-9-5-14-4 3 3 7 5 11 5z"/>
-      <path d="M36 28c-2-5-6-9-11-10 1 4 4 8 8 10z"/>
-      <path d="M36 28c1-5-1-10-5-13-1 4-.5 9 2 12z"/>
-      <path d="M36 28c4-4 9-5 14-4-3 3-7 5-11 5z"/>
-      <path d="M36 28c2-5 6-9 11-10-1 4-4 8-8 10z"/>
-      <path d="M36 28c-1-5 1-10 5-13 1 4 .5 9-2 12z"/>
-    </g>
-    <rect y="56" width="64" height="8" fill="#E31212"/>
-  </svg>
-)
-
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer>
       <div className="footer-inner">
-        <div className="footer-top">
-          {/* Brand col */}
-          <div>
-            <div className="footer-brand-logo"><LogoSVG /></div>
-            <div className="footer-brand-wordmark">
-              Carolina Contractor Solutions
-              <small>NC · SC</small>
-            </div>
-            <p className="footer-tagline">
-              Marketing built exclusively for contractors across North and South Carolina. Websites, ads, content, and done-for-you lead systems.
-            </p>
-            <div className="footer-contact">
-              <a href="mailto:info@carolinacontractorsolutions.com">info@carolinacontractorsolutions.com</a>
-              <a href="tel:8437429776">(843) 742-9776</a>
-            </div>
+        {/* Brand col */}
+        <div className="footer-brand">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/ccsfooterlogo (1)-Photoroom.png" alt="Carolina Contractor Solutions" />
+          <p className="footer-tagline">Done-for-you marketing for contractors across the Carolinas.</p>
+          <div className="footer-contact-info">
+            <a href="tel:8437429776">(843) 742-9776</a>
+            <a href="mailto:info@carolinacontractorsolutions.com">info@carolinacontractorsolutions.com</a>
           </div>
-
-          {/* Services col */}
-          <div className="footer-col">
-            <h5>Services</h5>
-            <ul>
-              <li><Link href="/services/web-care-plan">Web Care Plan</Link></li>
-              <li><Link href="/services/booked-solid">Booked Solid System</Link></li>
-              <li><Link href="/services/market-domination">Market Domination</Link></li>
-            </ul>
-          </div>
-
-          {/* Who We Serve col */}
-          <div className="footer-col">
-            <h5>Who We Serve</h5>
-            <ul>
-              <li><Link href="/who-we-serve/roofers">Roofers</Link></li>
-              <li><Link href="/who-we-serve/landscapers">Landscapers</Link></li>
-              <li><Link href="/who-we-serve/hvac">HVAC</Link></li>
-              <li><Link href="/who-we-serve/cleaning">Cleaning</Link></li>
-              <li><Link href="/who-we-serve">All Industries</Link></li>
-            </ul>
-          </div>
-
-          {/* Company col */}
-          <div className="footer-col">
-            <h5>Company</h5>
-            <ul>
-              <li><Link href="/portfolio">Portfolio</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-            </ul>
-            <div style={{ marginTop: 28 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.5, color: 'rgba(255,255,255,0.3)', marginBottom: 10 }}>Serving</p>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', lineHeight: 1.8 }}>
-                Charlotte · Raleigh · Asheville<br/>
-                Charleston · Myrtle Beach<br/>
-                Greenville · Wilmington<br/>
-                All of NC &amp; SC
-              </p>
-            </div>
+          <div className="footer-socials">
+            <a href="#" className="social-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" className="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" className="social-btn tiktok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.76a8.27 8.27 0 004.84 1.55V6.87a4.85 4.85 0 01-1.07-.18z"/></svg>
+            </a>
+            <a href="#" className="social-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style={{ fill: 'rgba(255,255,255,0.7)', stroke: 'none' }}/></svg>
+            </a>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="footer-bottom">
-          <p className="footer-copy">© 2026 Carolina Contractor Solutions · All rights reserved</p>
-          <div className="footer-socials">
-            <a href="#" className="footer-social" aria-label="Instagram"><IgIcon /></a>
-            <a href="#" className="footer-social" aria-label="Facebook"><FbIcon /></a>
-            <a href="#" className="footer-social" aria-label="TikTok"><TkIcon /></a>
-          </div>
+        {/* Pages col */}
+        <div className="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/portfolio">Our Work</Link></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        {/* Serving col */}
+        <div className="footer-col">
+          <h4>Serving</h4>
+          <ul>
+            <li><a href="#">Myrtle Beach, SC</a></li>
+            <li><a href="#">Charleston, SC</a></li>
+            <li><a href="#">Charlotte, NC</a></li>
+            <li><a href="#">Greenville, SC</a></li>
+            <li><a href="#">Asheville, NC</a></li>
+            <li><a href="#">Surrounding Areas</a></li>
+          </ul>
+        </div>
+
+        {/* Follow col */}
+        <div className="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
         </div>
       </div>
-      <div style={{ height: 3, background: 'var(--red)', width: '100%' }} />
+
+      <div className="footer-bottom">
+        <p className="footer-copy">© 2026 Carolina Contractor Solutions</p>
+      </div>
     </footer>
   )
 }

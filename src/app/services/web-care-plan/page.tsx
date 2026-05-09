@@ -126,12 +126,11 @@ export default function WebCarePlanPage() {
         <div className="section-inner">
           <div className="how-grid">
             <div className="how-head">
-              <SectionLabel light>Our Promise</SectionLabel>
+              <div className="badge badge-dark"><span className="pulse" />Available Nationwide</div>
               <h2 style={{ color: '#fff', fontSize: 56, marginBottom: 16 }}>30-Day<br /><span style={{ color: 'var(--red-light)' }}>Rebuild Guarantee.</span></h2>
               <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>If you're not happy with any section of your site within the first 30 days, we rebuild it free. No argument, no charge.</p>
             </div>
             <div className="cta-panel">
-              <div className="badge badge-dark"><span className="pulse" />Available Nationwide</div>
               <h3>Ready to get a site that actually books jobs?</h3>
               <p>Fill out a short form and we'll have your site spec ready within 48 hours.</p>
               <ul className="cta-panel-feats">
@@ -150,28 +149,26 @@ export default function WebCarePlanPage() {
 
       {/* Upsell */}
       <div className="service-full-wrap" style={{ padding: '0 48px 96px', background: '#fff' }}>
-        <div className="section-inner">
-          <div className="service-full-card">
-            <div className="service-full-left">
-              <div className="badge badge-dark"><span className="pulse" />Next Level</div>
-              <SectionLabel light>Ready to Get More Leads?</SectionLabel>
-              <h3>Add the Booked Solid System</h3>
-              <p>Once your site is live, step up to the Booked Solid System — Google Ads, SEO, and Google Business Profile management that fills your pipeline. Carolinas only.</p>
-              <Link href="/services/booked-solid" className="btn btn-secondary btn-lg">
-                See Booked Solid System <span className="arrow">→</span>
-              </Link>
-            </div>
-            <div className="service-full-right">
-              <p className="includes-label">Booked Solid Adds</p>
-              <ul className="includes-grid">
-                <li>Google Ads Management</li>
-                <li>Local SEO</li>
-                <li>Google Business Profile</li>
-                <li>Weekly Optimization</li>
-                <li>Monthly Reporting</li>
-                <li>60-Day Lead Guarantee</li>
-              </ul>
-            </div>
+        <div className="service-full-card">
+          <div className="service-full-left">
+            <div className="badge badge-navy"><span className="pulse" />Next Level</div>
+            <SectionLabel>Ready to Get More Leads?</SectionLabel>
+            <h3>Add the Booked Solid System</h3>
+            <p>Once your site is live, step up to the Booked Solid System — Google Ads, SEO, and Google Business Profile management that fills your pipeline. Carolinas only.</p>
+            <Link href="/services/booked-solid" className="btn btn-secondary btn-lg">
+              See Booked Solid System <span className="arrow">→</span>
+            </Link>
+          </div>
+          <div className="service-full-right">
+            <p className="includes-label">Booked Solid Adds</p>
+            <ul className="includes-grid">
+              <li>Google Ads Management</li>
+              <li>Local SEO</li>
+              <li>Google Business Profile</li>
+              <li>Weekly Optimization</li>
+              <li>Monthly Reporting</li>
+              <li>60-Day Lead Guarantee</li>
+            </ul>
           </div>
         </div>
       </div>

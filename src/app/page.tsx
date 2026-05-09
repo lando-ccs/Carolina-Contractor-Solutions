@@ -1,25 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import SectionLabel from '@/components/SectionLabel'
-import { useState, useEffect } from 'react'
 
 // ── Ticker ────────────────────────────────────────────────────────────────────
 function Ticker() {
   const items = [
-    'Web Care Plan', 'Booked Solid System', 'Market Domination',
-    'Win More Jobs', 'Carolinas Only', 'One Market. One Client.',
-    'Done-For-You', 'Built for Contractors',
+    '100% for Contractors', 'Get Better Leads', 'Win More Jobs',
+    'Serving the Carolinas', 'Stand Out Over Competitors', 'Book More Estimates',
   ]
   const all = [...items, ...items]
   return (
     <div className="ticker" aria-hidden="true">
       <div className="ticker-track">
         {all.map((t, i) => (
-          <span key={i} className="ticker-item">
-            <span className="ticker-dot" />
+          <div key={i} className="ticker-item">
+            <div className="ticker-dot" />
             {t}
-          </span>
+          </div>
         ))}
       </div>
     </div>
@@ -29,120 +26,107 @@ function Ticker() {
 // ── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="hero">
-      <div className="hero-grid">
-        {/* Left */}
-        <div>
-          <div className="badge badge-red">
-            <span className="pulse" />
-            Now Accepting Clients — Carolinas Only
-          </div>
-          <SectionLabel>Done-For-You Contractor Marketing</SectionLabel>
-          <h1>
-            Stop Chasing Leads.<br />
-            <span className="red">Get Booked Solid.</span>
+    <section className="hero" id="home">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+
+      <div className="hero-inner">
+        <div className="hero-content">
+          <div className="hero-badge">Marketing For Contractors</div>
+          <h1 className="hero-h1">
+            You Do the Work.<br />
+            <span className="red">We Fill Your Calendar.</span>
           </h1>
           <p className="hero-sub">
-            CCS builds contractor websites and runs the <strong>Booked Solid System</strong> — a done-for-you client acquisition engine with your site, Google Ads, SEO, and automated follow-up. All under one roof.
+            Most contractors in the Carolinas are invisible online and don't even know it. We build the websites, shoot the content, and run the ads that keep your phone ringing when referrals go quiet.
           </p>
-          <div className="hero-ctas">
-            <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
-              See Market Domination <span className="arrow">→</span>
-            </Link>
-            <Link href="/portfolio" className="btn btn-ghost btn-lg">
-              View Our Work
-            </Link>
-          </div>
-          <div className="hero-proof">
-            <div className="proof-stat">
-              <div className="proof-num">40<span>+</span></div>
-              <div className="proof-label">Contractors Served</div>
-            </div>
-            <div className="proof-stat">
-              <div className="proof-num">1</div>
-              <div className="proof-label">Client Per Market</div>
-            </div>
-            <div className="proof-stat">
-              <div className="proof-num">90<span>d</span></div>
-              <div className="proof-label">Lead Guarantee</div>
-            </div>
+          <div className="hero-btns">
+            <a href="#contact" className="btn btn-navy" style={{ fontSize: 15, padding: '15px 28px' }}>
+              <svg style={{ width: 16, height: 16, stroke: '#fff', fill: 'none', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }} viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Book a Call
+            </a>
+            <a href="#portfolio" className="btn btn-ghost" style={{ fontSize: 15, padding: '14px 28px' }}>See Our Work</a>
           </div>
         </div>
 
-        {/* Right — device stack */}
-        <div className="device-stack">
-          <div className="device-stack-bg">
-            <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+        <div className="hero-visual">
+          <div className="hero-device">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/heromockups.webp" alt="Contractor website mockup" className="hero-desktop" />
           </div>
-          <img src="/assets/heromockups.webp" alt="CCS website mockup" className="device-laptop" />
         </div>
       </div>
     </section>
   )
 }
 
-// ── Who We Serve ──────────────────────────────────────────────────────────────
-function WhoWeServe() {
-  const trades = [
-    {
-      href: '/who-we-serve/roofers',
-      title: 'Roofers',
-      body: 'Storm damage, repair & replacement — get in front of homeowners the moment they search. Full Market Domination system available.',
-      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      ),
-    },
-    {
-      href: '/who-we-serve/hvac',
-      title: 'HVAC',
-      body: 'Install and service calls that actually ring your phone. We target homeowners by ZIP code and age-of-home.',
-      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-          <line x1="6" y1="6" x2="6.01" y2="6"/>
-          <line x1="6" y1="18" x2="6.01" y2="18"/>
-        </svg>
-      ),
-    },
-    {
-      href: '/who-we-serve/landscapers',
-      title: 'Landscapers',
-      body: 'Design-build, lawn care, hardscape — we shoot the work and turn it into campaigns that book estimates.',
-      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 8C8 10 5.9 16.17 3.82 19.82A2 2 0 0 0 5.66 22H18a2 2 0 0 0 2-2V8"/>
-          <path d="M17 8l-2-4"/>
-          <path d="M17 8c0-4-2-4-2-4"/>
-        </svg>
-      ),
-    },
-  ]
+// ── Why CCS ───────────────────────────────────────────────────────────────────
+function WhyCCS() {
   return (
-    <section className="section alt">
-      <div className="section-inner">
-        <div className="section-head center">
-          <SectionLabel>Who We Serve</SectionLabel>
-          <h2>Built for the Trades.<br /><span className="red">Made in the Carolinas.</span></h2>
-          <p>We only work with contractors. Every campaign we run and every site we build speaks directly to the homeowners in your market.</p>
+    <section className="why-ccs" id="why-ccs">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="why-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <div className="why-inner">
+        <div className="why-header">
+          <div className="section-label">Why Choose CCS?</div>
+          <h2 className="why-h2">Built for the Trades.<br /><span className="red">Made in the Carolinas.</span></h2>
+          <p className="why-sub">We only work with contractors, and we only work in NC and SC. That focus is why every campaign we run, every photo we shoot, and every word on your site speaks directly to the homeowners down the street.</p>
         </div>
-        <div className="trades-grid">
-          {trades.map(t => (
-            <Link key={t.title} href={t.href} className="trade-card">
-              <div className="trade-card-icon">{t.icon}</div>
-              <h3>{t.title}</h3>
-              <p>{t.body}</p>
-              <div className="trade-card-tags">
-                {t.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-              </div>
-            </Link>
-          ))}
+
+        <div className="industry-grid">
+          <Link href="/who-we-serve/roofers" className="industry-card">
+            <div className="industry-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Roofers</h3>
+            <p>Every week you're not showing up on Google or social media, someone else is getting your jobs.</p>
+            <div className="industry-tags">
+              <span className="tag">Google Ads</span>
+              <span className="tag">More Estimates</span>
+              <span className="tag">Get Found</span>
+            </div>
+          </Link>
+
+          <Link href="/who-we-serve/hvac" className="industry-card">
+            <div className="industry-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+            <h3>HVAC Companies</h3>
+            <p>Your customers don't think about you until the AC breaks. We make sure they think of you first when it does.</p>
+            <div className="industry-tags">
+              <span className="tag">Google Ads</span>
+              <span className="tag">Website</span>
+              <span className="tag">Stay Booked</span>
+            </div>
+          </Link>
+
+          <Link href="/who-we-serve/general-contractors" className="industry-card">
+            <div className="industry-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+            </div>
+            <h3>Concrete & Hardscaping</h3>
+            <p>Premium work deserves a presence that matches it. We make sure the right homeowners find you first.</p>
+            <div className="industry-tags">
+              <span className="tag">Website Design</span>
+              <span className="tag">Meta Ads</span>
+              <span className="tag">Content</span>
+            </div>
+          </Link>
+
+          <Link href="/who-we-serve/landscapers" className="industry-card">
+            <div className="industry-icon">
+              <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3>Landscapers</h3>
+            <p>The yards you've done speak for themselves. We make sure the right homeowners are listening.</p>
+            <div className="industry-tags">
+              <span className="tag">Website Design</span>
+              <span className="tag">Meta Ads</span>
+              <span className="tag">Ad Campaigns</span>
+            </div>
+          </Link>
         </div>
       </div>
     </section>
@@ -151,83 +135,81 @@ function WhoWeServe() {
 
 // ── Services ──────────────────────────────────────────────────────────────────
 function Services() {
-  const cards = [
-    {
-      href: '/services/web-care-plan',
-      num: '01',
-      title: 'Web Care Plan',
-      body: 'A professional contractor site built in 5–7 days. 3–5 updates/month, hosting included. No setup fee. Month-to-month after 3 months.',
-      checks: ['Custom design + copywriting', 'Mobile-first build', 'SEO & local schema', '3–5 updates/month', 'Hosting included'],
-    },
-    {
-      href: '/services/booked-solid',
-      num: '02',
-      title: 'Booked Solid System',
-      body: 'Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine for contractors in the Carolinas.',
-      checks: ['Google Ads campaigns', 'Local SEO + GBP', 'Weekly optimization', 'Monthly reporting', '60-day lead guarantee'],
-    },
-    {
-      href: '/services/market-domination',
-      num: '03',
-      title: 'Market Domination',
-      body: 'Everything in BSS plus Meta Ads, 3–5 monthly on-location content shoots, and full GoHighLevel pipeline automation.',
-      checks: ['Google + Meta Ads', '3–5 monthly content shoots', 'GoHighLevel automation', 'Live lead dashboard', '90-day lead guarantee'],
-      featured: true,
-    },
-  ]
-
   return (
-    <section className="section">
-      <div className="section-inner">
-        <div className="section-head center">
-          <SectionLabel>Our Services</SectionLabel>
-          <h2>Everything You Need to<br /><span className="red">Show Up and Win.</span></h2>
-          <p>Pick a piece or get the whole system. All built exclusively for contractors.</p>
-        </div>
-        <div className="services-grid">
-          {cards.map(s => (
-            <Link key={s.num} href={s.href} className={`service-card${s.featured ? ' featured' : ''}`}>
-              <div className="service-card-num">{s.num}</div>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-              <ul className="service-check-list">
-                {s.checks.map(c => <li key={c} className="service-check">{c}</li>)}
-              </ul>
-              <span className="service-cta">{s.featured ? 'See Full System' : 'Learn More'} <span className="arrow">→</span></span>
-            </Link>
-          ))}
+    <section className="services-section" id="services">
+      <div className="services-inner">
+        <div className="services-header">
+          <div className="section-label">Our Services</div>
+          <h2 className="services-h2">Everything You Need to<br /><span className="red">Show Up and Win</span></h2>
+          <p className="services-sub">Most contractors in the Carolinas live off word of mouth and hope the slow months don't last. We build the presence that keeps your phone ringing when referrals go quiet.</p>
         </div>
 
-        {/* Market Domination full card */}
-        <div className="service-full-wrap">
-          <div className="service-full-card">
-            <div className="service-full-left">
-              <div className="badge badge-dark">
-                <span className="pulse" />
-                Most Popular — Carolinas Only
-              </div>
-              <SectionLabel light>Market Domination</SectionLabel>
-              <h3>The Complete System for Contractors Who Want to Own Their Market</h3>
-              <p>One contractor per trade per market — permanently locked in. If you're in, your competitor can't be. This is the full package: ads, content, automation, and exclusivity.</p>
-              <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
-                See Full Details <span className="arrow">→</span>
-              </Link>
-            </div>
-            <div className="service-full-right">
-              <p className="includes-label">Everything Included</p>
-              <ul className="includes-grid">
-                <li>Google Ads Management</li>
-                <li>Meta Ads Management</li>
-                <li>3–5 Monthly Content Shoots</li>
-                <li>SEO + Google Business</li>
-                <li>GoHighLevel CRM</li>
-                <li>Lead Follow-Up Automation</li>
-                <li>Review Generation</li>
-                <li>Missed Call Text-Back</li>
-                <li>Live Lead Dashboard</li>
-                <li>90-Day Lead Guarantee</li>
-              </ul>
-            </div>
+        <div className="services-grid">
+          {/* Web Care Plan */}
+          <Link href="/services/web-care-plan" className="service-card">
+            <div className="service-card-num">01</div>
+            <h3>Web Care Plan</h3>
+            <p>A professional contractor site built in 5–7 days. Updates included. No setup fee. Month-to-month after 3 months.</p>
+            <ul className="service-check-list">
+              <li className="service-check">Custom design + copywriting</li>
+              <li className="service-check">Mobile-first build</li>
+              <li className="service-check">SEO & local schema</li>
+              <li className="service-check">3–5 updates/month included</li>
+            </ul>
+            <span className="service-cta">Learn More →</span>
+          </Link>
+
+          {/* Booked Solid System — featured */}
+          <Link href="/services/booked-solid" className="service-card featured">
+            <div className="service-card-num">02</div>
+            <h3>Booked Solid System</h3>
+            <p>Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine for contractors in the Carolinas.</p>
+            <ul className="service-check-list">
+              <li className="service-check">Google Ads campaigns</li>
+              <li className="service-check">Local SEO + GBP management</li>
+              <li className="service-check">Weekly optimization</li>
+              <li className="service-check">60-day lead guarantee</li>
+            </ul>
+            <span className="service-cta">Learn More →</span>
+          </Link>
+
+          {/* Market Domination */}
+          <Link href="/services/market-domination" className="service-card">
+            <div className="service-card-num">03</div>
+            <h3>Market Domination</h3>
+            <p>Everything in BSS plus Meta Ads, 3–5 monthly on-location content shoots, and full GoHighLevel pipeline automation.</p>
+            <ul className="service-check-list">
+              <li className="service-check">Google + Meta Ads</li>
+              <li className="service-check">3–5 monthly content shoots</li>
+              <li className="service-check">GoHighLevel automation</li>
+              <li className="service-check">90-day lead guarantee</li>
+            </ul>
+            <span className="service-cta">See Full System →</span>
+          </Link>
+        </div>
+
+        {/* Full-Service Banner */}
+        <div className="full-service-banner">
+          <div className="fs-left">
+            <div className="fs-badge">Complete Package</div>
+            <h3>Market Domination — Full Client Acquisition System</h3>
+            <p>Website, ads, content, GHL automation, and pipeline management — all under one roof. You focus on the work. We fill your calendar.</p>
+          </div>
+          <ul className="fs-features">
+            <li><span className="checkmark">✓</span> Everything in all 3 services above</li>
+            <li><span className="checkmark">✓</span> GoHighLevel CRM + automated follow-up</li>
+            <li><span className="checkmark">✓</span> Landing pages tied to ad campaigns</li>
+            <li><span className="checkmark">✓</span> Monthly strategy call & full reporting</li>
+            <li><span className="checkmark">✓</span> Pipeline management — leads tracked start to close</li>
+          </ul>
+          <div className="fs-cta">
+            <Link href="/services/market-domination" className="btn btn-red" style={{ fontSize: 15 }}>
+              <svg style={{ width: 16, height: 16, stroke: '#fff', fill: 'none', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }} viewBox="0 0 24 24">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              See Full Details
+            </Link>
+            <div className="fs-price">90-day lead guarantee included</div>
           </div>
         </div>
       </div>
@@ -237,52 +219,48 @@ function Services() {
 
 // ── How It Works ──────────────────────────────────────────────────────────────
 function HowItWorks() {
-  const steps = [
-    { n: '01', t: 'Discovery Call', b: '30 minutes. We learn your market, your best job types, and what\'s held you back. No pitch.' },
-    { n: '02', t: 'We Build & Launch', b: 'We write the site, design it, shoot your jobsite, and launch the first campaign — all within 2 weeks.' },
-    { n: '03', t: 'Leads Come In', b: 'Calls and form fills go straight to your phone. Auto-replies go out in seconds. We tune weekly.' },
-    { n: '04', t: 'You Own Your Market', b: 'Once you\'re in, no competitor in your trade gets in. Your territory is locked — for as long as you stay.' },
-  ]
   return (
-    <section className="section dark">
-      <div className="section-inner">
-        <div className="how-grid">
-          <div>
-            <div className="how-head">
-              <SectionLabel light>How It Works</SectionLabel>
-              <h2 style={{ fontSize: 56, color: '#fff', marginBottom: 16 }}>Simple Process.<br /><span style={{ color: 'var(--red-light)' }}>Serious Results.</span></h2>
-              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>Three steps from first call to first lead. No drawn-out discovery, no surprise invoices.</p>
+    <section className="how-it-works" id="how-it-works">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="hiw-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <div className="hiw-inner">
+        <div className="hiw-left">
+          <div className="section-label">How It Works</div>
+          <h2 className="hiw-h2">Simple Process.<br /><span className="red">Serious Results.</span></h2>
+          <p className="hiw-sub">No long contracts. No confusing timelines. Here's exactly how it works.</p>
+
+          <div className="steps">
+            <div className="step">
+              <div className="step-num">01</div>
+              <h3>Discovery Call</h3>
+              <p>A 30-minute call to understand your business, your market, and where the opportunities are. No prep needed. Just show up.</p>
             </div>
-            <div className="steps-col">
-              {steps.map(s => (
-                <div key={s.n} className="step">
-                  <div className="step-num">{s.n}</div>
-                  <div>
-                    <h4>{s.t}</h4>
-                    <p>{s.b}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="step">
+              <div className="step-num">02</div>
+              <h3>We Build & Shoot</h3>
+              <p>We handle the website design, show up to your location for the content shoot, and set up your ad campaigns — all while you focus on the work.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">03</div>
+              <h3>Leads Come In</h3>
+              <p>Your site goes live, ads start running, and GHL automatically follows up with every lead. You wake up to booked appointments.</p>
             </div>
           </div>
+        </div>
 
-          {/* CTA Panel */}
-          <div className="cta-panel">
-            <div className="badge badge-dark">
-              <span className="pulse" />
-              Our Guarantee
-            </div>
-            <h3>If your leads don't cover the retainer in the first 90 days — your next month is free.</h3>
-            <p>We only work with one contractor per market. Your leads are exclusively yours. We will never take on a direct competitor in your area.</p>
-            <ul className="cta-panel-feats">
-              <li>Leads guaranteed to cover retainer cost</li>
-              <li>One client per market — no exceptions</li>
-              <li>Month free if we miss the mark</li>
-              <li>Carolinas only — NC &amp; SC</li>
+        <div className="hiw-right">
+          <div className="promo-card">
+            <div className="promo-badge">Only 3 Spots Available!</div>
+            <h3>Free 60-Day Ad Campaign<br /><span className="red">On Us!</span></h3>
+            <p>Sign on for a website and we launch a free 60-day Meta campaign to go with it. You cover the ad spend. We handle the shoot, the build, and the campaigns. Hit the ground running from day one. Only 3 spots available.</p>
+            <ul className="promo-list">
+              <li><span className="checkmark">✓</span> On-location shoot included</li>
+              <li><span className="checkmark">✓</span> Full Meta setup & launch</li>
+              <li><span className="checkmark">✓</span> 60 days. Zero setup fees.</li>
             </ul>
-            <Link href="/services/market-domination" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
-              See Market Domination <span className="arrow">→</span>
-            </Link>
+            <a href="#contact" className="btn btn-red" style={{ width: '100%', justifyContent: 'center', fontSize: 15 }}>
+              Claim Your Free Campaign →
+            </a>
           </div>
         </div>
       </div>
@@ -290,89 +268,111 @@ function HowItWorks() {
   )
 }
 
-// ── Portfolio Preview ─────────────────────────────────────────────────────────
+// ── Portfolio ─────────────────────────────────────────────────────────────────
 function Portfolio() {
+  const photos = [
+    { src: '/assets/12-DSC00208.webp',                           alt: 'Carolina Beach Landscaping crew' },
+    { src: '/assets/17-DSC00213.webp',                           alt: 'Carolina Beach Landscaping crew' },
+    { src: '/assets/19-DSC00220.webp',                           alt: 'Carolina Beach Landscaping crew' },
+    { src: '/assets/1-Fighting Grime Pics - 00000003.webp',      alt: 'Fighting Grime pressure washing' },
+    { src: '/assets/2-Fighting Grime Pics - 00000006.webp',      alt: 'Fighting Grime pressure washing' },
+    { src: '/assets/3-Fighting Grime Pics - 00000005.webp',      alt: 'Fighting Grime pressure washing' },
+  ]
+  const allPhotos = [...photos, ...photos]
+
   return (
-    <section className="section">
-      <div className="section-inner">
-        <div className="section-head" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
-          <div>
-            <SectionLabel>Portfolio</SectionLabel>
-            <h2>Real Sites.<br /><span className="red">Real Contractors.</span></h2>
-          </div>
-          <Link href="/portfolio" className="btn btn-ghost btn-sm" style={{ flexShrink: 0, marginBottom: 8 }}>View All Work →</Link>
+    <section className="portfolio-section" id="portfolio">
+      <div className="portfolio-inner">
+        <div className="section-label">Our Portfolio</div>
+        <h2 className="portfolio-h2">Work That <span className="red">Speaks for Itself.</span></h2>
+
+        {/* Website Portfolio */}
+        <div className="port-section-label">
+          <span className="psl-title">Website Portfolio</span>
+          <span className="psl-count">03 Live Sites</span>
         </div>
 
-        <p className="row-label">Contractor Websites</p>
-        <div className="portfolio-row-sites">
+        <div className="portfolio-grid">
           {/* Fighting Grime */}
-          <div className="site-card">
-            <div className="site-card-screen">
-              <div className="dots"><span/><span/><span/></div>
-              <div className="site-card-inner">
+          <div className="port-card">
+            <div className="browser-frame">
+              <div className="browser-bar">
+                <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+              </div>
+              <div className="browser-screen">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/assets/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
-                <div className="site-card-inner-content">
-                  <span className="tag tag-light" style={{ fontSize: 10 }}>Pressure Washing</span>
-                </div>
               </div>
             </div>
-            <div className="site-card-meta">
-              <strong>Fighting Grime Pressure Washing</strong>
-              <span>Carolinas</span>
+            <div className="port-card-footer">
+              <h4>Fighting Grime Pressure Washing</h4>
+              <span className="port-sub">Website Design · Myrtle Beach, SC</span>
+              <span className="port-trade">Pressure Washing</span>
+              <a href="https://fightinggrimpressurewashing.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                View Live Site
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
           </div>
 
-          {/* Zuly Iyalode */}
-          <div className="site-card">
-            <div className="site-card-screen" style={{ background: '#001a45' }}>
-              <div className="dots"><span/><span/><span/></div>
-              <div className="site-card-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ textAlign: 'center', padding: 24 }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: '#fff', lineHeight: 1.2 }}>Zuly Iyalode<br/>Cleaning, LLC</div>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>Grand Strand, SC</div>
-                </div>
+          {/* Carolina Beach Landscaping — video */}
+          <div className="port-card">
+            <div className="browser-frame">
+              <div className="browser-bar">
+                <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+              </div>
+              <div className="browser-screen">
+                <video src="/assets/cblhero.mp4" autoPlay loop muted playsInline />
               </div>
             </div>
-            <div className="site-card-meta">
-              <strong>Zuly Iyalode Cleaning, LLC</strong>
-              <span>Grand Strand, SC</span>
+            <div className="port-card-footer">
+              <h4>Carolina Beach Landscaping</h4>
+              <span className="port-sub">Website Design · Photo & Video · Myrtle Beach, SC</span>
+              <span className="port-trade">Landscaping</span>
+              <a href="#" className="port-link">
+                View Live Site
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
           </div>
 
-          {/* Carolina Beach Landscaping */}
-          <div className="site-card">
-            <div className="site-card-screen" style={{ background: '#1a3a18' }}>
-              <div className="dots"><span/><span/><span/></div>
-              <div className="site-card-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ textAlign: 'center', padding: 24 }}>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: '#fff', lineHeight: 1.2 }}>Carolina Beach<br/>Landscaping</div>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>Carolina Beach, NC</div>
-                </div>
+          {/* CourteSea Concrete */}
+          <div className="port-card">
+            <div className="browser-frame">
+              <div className="browser-bar">
+                <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+              </div>
+              <div className="browser-screen">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/Desktop.webp" alt="CourteSea Concrete website" style={{ objectPosition: 'top left' }} />
               </div>
             </div>
-            <div className="site-card-meta">
-              <strong>Carolina Beach Landscaping</strong>
-              <span>Carolina Beach, NC</span>
+            <div className="port-card-footer">
+              <h4>CourteSea Concrete</h4>
+              <span className="port-sub">Website Design · Murrells Inlet, SC</span>
+              <span className="port-trade">Concrete</span>
+              <a href="#" className="port-link">
+                View Live Site
+                <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
           </div>
         </div>
 
-        <p className="row-label">Jobsite Photography</p>
-        <div className="portfolio-row-photos">
-          {[
-            { src: '/assets/1-Fighting Grime Pics - 00000003.webp', type: 'Pressure Washing', title: 'Fighting Grime' },
-            { src: '/assets/2-Fighting Grime Pics - 00000006.webp', type: 'Pressure Washing', title: 'Before & After' },
-            { src: '/assets/12-DSC00208.webp',                       type: 'Content Shoot',    title: 'On-Location' },
-            { src: '/assets/17-DSC00213.webp',                       type: 'Content Shoot',    title: 'Portfolio Shot' },
-          ].map((p, i) => (
-            <div key={i} className="photo-card">
-              <img src={p.src} alt={p.title} />
-              <div className="photo-card-label">
-                <div className="photo-card-type">{p.type}</div>
-                <div className="photo-card-title">{p.title}</div>
+        {/* Photo & Video Ticker */}
+        <div className="port-section-label">
+          <span className="psl-title">Photo & Video</span>
+          <span className="psl-count">Shot by CCS</span>
+        </div>
+        <div className="photo-ticker">
+          <div className="photo-track">
+            {allPhotos.map((p, i) => (
+              <div key={i} className="photo-item">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.src} alt={p.alt} />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -381,96 +381,171 @@ function Portfolio() {
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
 function Testimonials() {
-  const quotes = [
-    {
-      q: 'First time my website actually books jobs instead of just sitting there. We went from two calls a week to two calls a day.',
-      initials: 'BH', name: 'Blue Ridge HVAC', loc: 'Brandon Hayes · Founder, Asheville NC',
-      tags: ['Website', 'Google Ads', 'SEO'],
-    },
-    {
-      q: 'They doubled our roof replacements in 90 days. The footage they shot makes us look like the biggest roofer in town.',
-      initials: 'PR', name: 'Palmetto Roofing Co.', loc: 'Pete Rivera · Ops Manager, Charleston SC',
-      tags: ['Market Domination', 'Content Shoot', 'Meta Ads'],
-    },
-    {
-      q: 'Straight shooters. No agency speak, no surprise invoices. They built the site, ran the ads — the phone rings.',
-      initials: 'TL', name: 'Triangle Landscaping', loc: 'Tyler Lee · Owner, Raleigh NC',
-      tags: ['Booked Solid System', 'Website', 'Google Ads'],
-    },
-  ]
-  const [active, setActive] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setActive(a => (a + 1) % quotes.length), 5000)
-    return () => clearInterval(t)
-  }, [quotes.length])
-
-  const q = quotes[active]
-
   return (
-    <section className="section alt">
-      <div className="section-inner">
-        <div className="section-head center">
-          <SectionLabel>Client Reviews</SectionLabel>
-          <h2>What Our<br /><span className="red">Clients Say.</span></h2>
+    <section className="testimonials" id="testimonials">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="test-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <div className="testimonials-inner">
+        <div className="test-header">
+          <div className="section-label center">Client Reviews</div>
+          <h2 className="test-h2">What Our <span className="red">Clients Say.</span></h2>
+          <p className="test-sub">Real results from real contractors across the Carolinas.</p>
         </div>
 
-        <div className="t-single">
-          <div className="t-single-top">
-            <div className="t-single-stars">★★★★★</div>
-            <div className="t-single-quote">"{q.q}"</div>
-            <div className="t-single-author">
-              <div className="t-single-avatar">{q.initials}</div>
-              <div>
-                <strong>{q.name}</strong>
-                <span>{q.loc}</span>
+        <div className="tcard-wrap">
+          <div className="tcard">
+            <div className="tcard-top">
+              <div className="tcard-stars">⭐⭐⭐⭐⭐</div>
+              <div className="tcard-quote">First time my website actually books jobs instead of just sitting there. The phone rings now — that's all I needed.</div>
+              <div className="tcard-author">
+                <div className="tcard-avatar">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/fightinggrimelogo.webp" alt="Fighting Grime Pressure Washing logo" />
+                </div>
+                <div>
+                  <div className="tcard-name">Fighting Grime Pressure Washing</div>
+                  <div className="tcard-role">Owner — Myrtle Beach, SC</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="t-single-bottom">
-            <div className="t-single-tags">
-              {q.tags.map(tag => <span key={tag} className="tag tag-navy">{tag}</span>)}
+            <div className="tcard-bottom">
+              <div className="tcard-tags">
+                <span className="tcard-tag">Website</span>
+                <span className="tcard-tag">Logo</span>
+                <span className="tcard-tag">Photos</span>
+              </div>
+              <a href="https://fightinggrimpressurewashing.com" target="_blank" rel="noopener noreferrer" className="btn btn-red" style={{ fontSize: 13, padding: '9px 18px' }}>
+                View Website →
+              </a>
             </div>
           </div>
-        </div>
-
-        <div className="t-dots">
-          {quotes.map((_, i) => (
-            <button
-              key={i}
-              className={i === active ? 'active' : ''}
-              onClick={() => setActive(i)}
-              aria-label={`Go to testimonial ${i + 1}`}
-            />
-          ))}
         </div>
       </div>
     </section>
   )
 }
 
-// ── Footer CTA ────────────────────────────────────────────────────────────────
-function FooterCTA() {
+// ── Contact ───────────────────────────────────────────────────────────────────
+function Contact() {
   return (
-    <section className="cta-footer">
-      <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }} aria-hidden="true">
-        <img src="/assets/scsvg 1.webp" alt="" style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
-      </div>
-      <div className="cta-footer-inner">
-        <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}>
-          <span className="pulse" />
-          Limited Spots — Carolinas Only
+    <section className="contact" id="contact">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="contact-bg" src="/assets/scsvg 1.webp" alt="" aria-hidden="true" />
+
+      <div className="contact-inner">
+        <div className="contact-left">
+          <div className="section-label">Contact</div>
+          <h2 className="contact-h2">Ready to Stop<br /><span className="red">Running on Referrals?</span></h2>
+          <p className="contact-sub">Book a free 30-minute strategy call. We'll get to know your business and figure out if we're able to help you dominate your market.</p>
+
+          <div className="contact-divider" />
+
+          <div className="contact-info">
+            <div className="contact-item">
+              <div className="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div className="contact-item-label">Text Or Call</div>
+                <div className="contact-item-val">(843) 742-9776</div>
+              </div>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+              </div>
+              <div>
+                <div className="contact-item-label">Email</div>
+                <div className="contact-item-val">info@carolinacontractorsolutions.com</div>
+              </div>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div className="contact-item-label">Serving</div>
+                <div className="contact-item-val">NC & SC — Myrtle Beach to Charlotte</div>
+              </div>
+            </div>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div className="contact-item-label">Hours</div>
+                <div className="contact-item-val">Mon–Fri, 9am–6pm EST</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2>
-          Your Next Client<br />
-          Is Already<br />
-          <span className="red">Searching.</span>
-        </h2>
-        <p>The homeowner in your ZIP is Googling a contractor right now. Let's make sure they find you first — and only you.</p>
-        <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
-          Get Started Today <span className="arrow">→</span>
-        </Link>
-        <p className="cta-footer-disclaimer">3-month minimum · One client per market · Lead guarantee included</p>
+
+        <div className="contact-right">
+          <div className="contact-form-card">
+            <h3>Book Your Free Call</h3>
+            <p className="form-sub">Takes 30 seconds. We'll reach out within 24 hours.</p>
+
+            <form>
+              <div className="input-group">
+                <label className="input-label">Name</label>
+                <input className="input" type="text" placeholder="Your name" />
+              </div>
+              <div className="form-row">
+                <div className="input-group">
+                  <label className="input-label">Phone Number</label>
+                  <input className="input" type="tel" placeholder="(843) 000-0000" />
+                </div>
+                <div className="input-group">
+                  <label className="input-label">Email</label>
+                  <input className="input" type="email" placeholder="you@yourbusiness.com" />
+                </div>
+              </div>
+              <div className="input-group">
+                <label className="input-label">Trade</label>
+                <select className="input">
+                  <option value="" disabled>Select...</option>
+                  <option>Roofing</option>
+                  <option>HVAC</option>
+                  <option>Concrete & Hardscaping</option>
+                  <option>Landscaping</option>
+                  <option>Pressure Washing</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <button type="submit" className="submit-btn">Submit</button>
+              <p className="form-note">We'll get back within 24 hours. No Spam Ever.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── CTA Banner ────────────────────────────────────────────────────────────────
+function CTABanner() {
+  return (
+    <section className="cta-banner">
+      <div className="cta-banner-inner">
+        <div className="cta-banner-eyebrow">Limited Spots Available</div>
+        <h2>Your Next Client Is<br /><span className="red">Already Searching.</span></h2>
+        <p>Your ideal customer is on Google right now, looking for someone in your trade. Every day you're not showing up, your competitor gets the call. Book one and let's change that.</p>
+
+        <div className="cta-banner-actions">
+          <a href="#contact" className="btn btn-red">
+            <svg style={{ width: 16, height: 16, stroke: '#fff', fill: 'none', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }} viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Book a Free Call
+          </a>
+          <a href="#portfolio" className="btn btn-outline-light">See Our Work</a>
+        </div>
+
+        <div className="cta-banner-trust">
+          <span>30-min strategy call</span>
+          <span>No commitment</span>
+          <span>Local Carolinas team</span>
+        </div>
       </div>
     </section>
   )
@@ -482,12 +557,13 @@ export default function HomePage() {
     <>
       <Hero />
       <Ticker />
-      <WhoWeServe />
+      <WhyCCS />
       <Services />
       <HowItWorks />
       <Portfolio />
       <Testimonials />
-      <FooterCTA />
+      <Contact />
+      <CTABanner />
     </>
   )
 }

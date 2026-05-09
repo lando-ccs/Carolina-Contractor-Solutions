@@ -1,169 +1,187 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-const NAV_SERVICES = [
-  { href: '/services/web-care-plan',      label: 'Web Care Plan',        desc: 'Site built in 5–7 days, updates included' },
-  { href: '/services/booked-solid',       label: 'Booked Solid System',  desc: 'Google Ads + SEO + GBP — Carolinas only' },
-  { href: '/services/market-domination',  label: 'Market Domination',    desc: 'Full system: ads, content, automation' },
-]
-
-const NAV_SERVE = [
-  { href: '/who-we-serve/roofers',     label: 'Roofers' },
-  { href: '/who-we-serve/landscapers', label: 'Landscapers' },
-  { href: '/who-we-serve/hvac',        label: 'HVAC' },
-  { href: '/who-we-serve/cleaning',    label: 'Cleaning' },
-]
-
-const LogoSVG = () => (
-  <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true" style={{ flexShrink: 0 }}>
-    <rect width="64" height="64" rx="10" fill="#002868"/>
-    <path d="M14 18a8 8 0 1 0 6.8 12.2 6 6 0 1 1-7.2-9A8 8 0 0 1 14 18z" fill="#fff"/>
-    <path d="M33 52c-.6-6-1.2-12 .2-18 .4-1.6 1-3.2 1.8-4.6.4-.7 1.4-.7 1.8 0 .8 1.4 1.4 3 1.8 4.6 1.4 6 .8 12 .2 18H33z" fill="#fff"/>
-    <g fill="#fff">
-      <path d="M36 28c-4-4-9-5-14-4 3 3 7 5 11 5z"/>
-      <path d="M36 28c-2-5-6-9-11-10 1 4 4 8 8 10z"/>
-      <path d="M36 28c1-5-1-10-5-13-1 4-.5 9 2 12z"/>
-      <path d="M36 28c4-4 9-5 14-4-3 3-7 5-11 5z"/>
-      <path d="M36 28c2-5 6-9 11-10-1 4-4 8-8 10z"/>
-      <path d="M36 28c-1-5 1-10 5-13 1 4 .5 9-2 12z"/>
-    </g>
-    <rect y="56" width="64" height="8" fill="#E31212"/>
+const PhoneIcon = () => (
+  <svg style={{ width: 16, height: 16, stroke: '#fff', fill: 'none', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }} viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
   </svg>
 )
 
+const ChevronIcon = () => (
+  <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg>
+)
+
 export default function Nav() {
-  const [scrolled, setScrolled]         = useState(false)
-  const [mobileOpen, setMobileOpen]     = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
-  const [serveOpen, setServeOpen]       = useState(false)
-  const pathname = usePathname()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<null | 'services' | 'who'>(null)
+  const navRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 20)
-    h()
-    window.addEventListener('scroll', h, { passive: true })
-    return () => window.removeEventListener('scroll', h)
+    const handler = (e: MouseEvent) => {
+      if (!navRef.current) return
+      if (!navRef.current.contains(e.target as Node)) setOpenDropdown(null)
+    }
+    document.addEventListener('click', handler)
+    return () => document.removeEventListener('click', handler)
   }, [])
 
-  useEffect(() => {
-    setMobileOpen(false)
-    setServicesOpen(false)
-    setServeOpen(false)
-  }, [pathname])
+  const toggle = (k: 'services' | 'who') => (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setOpenDropdown((cur) => (cur === k ? null : k))
+  }
 
   return (
     <>
-      <nav className={`nav${scrolled || mobileOpen ? ' scrolled' : ''}`}>
-        {/* Logo */}
-        <Link href="/" className="nav-logo">
-          <LogoSVG />
-          <div className="nav-logo-wordmark">
-            Carolina Contractor Solutions
-            <small>NC · SC</small>
-          </div>
-        </Link>
-
-        {/* Desktop links */}
-        <div className="nav-links">
-          {/* Services dropdown */}
-          <div
-            className="nav-dropdown"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button className="nav-link" style={{ background: 'none' }}>
-              Services
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ marginLeft: 4, verticalAlign: 'middle' }}>
-                <path d="M2 3l3 3 3-3"/>
-              </svg>
-            </button>
-            <div className={`nav-dropdown-menu${servicesOpen ? ' open' : ''}`}>
-              {NAV_SERVICES.map(s => (
-                <Link key={s.href} href={s.href} className="nav-drop-item">
-                  <span className="nav-drop-title">{s.label}</span>
-                  <span className="nav-drop-desc">{s.desc}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Who We Serve dropdown */}
-          <div
-            className="nav-dropdown"
-            onMouseEnter={() => setServeOpen(true)}
-            onMouseLeave={() => setServeOpen(false)}
-          >
-            <button className="nav-link" style={{ background: 'none' }}>
-              Who We Serve
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ marginLeft: 4, verticalAlign: 'middle' }}>
-                <path d="M2 3l3 3 3-3"/>
-              </svg>
-            </button>
-            <div className={`nav-dropdown-menu${serveOpen ? ' open' : ''}`}>
-              {NAV_SERVE.map(i => (
-                <Link key={i.href} href={i.href} className="nav-drop-item">
-                  <span className="nav-drop-title">{i.label}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <Link href="/portfolio" className="nav-link">Portfolio</Link>
-        </div>
-
-        {/* Desktop CTAs */}
-        <div className="nav-ctas" style={{ display: 'flex', alignItems: 'center', gap: 10, marginLeft: 'auto' }}>
-          <Link href="/contact" className="btn btn-ghost btn-sm">Contact</Link>
-          <Link href="/services/market-domination" className="btn btn-secondary btn-sm">
-            Get Started <span className="arrow">→</span>
+      <nav id="navbar" ref={navRef}>
+        <div className="nav-inner">
+          {/* Logo */}
+          <Link href="/" className="nav-logo">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/ccslogowhite (1).webp" alt="Carolina Contractor Solutions" />
           </Link>
-        </div>
 
-        {/* Hamburger */}
-        <button
-          onClick={() => setMobileOpen(v => !v)}
-          aria-label="Toggle menu"
-          className="nav-hamburger"
-          style={{ display: 'none', flexDirection: 'column', gap: 5, padding: 8, marginLeft: 'auto' }}
-        >
-          <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2 }} />
-          <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2 }} />
-          <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2 }} />
-        </button>
+          {/* Desktop links */}
+          <div className="nav-links">
+            {/* Services dropdown */}
+            <div className={`nav-dropdown${openDropdown === 'services' ? ' open' : ''}`}>
+              <button
+                type="button"
+                className="nav-link"
+                aria-expanded={openDropdown === 'services'}
+                onClick={toggle('services')}
+              >
+                Services <ChevronIcon />
+              </button>
+              <div className="nav-dropdown-menu">
+                <Link href="/services/web-care-plan" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Contractor Websites</span>
+                    <span className="nav-drop-desc">Sites built to rank locally and book jobs</span>
+                  </div>
+                </Link>
+                <Link href="/services/booked-solid" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Booked Solid System</span>
+                    <span className="nav-drop-desc">Google Ads + SEO that keep your phone ringing</span>
+                  </div>
+                </Link>
+                <Link href="/services/content" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Content & Photos</span>
+                    <span className="nav-drop-desc">On-location shoots that show the work you do</span>
+                  </div>
+                </Link>
+                <Link href="/services/market-domination" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Market Domination</span>
+                    <span className="nav-drop-desc">The full system to keep your calendar full</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            {/* Who We Serve dropdown */}
+            <div className={`nav-dropdown${openDropdown === 'who' ? ' open' : ''}`}>
+              <button
+                type="button"
+                className="nav-link"
+                aria-expanded={openDropdown === 'who'}
+                onClick={toggle('who')}
+              >
+                Who We Serve <ChevronIcon />
+              </button>
+              <div className="nav-dropdown-menu">
+                <Link href="/who-we-serve/roofers" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Roofers</span>
+                    <span className="nav-drop-desc">Storm season or slow season — we keep you booked</span>
+                  </div>
+                </Link>
+                <Link href="/who-we-serve/hvac" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">HVAC</span>
+                    <span className="nav-drop-desc">Heating and cooling calls before your competitor</span>
+                  </div>
+                </Link>
+                <Link href="/who-we-serve/landscapers" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Landscapers</span>
+                    <span className="nav-drop-desc">More maintenance contracts, less chasing referrals</span>
+                  </div>
+                </Link>
+                <Link href="/who-we-serve/general-contractors" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Concrete & Hardscaping</span>
+                    <span className="nav-drop-desc">Premium work deserves a presence that matches it</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+
+            <Link href="/portfolio" className="nav-link">Our Work</Link>
+            <Link href="/contact"   className="nav-link">Resources</Link>
+          </div>
+
+          {/* Desktop CTA */}
+          <div className="nav-cta">
+            <Link href="#contact" className="btn btn-navy" style={{ fontSize: 14, padding: '12px 20px', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <PhoneIcon />
+              Book a Call
+            </Link>
+            <button
+              className="nav-hamburger"
+              aria-label="Menu"
+              onClick={() => setMobileOpen(v => !v)}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
+        </div>
       </nav>
 
-      {/* Mobile panel */}
-      {mobileOpen && (
-        <div className="nav-mobile" style={{
-          position: 'fixed', top: 76, left: 0, right: 0, zIndex: 99,
-          background: 'rgba(0,26,69,0.98)', backdropFilter: 'blur(12px)',
-          padding: '24px 24px 32px', display: 'flex', flexDirection: 'column', gap: 4,
-        }}>
-          <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'rgba(255,255,255,0.35)', marginBottom: 8 }}>Services</p>
-          {NAV_SERVICES.map(s => (
-            <Link key={s.href} href={s.href} style={{ display: 'block', padding: '10px 0', fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.85)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>{s.label}</Link>
-          ))}
-          <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'rgba(255,255,255,0.35)', marginBottom: 8, marginTop: 16 }}>Who We Serve</p>
-          {NAV_SERVE.map(i => (
-            <Link key={i.href} href={i.href} style={{ display: 'block', padding: '10px 0', fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.85)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>{i.label}</Link>
-          ))}
-          <Link href="/portfolio" style={{ display: 'block', padding: '10px 0', fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.85)', borderBottom: '1px solid rgba(255,255,255,0.06)', marginTop: 16 }}>Portfolio</Link>
-          <Link href="/contact"   style={{ display: 'block', padding: '10px 0', fontSize: 16, fontWeight: 600, color: 'rgba(255,255,255,0.85)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>Contact</Link>
-          <Link href="/services/market-domination" className="btn btn-secondary" style={{ marginTop: 20, justifyContent: 'center' }}>
-            Get Started <span className="arrow">→</span>
-          </Link>
-        </div>
-      )}
-
-      <style>{`
-        @media (max-width: 1080px) {
-          .nav-links, .nav-ctas { display: none !important; }
-          .nav-hamburger { display: flex !important; }
-        }
-      `}</style>
+      {/* Mobile Menu */}
+      <div className={`nav-mobile${mobileOpen ? ' open' : ''}`}>
+        <p className="mobile-section-label">Services</p>
+        <Link href="/services/web-care-plan"    className="mobile-link" onClick={() => setMobileOpen(false)}>Contractor Websites</Link>
+        <Link href="/services/booked-solid"     className="mobile-link" onClick={() => setMobileOpen(false)}>Booked Solid System</Link>
+        <Link href="/services/content"          className="mobile-link" onClick={() => setMobileOpen(false)}>Content & Photos</Link>
+        <Link href="/services/market-domination" className="mobile-link" onClick={() => setMobileOpen(false)}>Market Domination</Link>
+        <p className="mobile-section-label">Who We Serve</p>
+        <Link href="/who-we-serve/roofers"      className="mobile-link" onClick={() => setMobileOpen(false)}>Roofers</Link>
+        <Link href="/who-we-serve/hvac"         className="mobile-link" onClick={() => setMobileOpen(false)}>HVAC</Link>
+        <Link href="/who-we-serve/landscapers"  className="mobile-link" onClick={() => setMobileOpen(false)}>Landscapers</Link>
+        <Link href="/who-we-serve/general-contractors" className="mobile-link" onClick={() => setMobileOpen(false)}>Concrete & Hardscaping</Link>
+        <Link href="/portfolio" className="mobile-link" onClick={() => setMobileOpen(false)}>Our Work</Link>
+        <Link href="/contact"   className="mobile-link" onClick={() => setMobileOpen(false)}>Contact</Link>
+        <Link href="#contact" className="mobile-cta" onClick={() => setMobileOpen(false)}>Book a Call</Link>
+      </div>
     </>
   )
 }
