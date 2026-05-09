@@ -52,16 +52,16 @@ export default function ContactPage() {
                     <div className="step-num" style={{ color: 'var(--red)' }}>{s.n}</div>
                     <div>
                       <h4 style={{ color: 'var(--navy)' }}>{s.t}</h4>
-                      <p style={{ color: 'var(--text2)' }}>{s.b}</p>
+                      <p style={{ color: 'var(--text)' }}>{s.b}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <div style={{ marginTop: 48, padding: 32, background: 'var(--bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
-                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--text3)', marginBottom: 16 }}>Contact Info</p>
+                <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, color: 'var(--text)', marginBottom: 16 }}>Contact Info</p>
                 <a href="tel:8437429776" style={{ display: 'block', fontSize: 16, fontWeight: 600, color: 'var(--navy)', marginBottom: 8 }}>(843) 742-9776</a>
-                <a href="mailto:info@carolinacontractorsolutions.com" style={{ display: 'block', fontSize: 15, color: 'var(--text2)' }}>info@carolinacontractorsolutions.com</a>
-                <p style={{ fontSize: 13, color: 'var(--text3)', marginTop: 16, lineHeight: 1.6 }}>Serving NC &amp; SC &mdash; Myrtle Beach to Charlotte to Asheville</p>
+                <a href="mailto:info@carolinacontractorsolutions.com" style={{ display: 'block', fontSize: 15, color: 'var(--text)' }}>info@carolinacontractorsolutions.com</a>
+                <p style={{ fontSize: 13, color: 'var(--text)', marginTop: 16, lineHeight: 1.6 }}>Serving NC &amp; SC &mdash; Myrtle Beach to Charlotte to Asheville</p>
               </div>
             </div>
 
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 <div style={{ padding: 48, background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', textAlign: 'center' }}>
                   <div style={{ fontSize: 48, marginBottom: 16 }}>&#10003;</div>
                   <h3 style={{ fontSize: 28, color: 'var(--navy)', marginBottom: 12 }}>Got It &mdash; We&apos;ll Be in Touch.</h3>
-                  <p style={{ color: 'var(--text2)', lineHeight: 1.65 }}>We&apos;ll reach out within one business day to schedule your discovery call.</p>
+                  <p style={{ color: 'var(--text)', lineHeight: 1.65 }}>We&apos;ll reach out within one business day to schedule your discovery call.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', padding: 40 }}>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   <button type="submit" className="btn btn-secondary btn-lg" style={{ width: '100%', justifyContent: 'center' }}>
                     Submit &amp; Check Availability <span className="arrow">&#8594;</span>
                   </button>
-                  <p style={{ fontSize: 12, color: 'var(--text3)', textAlign: 'center', marginTop: 12 }}>We respond within one business day &middot; No spam, ever</p>
+                  <p style={{ fontSize: 12, color: 'var(--text)', textAlign: 'center', marginTop: 12 }}>We respond within one business day &middot; No spam, ever</p>
                 </form>
               )}
             </div>

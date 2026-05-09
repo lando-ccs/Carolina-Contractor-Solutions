@@ -127,7 +127,7 @@ export default function MarketDominationPage() {
               </div>
             </div>
           </div>
-          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text3)', marginTop: 20 }}>
+          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text)', marginTop: 20 }}>
             Carolinas only. One contractor per trade per market &mdash; permanently locked.{' '}
             <Link href="/contact" style={{ color: 'var(--navy)', fontWeight: 600 }}>Check availability now &#8594;</Link>
           </p>

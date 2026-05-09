@@ -78,7 +78,7 @@ export default function ServicesPage() {
                         color: t.featured ? 'var(--red-light, #ff6b6b)' : 'var(--navy)',
                       }}>{t.badge}</span>
                     </div>
-                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 6 }}>{t.tier}</div>
+                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text)', marginBottom: 6 }}>{t.tier}</div>
                     <h2 style={{ fontFamily: 'var(--font-h)', fontSize: 36, color: t.featured ? '#fff' : 'var(--navy)', marginBottom: 12, lineHeight: 1.1 }}>{t.title}</h2>
                     <p style={{ fontSize: 15, color: t.featured ? 'rgba(255,255,255,0.7)' : 'var(--text)', lineHeight: 1.65, marginBottom: 24 }}>{t.body}</p>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div>
-                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 14 }}>Includes</div>
+                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text)', marginBottom: 14 }}>Includes</div>
                     <ul className="service-check-list">
                       {t.includes.map(item => (
                         <li key={item} className="service-check" style={{ color: t.featured ? 'rgba(255,255,255,0.8)' : undefined }}>{item}</li>

@@ -120,7 +120,7 @@ export default function BookedSolidPage() {
               </div>
             </div>
           </div>
-          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text3)', marginTop: 20 }}>
+          <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text)', marginTop: 20 }}>
             Carolinas only. We serve one contractor per trade per market. <Link href="/contact" style={{ color: 'var(--navy)', fontWeight: 600 }}>Check availability in your area →</Link>
           </p>
         </div>
