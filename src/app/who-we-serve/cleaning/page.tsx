@@ -1,102 +1,62 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cleaning Business Websites — Built to Book Appointments',
-  description: 'Conversion-focused websites for cleaning businesses nationwide. Build trust fast, collect leads, and show off your real before/after work.',
+  title: 'Marketing for Cleaning Companies in NC & SC — CCS',
+  description: 'Websites and Google Ads for residential and commercial cleaning businesses in North and South Carolina. Stand out and book more appointments.',
 }
 
 export default function CleaningPage() {
   return (
     <>
-      <section className="bg-bg pt-[72px] pb-20 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto pt-12">
-          <div className="inline-flex items-center gap-2 bg-navy/10 border border-navy/20 rounded-full px-4 py-1.5 mb-6">
-            <span className="text-[11px] font-bold text-navy uppercase tracking-widest">Websites + Content · Nationwide</span>
-          </div>
-          <SectionLabel>Cleaning Businesses</SectionLabel>
-          <h1 className="font-heading text-[52px] md:text-[64px] text-navy leading-[1.0] mb-6">
-            A Cleaning Site That<br /><span className="text-red">Actually Books Jobs.</span>
-          </h1>
-          <p className="text-[18px] text-text-2 leading-relaxed max-w-3xl mb-8">
-            The cleaning market is crowded and local. The business with the most trust wins. We build sites that load fast, embed your real Google reviews, show your actual before/after work, and make it effortless for homeowners to request a quote — available to cleaning businesses anywhere in the US.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-4 bg-navy text-white font-semibold text-[15px] rounded-sm hover:bg-navy-light transition-colors">
-              Get a Quote →
-            </Link>
-            <Link href="/portfolio" className="inline-flex items-center gap-2 px-7 py-4 border border-[#DDE3ED] text-text-2 font-semibold text-[15px] rounded-sm hover:border-navy hover:text-navy transition-colors">
-              See Portfolio
-            </Link>
+      <section className="page-hero">
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }}>
+          <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+        <div className="page-hero-inner">
+          <div className="badge badge-dark">Cleaning Businesses</div>
+          <SectionLabel light>Cleaning</SectionLabel>
+          <h1>More Bookings.<br /><span className="red">Less Chasing.</span></h1>
+          <p>Residential, commercial, move-out, pressure washing — we build the site and run the ads that turn searchers into booked appointments. No market exclusivity required.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <Link href="/contact" className="btn btn-secondary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
+            <Link href="/services/web-care-plan" className="btn btn-outline-light btn-lg">See Web Care Plan</Link>
           </div>
         </div>
       </section>
 
-      {/* Zuly case study teaser */}
-      <section className="bg-bg2 py-20 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto">
-          <SectionLabel>Recent Work</SectionLabel>
-          <h2 className="font-heading text-[38px] text-navy mb-8">Zuly Iyalode Cleaning, LLC</h2>
-          <div className="bg-white border border-[#DDE3ED] rounded-xl overflow-hidden">
-            <div className="bg-gradient-to-br from-navy to-navy-dark p-10 text-white">
-              <div className="text-[10px] font-bold text-red/70 uppercase tracking-widest mb-2">Grand Strand, SC · Cleaning</div>
-              <div className="font-heading text-[32px] leading-tight mb-3">Woman & Mother Owned.<br/><span className="text-red">8 Years in Business.</span></div>
-              <p className="text-[14px] text-white/70 max-w-xl leading-relaxed">
-                CCS built a 3-page Next.js site for Zuly's cleaning business in the Grand Strand — complete with a working quote form, before/after gallery using her real photos, embedded Google reviews, and full local SEO.
-              </p>
-            </div>
-            <div className="p-6 grid md:grid-cols-3 gap-4">
-              {[
-                { label: 'Built in', value: '1 Day' },
-                { label: 'Stack', value: 'Next.js + Tailwind' },
-                { label: 'Includes', value: 'Quote form + Reviews + SEO' },
-              ].map(s => (
-                <div key={s.label} className="text-center p-4 bg-bg rounded-lg border border-[#DDE3ED]">
-                  <div className="font-heading text-[22px] text-navy">{s.value}</div>
-                  <div className="text-[11px] text-text-3 mt-1">{s.label}</div>
-                </div>
-              ))}
-            </div>
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-head center">
+            <SectionLabel>Why Cleaning Companies Choose CCS</SectionLabel>
+            <h2>Trust Builds<br /><span className="red">Bookings.</span></h2>
+            <p>Cleaning is a high-trust service — homeowners want to feel safe letting someone into their home. We build that trust through your site, reviews, and content.</p>
           </div>
-        </div>
-      </section>
-
-      {/* What's included */}
-      <section className="bg-bg py-20 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto">
-          <SectionLabel>What's Included</SectionLabel>
-          <h2 className="font-heading text-[38px] text-navy mb-8">Your Cleaning Website Includes:</h2>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="services-grid">
             {[
-              'Custom design for your brand + market',
-              'Real before/after photo gallery',
-              'Google Reviews embedded',
-              'Online quote request form',
-              'Service area map + neighborhood targeting',
-              'Local SEO + Google Business Profile optimization',
-              'Mobile-first, fast-loading build',
-              'Copywriting done for you',
-              'Call tracking + lead routing',
-              '30-day post-launch support',
-            ].map(item => (
-              <div key={item} className="flex items-center gap-3 bg-white border border-[#DDE3ED] rounded-lg px-4 py-3">
-                <span className="w-5 h-5 rounded-full bg-red/10 flex items-center justify-center text-red text-[10px] flex-shrink-0">✓</span>
-                <span className="text-[14px] text-text-2">{item}</span>
+              { num: '01', title: 'Conversion-First Website', body: 'A site that answers the three questions every homeowner has: Are you trustworthy? What do you charge? How do I book? In that order.', checks: ['Clear trust signals', 'Online booking integration', 'Before & after gallery', 'Review showcase section'] },
+              { num: '02', title: 'Google Ads for Cleaning', body: 'We target high-intent searches — "house cleaning near me," "move-out cleaning [city]," "recurring maid service" — in your exact service ZIPs.', checks: ['High-intent keyword targeting', 'Service-type campaign split', 'ZIP code targeting', 'Call extension setup'] },
+              { num: '03', title: 'Review Automation', body: 'Every completed job triggers a review request. We set up GoHighLevel to automatically ask for reviews at the right moment — without you lifting a finger.', checks: ['Post-job review requests', 'Google + Facebook', 'Review monitoring', 'Response templates'] },
+            ].map(c => (
+              <div key={c.num} className="service-card">
+                <div className="service-card-num">{c.num}</div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+                <ul className="service-check-list">{c.checks.map(ch => <li key={ch} className="service-check">{ch}</li>)}</ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-navy py-20 px-6 lg:px-12">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading text-[40px] text-white mb-4">Ready to stand out in your market?</h2>
-          <p className="text-[16px] text-white/60 mb-8">Tell us about your cleaning business and we'll put together a quote — no retainers, no long-term contracts for a website project.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-red text-white font-semibold text-[16px] rounded-sm hover:bg-red-dark transition-colors">
-            Get a Quote →
-          </Link>
+      <section className="cta-footer">
+        <div className="cta-footer-inner">
+          <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}><span className="pulse" />Available Nationwide</div>
+          <h2>Ready to Get<br />More<br /><span className="red">Bookings?</span></h2>
+          <p>Start with a Web Care Plan available nationwide, or add the Booked Solid System in the Carolinas.</p>
+          <Link href="/contact" className="btn btn-secondary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
+          <p className="cta-footer-disclaimer">Web Care Plan available everywhere · Booked Solid System — Carolinas only</p>
         </div>
       </section>
     </>

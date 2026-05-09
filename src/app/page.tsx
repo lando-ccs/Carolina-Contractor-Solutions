@@ -1,25 +1,23 @@
+'use client'
+
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+import { useState, useEffect } from 'react'
 
 // ── Ticker ────────────────────────────────────────────────────────────────────
 function Ticker() {
   const items = [
-    'Booked Solid System',
-    'Get Better Leads',
-    'Win More Jobs',
-    'Carolinas Only',
-    'No Month-to-Month',
-    'One Market. One Client.',
-    'Done-For-You',
-    'Built for Contractors',
+    'Web Care Plan', 'Booked Solid System', 'Market Domination',
+    'Win More Jobs', 'Carolinas Only', 'One Market. One Client.',
+    'Done-For-You', 'Built for Contractors',
   ]
-  const all = [...items, ...items, ...items]
+  const all = [...items, ...items]
   return (
-    <div className="bg-navy overflow-hidden py-3" aria-hidden="true">
-      <div className="ticker-track flex whitespace-nowrap">
+    <div className="ticker" aria-hidden="true">
+      <div className="ticker-track">
         {all.map((t, i) => (
-          <span key={i} className="inline-flex items-center gap-4 px-6 text-[12px] font-semibold text-white/60 uppercase tracking-widest">
-            <span className="w-1 h-1 rounded-full bg-red inline-block flex-shrink-0" />
+          <span key={i} className="ticker-item">
+            <span className="ticker-dot" />
             {t}
           </span>
         ))}
@@ -31,98 +29,52 @@ function Ticker() {
 // ── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="min-h-screen bg-bg flex items-center pt-[72px] overflow-hidden relative">
-      {/* BG Carolina outline */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] opacity-[0.04] pointer-events-none">
-        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 80 Q40 60 80 70 L120 50 Q160 30 200 40 L260 20 Q300 10 340 30 L380 50 Q400 60 395 90 L390 130 Q385 160 370 180 L350 210 Q330 240 300 250 L260 260 Q220 270 180 260 L140 250 Q100 240 70 220 L40 200 Q15 180 10 150 Z" fill="#002868"/>
-          <path d="M200 40 L220 80 L260 60 L280 100 L320 80 L340 120 L370 110 L380 150" stroke="#002868" strokeWidth="3" fill="none" opacity="0.5"/>
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-red/10 border border-red/20 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-red pulse-dot" />
-              <span className="text-[12px] font-bold text-red uppercase tracking-[1.5px]">Now Accepting Clients — Carolinas Only</span>
+    <section className="hero">
+      <div className="hero-grid">
+        {/* Left */}
+        <div>
+          <div className="badge badge-red">
+            <span className="pulse" />
+            Now Accepting Clients — Carolinas Only
+          </div>
+          <SectionLabel>Done-For-You Contractor Marketing</SectionLabel>
+          <h1>
+            Stop Chasing Leads.<br />
+            <span className="red">Get Booked Solid.</span>
+          </h1>
+          <p className="hero-sub">
+            CCS builds contractor websites and runs the <strong>Booked Solid System</strong> — a done-for-you client acquisition engine with your site, Google Ads, SEO, and automated follow-up. All under one roof.
+          </p>
+          <div className="hero-ctas">
+            <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+              See Market Domination <span className="arrow">→</span>
+            </Link>
+            <Link href="/portfolio" className="btn btn-ghost btn-lg">
+              View Our Work
+            </Link>
+          </div>
+          <div className="hero-proof">
+            <div className="proof-stat">
+              <div className="proof-num">40<span>+</span></div>
+              <div className="proof-label">Contractors Served</div>
             </div>
-            <h1 className="font-heading text-[52px] md:text-[64px] text-navy leading-[1.0] mb-6">
-              Stop Chasing Leads.<br />
-              <span className="text-red">Get Booked Solid.</span>
-            </h1>
-            <p className="text-[17px] text-text-2 leading-relaxed mb-8 max-w-xl">
-              CCS builds contractor websites and runs the <strong className="text-text font-semibold">Booked Solid System</strong> — a done-for-you client acquisition engine with your website, Meta ads, monthly content shoots, and automated follow-up. All under one roof.
-            </p>
-            <div className="flex flex-wrap gap-3 mb-10">
-              <Link href="/services/booked-solid" className="inline-flex items-center gap-2 px-6 py-3.5 bg-red text-white font-semibold text-[15px] rounded-sm hover:bg-red-dark transition-colors">
-                See the Booked Solid System →
-              </Link>
-              <Link href="/portfolio" className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#DDE3ED] text-text-2 font-semibold text-[15px] rounded-sm hover:border-navy hover:text-navy transition-colors">
-                View Our Work
-              </Link>
+            <div className="proof-stat">
+              <div className="proof-num">1</div>
+              <div className="proof-label">Client Per Market</div>
             </div>
-            {/* Proof stats */}
-            <div className="flex gap-8 pt-8 border-t border-[#DDE3ED]">
-              {[
-                { num: '40+', label: 'Contractors Served' },
-                { num: '1',   label: 'Client Per Market' },
-                { num: '90',  label: 'Day Guarantee' },
-              ].map(s => (
-                <div key={s.label}>
-                  <div className="font-heading text-[36px] text-navy leading-none">{s.num}<span className="text-red text-[24px]">{s.num === '90' ? 'd' : ''}</span></div>
-                  <div className="text-[12px] text-text-3 font-medium mt-1">{s.label}</div>
-                </div>
-              ))}
+            <div className="proof-stat">
+              <div className="proof-num">90<span>d</span></div>
+              <div className="proof-label">Lead Guarantee</div>
             </div>
           </div>
+        </div>
 
-          {/* Right — mockup card */}
-          <div className="relative">
-            <div className="bg-white rounded-xl border border-[#DDE3ED] shadow-2xl shadow-navy/10 overflow-hidden">
-              {/* Browser chrome */}
-              <div className="bg-[#F0F1F5] px-4 py-3 flex items-center gap-2 border-b border-[#DDE3ED]">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                <span className="w-3 h-3 rounded-full bg-[#28C840]" />
-                <div className="flex-1 mx-3 bg-white rounded px-3 py-1 text-[11px] text-text-3">yoursite.com</div>
-              </div>
-              {/* Mock site */}
-              <div className="bg-navy p-6">
-                <div className="text-[10px] font-bold text-red/80 uppercase tracking-widest mb-2">Palmetto Roofing Co.</div>
-                <div className="font-heading text-[28px] text-white leading-tight mb-3">Roof Replacement<br/><span className="text-red">Done Right.</span></div>
-                <div className="flex gap-2 mb-4">
-                  <div className="px-3 py-2 bg-red text-white text-[11px] font-semibold rounded">Get Free Estimate →</div>
-                  <div className="px-3 py-2 border border-white/20 text-white/70 text-[11px] font-semibold rounded">View Gallery</div>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {['⭐ 4.9 Rating', '15yr Experience', 'Licensed & Insured'].map(b => (
-                    <div key={b} className="bg-white/10 rounded p-2 text-[10px] text-white/70 text-center">{b}</div>
-                  ))}
-                </div>
-              </div>
-              {/* Lead notification */}
-              <div className="p-4 bg-white">
-                <div className="flex items-start gap-3 p-3 bg-bg rounded-lg border border-[#DDE3ED]">
-                  <div className="w-8 h-8 rounded-full bg-red/10 flex items-center justify-center flex-shrink-0">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E31212" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 23 17z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[12px] font-bold text-text">New lead received</div>
-                    <div className="text-[11px] text-text-2">Mike T. — Roof replacement estimate · Charlotte, NC</div>
-                    <div className="text-[10px] text-text-3 mt-0.5">Auto-reply sent · 2 min ago</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Floating tag */}
-            <div className="absolute -bottom-4 -left-4 bg-red text-white px-4 py-2 rounded-lg shadow-lg text-[12px] font-bold">
-              🔒 Exclusive per market
-            </div>
+        {/* Right — device stack */}
+        <div className="device-stack">
+          <div className="device-stack-bg">
+            <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
+          <img src="/assets/heromockups.webp" alt="CCS website mockup" className="device-laptop" />
         </div>
       </div>
     </section>
@@ -134,138 +86,149 @@ function WhoWeServe() {
   const trades = [
     {
       href: '/who-we-serve/roofers',
-      icon: '🏠',
       title: 'Roofers',
-      body: 'Storm damage, repair & replacement — get in front of homeowners the moment they search. Full Booked Solid System available.',
-      tags: ['Booked Solid System', 'Websites', 'Content'],
-      badge: 'BSS Available',
+      body: 'Storm damage, repair & replacement — get in front of homeowners the moment they search. Full Market Domination system available.',
+      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      ),
     },
     {
       href: '/who-we-serve/hvac',
-      icon: '❄️',
       title: 'HVAC',
-      body: 'Install and service calls that actually ring your phone. We target homeowners by ZIP and age-of-home.',
-      tags: ['Booked Solid System', 'Websites', 'Content'],
-      badge: 'BSS Available',
+      body: 'Install and service calls that actually ring your phone. We target homeowners by ZIP code and age-of-home.',
+      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
+      ),
     },
     {
       href: '/who-we-serve/landscapers',
-      icon: '🌿',
       title: 'Landscapers',
       body: 'Design-build, lawn care, hardscape — we shoot the work and turn it into campaigns that book estimates.',
-      tags: ['Booked Solid System', 'Websites', 'Content'],
-      badge: 'BSS Available',
-    },
-    {
-      href: '/who-we-serve/cleaning',
-      icon: '✨',
-      title: 'Cleaning',
-      body: 'Stand out in a crowded market with a site that builds trust fast and turns visitors into booked appointments.',
-      tags: ['Websites', 'Content'],
-      badge: 'Websites + Content',
+      tags: ['Market Domination', 'Booked Solid', 'Web Care Plan'],
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002868" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 8C8 10 5.9 16.17 3.82 19.82A2 2 0 0 0 5.66 22H18a2 2 0 0 0 2-2V8"/>
+          <path d="M17 8l-2-4"/>
+          <path d="M17 8c0-4-2-4-2-4"/>
+        </svg>
+      ),
     },
   ]
   return (
-    <section className="bg-bg2 py-24 px-6 lg:px-12" id="serve">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
+    <section className="section alt">
+      <div className="section-inner">
+        <div className="section-head center">
           <SectionLabel>Who We Serve</SectionLabel>
-          <h2 className="font-heading text-[44px] text-navy">Built for the Trades.<br/><span className="text-red">Made in the Carolinas.</span></h2>
-          <p className="text-[16px] text-text-2 max-w-2xl mx-auto mt-4 leading-relaxed">
-            We only work with contractors. Every campaign we run and every site we build speaks directly to the homeowners in your market.
-          </p>
+          <h2>Built for the Trades.<br /><span className="red">Made in the Carolinas.</span></h2>
+          <p>We only work with contractors. Every campaign we run and every site we build speaks directly to the homeowners in your market.</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="trades-grid">
           {trades.map(t => (
-            <Link key={t.title} href={t.href} className="group bg-white rounded-xl border border-[#DDE3ED] p-6 hover:border-navy hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
-              <div className="text-3xl mb-4">{t.icon}</div>
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-heading text-[22px] text-navy">{t.title}</h3>
-                <span className="text-[10px] font-bold bg-navy/10 text-navy px-2 py-0.5 rounded-full">{t.badge}</span>
-              </div>
-              <p className="text-[13px] text-text-2 leading-relaxed flex-1 mb-4">{t.body}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {t.tags.map(tag => (
-                  <span key={tag} className="text-[10px] font-semibold text-text-2 bg-bg2 border border-[#DDE3ED] px-2 py-0.5 rounded-full">{tag}</span>
-                ))}
-              </div>
-              <div className="mt-4 text-[13px] font-semibold text-red group-hover:gap-2 flex items-center gap-1 transition-all">
-                Learn more <span>→</span>
+            <Link key={t.title} href={t.href} className="trade-card">
+              <div className="trade-card-icon">{t.icon}</div>
+              <h3>{t.title}</h3>
+              <p>{t.body}</p>
+              <div className="trade-card-tags">
+                {t.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
               </div>
             </Link>
           ))}
-        </div>
-        <div className="text-center mt-8">
-          <Link href="/who-we-serve" className="text-[14px] font-semibold text-navy hover:text-red transition-colors">
-            View all industries we serve →
-          </Link>
         </div>
       </div>
     </section>
   )
 }
 
-// ── Services Preview ──────────────────────────────────────────────────────────
-function ServicesPreview() {
-  const services = [
+// ── Services ──────────────────────────────────────────────────────────────────
+function Services() {
+  const cards = [
     {
-      href: '/services/websites',
+      href: '/services/web-care-plan',
       num: '01',
-      title: 'Contractor Websites',
-      body: 'Clean, conversion-focused sites that load fast, earn trust in seconds, and make it dead simple for homeowners to call or book.',
-      includes: ['Custom design + copywriting', 'Mobile-first build', 'SEO & local schema', 'Lead tracking'],
+      title: 'Web Care Plan',
+      body: 'A professional contractor site built in 5–7 days. 3–5 updates/month, hosting included. No setup fee. Month-to-month after 3 months.',
+      checks: ['Custom design + copywriting', 'Mobile-first build', 'SEO & local schema', '3–5 updates/month', 'Hosting included'],
     },
     {
       href: '/services/booked-solid',
       num: '02',
       title: 'Booked Solid System',
-      body: 'A complete done-for-you client acquisition engine. Website, Meta ads, monthly content shoot, automated follow-up, and pipeline dashboard.',
-      includes: ['Premium website', 'Meta ad campaigns', 'Monthly content shoot', 'GoHighLevel CRM + automation'],
-      featured: true,
+      body: 'Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine for contractors in the Carolinas.',
+      checks: ['Google Ads campaigns', 'Local SEO + GBP', 'Weekly optimization', 'Monthly reporting', '60-day lead guarantee'],
     },
     {
-      href: '/services/content',
+      href: '/services/market-domination',
       num: '03',
-      title: 'Photo & Content',
-      body: 'A half-day on your jobsite gets you months of ad-ready video and photos — all shot and edited by us. No stock. Ever.',
-      includes: ['On-site photo + video shoot', 'Short-form vertical cuts', 'Before & after sets', 'Brand-matched edit'],
+      title: 'Market Domination',
+      body: 'Everything in BSS plus Meta Ads, 3–5 monthly on-location content shoots, and full GoHighLevel pipeline automation.',
+      checks: ['Google + Meta Ads', '3–5 monthly content shoots', 'GoHighLevel automation', 'Live lead dashboard', '90-day lead guarantee'],
+      featured: true,
     },
   ]
+
   return (
-    <section className="bg-bg py-24 px-6 lg:px-12" id="services">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
+    <section className="section">
+      <div className="section-inner">
+        <div className="section-head center">
           <SectionLabel>Our Services</SectionLabel>
-          <h2 className="font-heading text-[44px] text-navy">Everything You Need to<br/><span className="text-red">Show Up and Win.</span></h2>
-          <p className="text-[16px] text-text-2 max-w-xl mx-auto mt-4">Pick a piece or get the whole system.</p>
+          <h2>Everything You Need to<br /><span className="red">Show Up and Win.</span></h2>
+          <p>Pick a piece or get the whole system. All built exclusively for contractors.</p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-6">
-          {services.map(s => (
-            <Link
-              key={s.num}
-              href={s.href}
-              className={`group rounded-xl border p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-                s.featured
-                  ? 'bg-navy border-navy text-white hover:shadow-2xl hover:shadow-navy/30'
-                  : 'bg-white border-[#DDE3ED] hover:border-navy hover:shadow-lg'
-              }`}
-            >
-              <div className={`font-heading text-[56px] leading-none mb-5 ${s.featured ? 'text-white/20' : 'text-[#DDE3ED]'}`}>{s.num}</div>
-              <h3 className={`font-heading text-[24px] mb-3 ${s.featured ? 'text-white' : 'text-navy'}`}>{s.title}</h3>
-              <p className={`text-[14px] leading-relaxed flex-1 mb-5 ${s.featured ? 'text-white/70' : 'text-text-2'}`}>{s.body}</p>
-              <ul className="space-y-2 mb-6">
-                {s.includes.map(item => (
-                  <li key={item} className="flex items-center gap-2 text-[13px]">
-                    <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] flex-shrink-0 ${s.featured ? 'bg-red text-white' : 'bg-red/10 text-red'}`}>✓</span>
-                    <span className={s.featured ? 'text-white/80' : 'text-text-2'}>{item}</span>
-                  </li>
-                ))}
+        <div className="services-grid">
+          {cards.map(s => (
+            <Link key={s.num} href={s.href} className={`service-card${s.featured ? ' featured' : ''}`}>
+              <div className="service-card-num">{s.num}</div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <ul className="service-check-list">
+                {s.checks.map(c => <li key={c} className="service-check">{c}</li>)}
               </ul>
-              <div className={`text-[13px] font-semibold flex items-center gap-1 group-hover:gap-2 transition-all ${s.featured ? 'text-red-light' : 'text-red'}`}>
-                {s.featured ? 'See full offer →' : 'Learn more →'}
-              </div>
+              <span className="service-cta">{s.featured ? 'See Full System' : 'Learn More'} <span className="arrow">→</span></span>
             </Link>
           ))}
+        </div>
+
+        {/* Market Domination full card */}
+        <div className="service-full-wrap">
+          <div className="service-full-card">
+            <div className="service-full-left">
+              <div className="badge badge-dark">
+                <span className="pulse" />
+                Most Popular — Carolinas Only
+              </div>
+              <SectionLabel light>Market Domination</SectionLabel>
+              <h3>The Complete System for Contractors Who Want to Own Their Market</h3>
+              <p>One contractor per trade per market — permanently locked in. If you're in, your competitor can't be. This is the full package: ads, content, automation, and exclusivity.</p>
+              <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+                See Full Details <span className="arrow">→</span>
+              </Link>
+            </div>
+            <div className="service-full-right">
+              <p className="includes-label">Everything Included</p>
+              <ul className="includes-grid">
+                <li>Google Ads Management</li>
+                <li>Meta Ads Management</li>
+                <li>3–5 Monthly Content Shoots</li>
+                <li>SEO + Google Business</li>
+                <li>GoHighLevel CRM</li>
+                <li>Lead Follow-Up Automation</li>
+                <li>Review Generation</li>
+                <li>Missed Call Text-Back</li>
+                <li>Live Lead Dashboard</li>
+                <li>90-Day Lead Guarantee</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -275,62 +238,50 @@ function ServicesPreview() {
 // ── How It Works ──────────────────────────────────────────────────────────────
 function HowItWorks() {
   const steps = [
-    { n: '01', t: 'Discovery Call', b: '30 minutes. We learn your market, your best job types, and what's held you back. No pitch.' },
-    { n: '02', t: 'We Build & Shoot', b: 'We write the site, design it, spend a half-day shooting your jobsite, and launch the first campaign.' },
+    { n: '01', t: 'Discovery Call', b: '30 minutes. We learn your market, your best job types, and what\'s held you back. No pitch.' },
+    { n: '02', t: 'We Build & Launch', b: 'We write the site, design it, shoot your jobsite, and launch the first campaign — all within 2 weeks.' },
     { n: '03', t: 'Leads Come In', b: 'Calls and form fills go straight to your phone. Auto-replies go out in seconds. We tune weekly.' },
+    { n: '04', t: 'You Own Your Market', b: 'Once you\'re in, no competitor in your trade gets in. Your territory is locked — for as long as you stay.' },
   ]
   return (
-    <section className="bg-navy py-24 px-6 lg:px-12 relative overflow-hidden" id="how">
-      <div className="absolute inset-0 opacity-[0.04]">
-        <div className="absolute right-0 bottom-0 w-96 h-96 rounded-full border-[40px] border-white" />
-        <div className="absolute left-20 top-10 w-48 h-48 rounded-full border-[20px] border-white" />
-      </div>
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="section dark">
+      <div className="section-inner">
+        <div className="how-grid">
           <div>
-            <SectionLabel light>How It Works</SectionLabel>
-            <h2 className="font-heading text-[44px] text-white mb-4">Simple Process.<br/><span className="text-red">Serious Results.</span></h2>
-            <p className="text-[16px] text-white/60 mb-10">Three steps from first call to first lead. No drawn-out discovery, no surprise invoices.</p>
-            <div className="space-y-6">
-              {steps.map((s, i) => (
-                <div key={s.n} className="flex gap-5">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-red flex items-center justify-center font-heading text-[13px] text-white">{s.n}</div>
-                    {i < steps.length - 1 && <div className="w-0.5 h-8 bg-white/10 mx-auto mt-1" />}
-                  </div>
-                  <div className="pb-2">
-                    <h4 className="font-heading text-[20px] text-white mb-1">{s.t}</h4>
-                    <p className="text-[14px] text-white/60 leading-relaxed">{s.b}</p>
+            <div className="how-head">
+              <SectionLabel light>How It Works</SectionLabel>
+              <h2 style={{ fontSize: 56, color: '#fff', marginBottom: 16 }}>Simple Process.<br /><span style={{ color: 'var(--red-light)' }}>Serious Results.</span></h2>
+              <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>Three steps from first call to first lead. No drawn-out discovery, no surprise invoices.</p>
+            </div>
+            <div className="steps-col">
+              {steps.map(s => (
+                <div key={s.n} className="step">
+                  <div className="step-num">{s.n}</div>
+                  <div>
+                    <h4>{s.t}</h4>
+                    <p>{s.b}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Guarantee card */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-8">
-            <div className="inline-flex items-center gap-2 bg-red/20 border border-red/30 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 rounded-full bg-red pulse-dot" />
-              <span className="text-[11px] font-bold text-red uppercase tracking-widest">Our Guarantee</span>
+          {/* CTA Panel */}
+          <div className="cta-panel">
+            <div className="badge badge-dark">
+              <span className="pulse" />
+              Our Guarantee
             </div>
-            <h3 className="font-heading text-[28px] text-white mb-4">If your leads don't cover the retainer in the first 90 days — your next month is free.</h3>
-            <p className="text-[14px] text-white/60 leading-relaxed mb-6">
-              We only work with one company per market. Your leads are exclusively yours. We will never take on a direct competitor in your area.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                'Leads guaranteed to cover retainer cost',
-                'One client per market — no exceptions',
-                'Month-free if we miss the mark',
-              ].map(f => (
-                <li key={f} className="flex items-center gap-3 text-[14px] text-white/80">
-                  <span className="w-5 h-5 rounded-full bg-red/20 flex items-center justify-center text-red text-[10px] flex-shrink-0">✓</span>
-                  {f}
-                </li>
-              ))}
+            <h3>If your leads don't cover the retainer in the first 90 days — your next month is free.</h3>
+            <p>We only work with one contractor per market. Your leads are exclusively yours. We will never take on a direct competitor in your area.</p>
+            <ul className="cta-panel-feats">
+              <li>Leads guaranteed to cover retainer cost</li>
+              <li>One client per market — no exceptions</li>
+              <li>Month free if we miss the mark</li>
+              <li>Carolinas only — NC &amp; SC</li>
             </ul>
-            <Link href="/services/booked-solid" className="inline-flex items-center gap-2 w-full justify-center px-6 py-3.5 bg-red text-white font-semibold text-[15px] rounded-sm hover:bg-red-dark transition-colors">
-              See the Booked Solid System →
+            <Link href="/services/market-domination" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+              See Market Domination <span className="arrow">→</span>
             </Link>
           </div>
         </div>
@@ -340,72 +291,88 @@ function HowItWorks() {
 }
 
 // ── Portfolio Preview ─────────────────────────────────────────────────────────
-function PortfolioPreview() {
-  const projects = [
-    {
-      client: 'Zuly Iyalode Cleaning, LLC',
-      location: 'Grand Strand, SC',
-      type: 'Cleaning',
-      highlight: 'Working quote form · Real before/afters · Google reviews embedded',
-      color: 'from-navy to-navy-dark',
-    },
-    {
-      client: 'Fighting Grime Pressure Washing',
-      location: 'Carolinas',
-      type: 'Pressure Washing',
-      highlight: 'Conversion-focused hero · Before/after gallery · SEO optimized',
-      color: 'from-[#1a3a6b] to-navy-dark',
-    },
-    {
-      client: 'Carolina Beach Landscaping',
-      location: 'Carolina Beach, NC',
-      type: 'Landscaping',
-      highlight: 'Video hero · Project gallery · Seasonal campaign landing pages',
-      color: 'from-[#2d5a27] to-[#1a3a18]',
-    },
-  ]
+function Portfolio() {
   return (
-    <section className="bg-bg2 py-24 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-14">
+    <section className="section">
+      <div className="section-inner">
+        <div className="section-head" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
           <div>
             <SectionLabel>Portfolio</SectionLabel>
-            <h2 className="font-heading text-[44px] text-navy">Real Sites.<br/><span className="text-red">Real Contractors.</span></h2>
+            <h2>Real Sites.<br /><span className="red">Real Contractors.</span></h2>
           </div>
-          <Link href="/portfolio" className="hidden md:block text-[14px] font-semibold text-navy hover:text-red transition-colors">
-            View all work →
-          </Link>
+          <Link href="/portfolio" className="btn btn-ghost btn-sm" style={{ flexShrink: 0, marginBottom: 8 }}>View All Work →</Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {projects.map(p => (
-            <div key={p.client} className="group rounded-xl overflow-hidden border border-[#DDE3ED] bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              {/* Mock screen */}
-              <div className={`bg-gradient-to-br ${p.color} p-6 h-44 flex flex-col justify-between`}>
-                <div className="flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                </div>
-                <div>
-                  <div className="text-[10px] text-white/50 font-semibold uppercase tracking-widest mb-1">{p.type}</div>
-                  <div className="font-heading text-[22px] text-white leading-tight">{p.client.split(' ').slice(0, 2).join(' ')}</div>
+
+        <p className="row-label">Contractor Websites</p>
+        <div className="portfolio-row-sites">
+          {/* Fighting Grime */}
+          <div className="site-card">
+            <div className="site-card-screen">
+              <div className="dots"><span/><span/><span/></div>
+              <div className="site-card-inner">
+                <img src="/assets/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                <div className="site-card-inner-content">
+                  <span className="tag tag-light" style={{ fontSize: 10 }}>Pressure Washing</span>
                 </div>
               </div>
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-body font-bold text-[14px] text-text">{p.client}</h3>
-                  <span className="text-[10px] font-semibold text-text-3 bg-bg2 px-2 py-0.5 rounded-full">{p.type}</span>
+            </div>
+            <div className="site-card-meta">
+              <strong>Fighting Grime Pressure Washing</strong>
+              <span>Carolinas</span>
+            </div>
+          </div>
+
+          {/* Zuly Iyalode */}
+          <div className="site-card">
+            <div className="site-card-screen" style={{ background: '#001a45' }}>
+              <div className="dots"><span/><span/><span/></div>
+              <div className="site-card-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ textAlign: 'center', padding: 24 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: '#fff', lineHeight: 1.2 }}>Zuly Iyalode<br/>Cleaning, LLC</div>
+                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>Grand Strand, SC</div>
                 </div>
-                <div className="text-[12px] text-text-3 mb-2">{p.location}</div>
-                <p className="text-[12px] text-text-2">{p.highlight}</p>
+              </div>
+            </div>
+            <div className="site-card-meta">
+              <strong>Zuly Iyalode Cleaning, LLC</strong>
+              <span>Grand Strand, SC</span>
+            </div>
+          </div>
+
+          {/* Carolina Beach Landscaping */}
+          <div className="site-card">
+            <div className="site-card-screen" style={{ background: '#1a3a18' }}>
+              <div className="dots"><span/><span/><span/></div>
+              <div className="site-card-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ textAlign: 'center', padding: 24 }}>
+                  <div style={{ fontFamily: 'var(--font-heading)', fontSize: 22, color: '#fff', lineHeight: 1.2 }}>Carolina Beach<br/>Landscaping</div>
+                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.45)', marginTop: 8 }}>Carolina Beach, NC</div>
+                </div>
+              </div>
+            </div>
+            <div className="site-card-meta">
+              <strong>Carolina Beach Landscaping</strong>
+              <span>Carolina Beach, NC</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="row-label">Jobsite Photography</p>
+        <div className="portfolio-row-photos">
+          {[
+            { src: '/assets/1-Fighting Grime Pics - 00000003.webp', type: 'Pressure Washing', title: 'Fighting Grime' },
+            { src: '/assets/2-Fighting Grime Pics - 00000006.webp', type: 'Pressure Washing', title: 'Before & After' },
+            { src: '/assets/12-DSC00208.webp',                       type: 'Content Shoot',    title: 'On-Location' },
+            { src: '/assets/17-DSC00213.webp',                       type: 'Content Shoot',    title: 'Portfolio Shot' },
+          ].map((p, i) => (
+            <div key={i} className="photo-card">
+              <img src={p.src} alt={p.title} />
+              <div className="photo-card-label">
+                <div className="photo-card-type">{p.type}</div>
+                <div className="photo-card-title">{p.title}</div>
               </div>
             </div>
           ))}
-        </div>
-        <div className="text-center mt-8 md:hidden">
-          <Link href="/portfolio" className="text-[14px] font-semibold text-navy hover:text-red transition-colors">
-            View all work →
-          </Link>
         </div>
       </div>
     </section>
@@ -416,44 +383,65 @@ function PortfolioPreview() {
 function Testimonials() {
   const quotes = [
     {
-      q: "First time my website actually books jobs instead of just sitting there. We went from two calls a week to two calls a day.",
+      q: 'First time my website actually books jobs instead of just sitting there. We went from two calls a week to two calls a day.',
       initials: 'BH', name: 'Blue Ridge HVAC', loc: 'Brandon Hayes · Founder, Asheville NC',
-      tags: ['Website', 'Meta Ads', 'Content'],
+      tags: ['Website', 'Google Ads', 'SEO'],
     },
     {
-      q: "They doubled our roof replacements in 90 days. The footage they shot makes us look like the biggest roofer in town.",
+      q: 'They doubled our roof replacements in 90 days. The footage they shot makes us look like the biggest roofer in town.',
       initials: 'PR', name: 'Palmetto Roofing Co.', loc: 'Pete Rivera · Ops Manager, Charleston SC',
-      tags: ['Booked Solid System', 'Photo', 'Video'],
+      tags: ['Market Domination', 'Content Shoot', 'Meta Ads'],
     },
     {
-      q: "Straight shooters. No agency speak, no surprise invoices. They built the site, shot the yards, ran the ads — the phone rings.",
+      q: 'Straight shooters. No agency speak, no surprise invoices. They built the site, ran the ads — the phone rings.',
       initials: 'TL', name: 'Triangle Landscaping', loc: 'Tyler Lee · Owner, Raleigh NC',
-      tags: ['Website', 'Photography', 'Google Ads'],
+      tags: ['Booked Solid System', 'Website', 'Google Ads'],
     },
   ]
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setActive(a => (a + 1) % quotes.length), 5000)
+    return () => clearInterval(t)
+  }, [quotes.length])
+
+  const q = quotes[active]
+
   return (
-    <section className="bg-bg py-24 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <SectionLabel>Testimonials</SectionLabel>
-          <h2 className="font-heading text-[44px] text-navy">What Our<br/><span className="text-red">Clients Say.</span></h2>
+    <section className="section alt">
+      <div className="section-inner">
+        <div className="section-head center">
+          <SectionLabel>Client Reviews</SectionLabel>
+          <h2>What Our<br /><span className="red">Clients Say.</span></h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {quotes.map(q => (
-            <div key={q.name} className="bg-white rounded-xl border border-[#DDE3ED] p-6 flex flex-col">
-              <div className="text-red text-lg mb-3">★★★★★</div>
-              <p className="text-[15px] font-heading text-navy leading-relaxed flex-1 mb-5 italic">"{q.q}"</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#DDE3ED]">
-                <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center font-heading text-[13px] text-white flex-shrink-0">{q.initials}</div>
-                <div>
-                  <div className="text-[13px] font-bold text-text">{q.name}</div>
-                  <div className="text-[11px] text-text-3">{q.loc}</div>
-                </div>
-              </div>
-              <div className="flex gap-1.5 mt-3 flex-wrap">
-                {q.tags.map(tag => <span key={tag} className="text-[10px] font-semibold bg-navy text-white px-2 py-0.5 rounded-full">{tag}</span>)}
+
+        <div className="t-single">
+          <div className="t-single-top">
+            <div className="t-single-stars">★★★★★</div>
+            <div className="t-single-quote">"{q.q}"</div>
+            <div className="t-single-author">
+              <div className="t-single-avatar">{q.initials}</div>
+              <div>
+                <strong>{q.name}</strong>
+                <span>{q.loc}</span>
               </div>
             </div>
+          </div>
+          <div className="t-single-bottom">
+            <div className="t-single-tags">
+              {q.tags.map(tag => <span key={tag} className="tag tag-navy">{tag}</span>)}
+            </div>
+          </div>
+        </div>
+
+        <div className="t-dots">
+          {quotes.map((_, i) => (
+            <button
+              key={i}
+              className={i === active ? 'active' : ''}
+              onClick={() => setActive(i)}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
           ))}
         </div>
       </div>
@@ -464,24 +452,25 @@ function Testimonials() {
 // ── Footer CTA ────────────────────────────────────────────────────────────────
 function FooterCTA() {
   return (
-    <section className="bg-red py-20 px-6 lg:px-12 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full border-[60px] border-white" />
-        <div className="absolute -left-10 -bottom-10 w-48 h-48 rounded-full border-[30px] border-white" />
+    <section className="cta-footer">
+      <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }} aria-hidden="true">
+        <img src="/assets/scsvg 1.webp" alt="" style={{ width: '60%', height: '60%', objectFit: 'contain' }} />
       </div>
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        <h2 className="font-heading text-[44px] md:text-[52px] text-white mb-4">
-          Your Next Client Is Already Searching.
-        </h2>
-        <p className="text-[17px] text-white/80 mb-8">
-          The homeowner in your ZIP is Googling a contractor right now. Let's make sure they find you first — and only you.
-        </p>
-        <Link href="/services/booked-solid" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-red font-semibold text-[16px] rounded-sm hover:bg-bg transition-colors">
-          See the Booked Solid System →
-        </Link>
-        <div className="mt-5 text-[12px] text-white/60">
-          3, 6 & 12-month contracts · One client per market · Lead guarantee included
+      <div className="cta-footer-inner">
+        <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}>
+          <span className="pulse" />
+          Limited Spots — Carolinas Only
         </div>
+        <h2>
+          Your Next Client<br />
+          Is Already<br />
+          <span className="red">Searching.</span>
+        </h2>
+        <p>The homeowner in your ZIP is Googling a contractor right now. Let's make sure they find you first — and only you.</p>
+        <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+          Get Started Today <span className="arrow">→</span>
+        </Link>
+        <p className="cta-footer-disclaimer">3-month minimum · One client per market · Lead guarantee included</p>
       </div>
     </section>
   )
@@ -494,9 +483,9 @@ export default function HomePage() {
       <Hero />
       <Ticker />
       <WhoWeServe />
-      <ServicesPreview />
+      <Services />
       <HowItWorks />
-      <PortfolioPreview />
+      <Portfolio />
       <Testimonials />
       <FooterCTA />
     </>
