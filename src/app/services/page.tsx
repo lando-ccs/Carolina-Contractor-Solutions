@@ -65,38 +65,40 @@ export default function ServicesPage() {
               <div
                 key={t.num}
                 className={`service-card${t.featured ? ' featured' : ''}`}
-                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start', padding: '40px 48px' }}
+                style={{ padding: '40px 48px' }}
               >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                    <div className="service-card-num" style={{ marginBottom: 0 }}>{t.num}</div>
-                    <span style={{
-                      fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px',
-                      padding: '4px 12px', borderRadius: 20,
-                      background: t.featured ? 'rgba(227,18,18,0.2)' : 'rgba(0,40,104,0.08)',
-                      color: t.featured ? 'var(--red-light, #ff6b6b)' : 'var(--navy)',
-                    }}>{t.badge}</span>
+                <div className="tier-card-grid">
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                      <div className="service-card-num" style={{ marginBottom: 0 }}>{t.num}</div>
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px',
+                        padding: '4px 12px', borderRadius: 20,
+                        background: t.featured ? 'rgba(227,18,18,0.2)' : 'rgba(0,40,104,0.08)',
+                        color: t.featured ? 'var(--red-light, #ff6b6b)' : 'var(--navy)',
+                      }}>{t.badge}</span>
+                    </div>
+                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 6 }}>{t.tier}</div>
+                    <h2 style={{ fontFamily: 'var(--font-h)', fontSize: 36, color: t.featured ? '#fff' : 'var(--navy)', marginBottom: 12, lineHeight: 1.1 }}>{t.title}</h2>
+                    <p style={{ fontSize: 15, color: t.featured ? 'rgba(255,255,255,0.7)' : 'var(--text)', lineHeight: 1.65, marginBottom: 24 }}>{t.body}</p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                      <Link
+                        href={t.href}
+                        className={t.featured ? 'btn btn-secondary' : 'btn btn-primary'}
+                      >
+                        {t.cta} &#8594;
+                      </Link>
+                      <span style={{ fontFamily: 'var(--font-h)', fontSize: 22, color: t.featured ? '#fff' : 'var(--navy)' }}>{t.price}</span>
+                    </div>
                   </div>
-                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 6 }}>{t.tier}</div>
-                  <h2 style={{ fontFamily: 'var(--font-h)', fontSize: 36, color: t.featured ? '#fff' : 'var(--navy)', marginBottom: 12, lineHeight: 1.1 }}>{t.title}</h2>
-                  <p style={{ fontSize: 15, color: t.featured ? 'rgba(255,255,255,0.7)' : 'var(--text2)', lineHeight: 1.65, marginBottom: 24 }}>{t.body}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                    <Link
-                      href={t.href}
-                      className={t.featured ? 'btn btn-secondary' : 'btn btn-primary'}
-                    >
-                      {t.cta} &#8594;
-                    </Link>
-                    <span style={{ fontFamily: 'var(--font-h)', fontSize: 22, color: t.featured ? '#fff' : 'var(--navy)' }}>{t.price}</span>
+                  <div>
+                    <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 14 }}>Includes</div>
+                    <ul className="service-check-list">
+                      {t.includes.map(item => (
+                        <li key={item} className="service-check" style={{ color: t.featured ? 'rgba(255,255,255,0.8)' : undefined }}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-                <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 14 }}>Includes</div>
-                  <ul className="service-check-list">
-                    {t.includes.map(item => (
-                      <li key={item} className="service-check" style={{ color: t.featured ? 'rgba(255,255,255,0.8)' : undefined }}>{item}</li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             ))}

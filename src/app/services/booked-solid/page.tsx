@@ -35,7 +35,7 @@ export default function BookedSolidPage() {
             <h2>Four Pillars.<br /><span className="red">One System.</span></h2>
             <p>Everything listed below is managed by our team, every single month. No managing agencies, no ad dashboards to check.</p>
           </div>
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          <div className="services-grid-2col">
             {[
               {
                 num: '01', title: 'Google Ads',

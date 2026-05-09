@@ -144,7 +144,7 @@ function Services() {
           <p className="services-sub">Most contractors in the Carolinas live off word of mouth and hope the slow months don't last. We build the presence that keeps your phone ringing when referrals go quiet.</p>
         </div>
 
-        <div className="services-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+        <div className="services-grid-2col">
           {/* Web Care Plan */}
           <Link href="/services/web-care-plan" className="service-card">
             <div className="service-card-num">01</div>

@@ -33,7 +33,7 @@ export default function MarketDominationPage() {
             <h2>Five Pillars.<br /><span className="red">Total Market Control.</span></h2>
             <p>Every channel, every touchpoint, managed by our team. You get an unfair advantage &mdash; and your competitor cannot buy their way in.</p>
           </div>
-          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+          <div className="services-grid-2col">
             {[
               {
                 num: '01', title: 'Google Ads + SEO',
@@ -66,7 +66,7 @@ export default function MarketDominationPage() {
               </div>
             ))}
           </div>
-          <div className="services-grid" style={{ marginTop: 24, gridTemplateColumns: '1fr' }}>
+          <div style={{ marginTop: 24 }}>
             <div className="service-card">
               <div className="service-card-num">05</div>
               <h3>Monthly Deliverables</h3>
