@@ -61,8 +61,8 @@ export default function Nav() {
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                   </div>
                   <div>
-                    <span className="nav-drop-title">Contractor Websites</span>
-                    <span className="nav-drop-desc">Sites built to rank locally and book jobs</span>
+                    <span className="nav-drop-title">Web Care Plan</span>
+                    <span className="nav-drop-desc">Tier 1 — Sites built to rank locally and book jobs</span>
                   </div>
                 </Link>
                 <Link href="/services/booked-solid" className="nav-drop-item">
@@ -71,16 +71,7 @@ export default function Nav() {
                   </div>
                   <div>
                     <span className="nav-drop-title">Booked Solid System</span>
-                    <span className="nav-drop-desc">Google Ads + SEO that keep your phone ringing</span>
-                  </div>
-                </Link>
-                <Link href="/services/content" className="nav-drop-item">
-                  <div className="nav-drop-icon">
-                    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                  </div>
-                  <div>
-                    <span className="nav-drop-title">Content & Photos</span>
-                    <span className="nav-drop-desc">On-location shoots that show the work you do</span>
+                    <span className="nav-drop-desc">Tier 2 — Google Ads + SEO that keep your phone ringing</span>
                   </div>
                 </Link>
                 <Link href="/services/market-domination" className="nav-drop-item">
@@ -89,7 +80,7 @@ export default function Nav() {
                   </div>
                   <div>
                     <span className="nav-drop-title">Market Domination</span>
-                    <span className="nav-drop-desc">The full system to keep your calendar full</span>
+                    <span className="nav-drop-desc">Tier 3 — The full system to own your market</span>
                   </div>
                 </Link>
               </div>
@@ -169,10 +160,9 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div className={`nav-mobile${mobileOpen ? ' open' : ''}`}>
         <p className="mobile-section-label">Services</p>
-        <Link href="/services/web-care-plan"    className="mobile-link" onClick={() => setMobileOpen(false)}>Contractor Websites</Link>
-        <Link href="/services/booked-solid"     className="mobile-link" onClick={() => setMobileOpen(false)}>Booked Solid System</Link>
-        <Link href="/services/content"          className="mobile-link" onClick={() => setMobileOpen(false)}>Content & Photos</Link>
-        <Link href="/services/market-domination" className="mobile-link" onClick={() => setMobileOpen(false)}>Market Domination</Link>
+        <Link href="/services/web-care-plan"       className="mobile-link" onClick={() => setMobileOpen(false)}>Web Care Plan</Link>
+        <Link href="/services/booked-solid"       className="mobile-link" onClick={() => setMobileOpen(false)}>Booked Solid System</Link>
+        <Link href="/services/market-domination"  className="mobile-link" onClick={() => setMobileOpen(false)}>Market Domination</Link>
         <p className="mobile-section-label">Who We Serve</p>
         <Link href="/who-we-serve/roofers"      className="mobile-link" onClick={() => setMobileOpen(false)}>Roofers</Link>
         <Link href="/who-we-serve/hvac"         className="mobile-link" onClick={() => setMobileOpen(false)}>HVAC</Link>

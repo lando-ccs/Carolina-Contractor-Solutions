@@ -29,14 +29,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Pages col */}
+        {/* Services col */}
         <div className="footer-col">
-          <h4>Pages</h4>
+          <h4>Services</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><Link href="/services">Services</Link></li>
-            <li><Link href="/portfolio">Our Work</Link></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link href="/services/web-care-plan">Web Care Plan</Link></li>
+            <li><Link href="/services/booked-solid">Booked Solid System</Link></li>
+            <li><Link href="/services/market-domination">Market Domination</Link></li>
           </ul>
         </div>
 

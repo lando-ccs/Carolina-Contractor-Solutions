@@ -3,97 +3,104 @@ import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
 
 export const metadata: Metadata = {
-  title: 'Services — Websites, Booked Solid System & Photo/Content',
-  description: 'Three services for contractors: conversion-focused websites (nationwide), the Booked Solid System done-for-you lead engine (Carolinas), and jobsite photo & content (Carolinas).',
+  title: 'Services — 3 Tiers for Contractor Marketing',
+  description: 'Three service tiers for contractors in the Carolinas: Web Care Plan, Booked Solid System, and Market Domination. Pick what fits your goals.',
 }
 
-const services = [
+const tiers = [
   {
-    href: '/services/websites',
+    href: '/services/web-care-plan',
     num: '01',
-    title: 'Contractor Websites',
+    tier: 'Tier 1',
+    title: 'Web Care Plan',
+    price: '$500/mo',
     badge: 'Nationwide',
-    badgeColor: 'bg-navy/10 text-navy',
-    body: 'A conversion-focused contractor site that loads fast, earns trust in seconds, and makes it dead simple for homeowners to call or book. Custom design, real copywriting, SEO, and call tracking included.',
-    cta: 'Get a Quote',
-    includes: ['Custom design + copy', 'Mobile-first build', 'SEO + local schema', 'Call tracking', 'Google Reviews embedded', '30-day support'],
+    body: 'A professional contractor site built in 5–7 days, with monthly updates included. No setup fee. Month-to-month after 3 months. Built to rank locally and book jobs.',
+    cta: 'Learn More',
+    includes: ['Custom design + copywriting', 'Mobile-first build', 'SEO + local schema', 'Call tracking', '3–5 updates/month included', '30-day support'],
   },
   {
     href: '/services/booked-solid',
     num: '02',
+    tier: 'Tier 2',
     title: 'Booked Solid System',
+    price: '$2,000/mo',
     badge: 'Carolinas Only',
-    badgeColor: 'bg-red/10 text-red',
-    body: 'A fully done-for-you client acquisition engine. Premium website, Meta ad campaigns with monthly on-location content shoots, a complete GoHighLevel CRM with automated follow-up, and a real-time pipeline dashboard.',
+    body: 'Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine that keeps your phone ringing every month.',
     cta: 'See the System',
-    includes: ['Premium website', 'Meta ads + creative', 'Monthly content shoot', 'GoHighLevel CRM + automation', 'Pipeline dashboard', 'Monthly strategy call'],
+    includes: ['Google Ads management', 'Local SEO', 'Google Business Profile', 'Weekly optimization', '60-day lead guarantee', 'Monthly reporting'],
     featured: true,
   },
   {
-    href: '/services/content',
+    href: '/services/market-domination',
     num: '03',
-    title: 'Photo & Content',
-    badge: 'Carolinas Only',
-    badgeColor: 'bg-navy/10 text-navy',
-    body: 'A half-day on your jobsite gets you months of ad-ready video and photos. No stock. No templates. Everything shot and edited to match your brand and feed directly into your campaigns.',
-    cta: 'Book a Shoot',
-    includes: ['Half-day on-site shoot', 'Short-form vertical cuts', 'Before & after sets', 'Brand-matched edit', 'Ad-ready asset library'],
+    tier: 'Tier 3',
+    title: 'Market Domination',
+    price: '$5,000/mo',
+    badge: 'Carolinas Only · One Per Market',
+    body: 'Google Ads + Meta Ads + 3–5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market — permanently locked in.',
+    cta: 'Check Availability',
+    includes: ['Google + Meta Ads', '3–5 monthly content shoots', 'GoHighLevel CRM + automation', 'Live lead dashboard', '90-day lead guarantee', 'Permanent market exclusivity'],
   },
 ]
 
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-bg pt-[72px] pb-12 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto pt-12">
-          <SectionLabel>Services</SectionLabel>
-          <h1 className="font-heading text-[52px] text-navy leading-[1.0] mb-4">
-            Three Services.<br /><span className="text-red">One Goal.</span>
-          </h1>
-          <p className="text-[18px] text-text-2 max-w-2xl leading-relaxed">
-            More calls, more booked jobs. Pick what you need, or get the whole system.
-          </p>
+      <section className="page-hero" style={{ minHeight: 'auto', paddingBottom: 64 }}>
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }} aria-hidden="true">
+          <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+        <div className="page-hero-inner">
+          <SectionLabel light>Services</SectionLabel>
+          <h1>Three Tiers.<br /><span className="red">One Goal.</span></h1>
+          <p>More calls, more booked jobs. Pick the tier that fits where you are right now.</p>
         </div>
       </section>
 
-      <section className="bg-bg pb-24 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto space-y-6">
-          {services.map(s => (
-            <div
-              key={s.num}
-              className={`rounded-xl border-2 p-8 ${s.featured ? 'border-navy bg-navy' : 'border-[#DDE3ED] bg-white'}`}
-            >
-              <div className="grid md:grid-cols-3 gap-8 items-start">
-                <div className="md:col-span-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className={`font-heading text-[48px] leading-none ${s.featured ? 'text-white/20' : 'text-[#DDE3ED]'}`}>{s.num}</span>
-                    <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${s.featured ? 'bg-red/20 text-red-light' : s.badgeColor}`}>{s.badge}</span>
+      <section className="section">
+        <div className="section-inner">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            {tiers.map(t => (
+              <div
+                key={t.num}
+                className={`service-card${t.featured ? ' featured' : ''}`}
+                style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start', padding: '40px 48px' }}
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                    <div className="service-card-num" style={{ marginBottom: 0 }}>{t.num}</div>
+                    <span style={{
+                      fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px',
+                      padding: '4px 12px', borderRadius: 20,
+                      background: t.featured ? 'rgba(227,18,18,0.2)' : 'rgba(0,40,104,0.08)',
+                      color: t.featured ? 'var(--red-light, #ff6b6b)' : 'var(--navy)',
+                    }}>{t.badge}</span>
                   </div>
-                  <h2 className={`font-heading text-[32px] mb-3 ${s.featured ? 'text-white' : 'text-navy'}`}>{s.title}</h2>
-                  <p className={`text-[15px] leading-relaxed mb-5 ${s.featured ? 'text-white/70' : 'text-text-2'}`}>{s.body}</p>
-                  <Link
-                    href={s.href}
-                    className={`inline-flex items-center gap-2 px-6 py-3 font-semibold text-[14px] rounded-sm transition-colors ${
-                      s.featured ? 'bg-red text-white hover:bg-red-dark' : 'bg-navy text-white hover:bg-navy-light'
-                    }`}
-                  >
-                    {s.cta} →
-                  </Link>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 6 }}>{t.tier}</div>
+                  <h2 style={{ fontFamily: 'var(--font-h)', fontSize: 36, color: t.featured ? '#fff' : 'var(--navy)', marginBottom: 12, lineHeight: 1.1 }}>{t.title}</h2>
+                  <p style={{ fontSize: 15, color: t.featured ? 'rgba(255,255,255,0.7)' : 'var(--text2)', lineHeight: 1.65, marginBottom: 24 }}>{t.body}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <Link
+                      href={t.href}
+                      className={t.featured ? 'btn btn-secondary' : 'btn btn-primary'}
+                    >
+                      {t.cta} &#8594;
+                    </Link>
+                    <span style={{ fontFamily: 'var(--font-h)', fontSize: 22, color: t.featured ? '#fff' : 'var(--navy)' }}>{t.price}</span>
+                  </div>
                 </div>
                 <div>
-                  <div className={`text-[11px] font-bold uppercase tracking-widest mb-3 ${s.featured ? 'text-white/40' : 'text-text-3'}`}>Includes</div>
-                  <ul className="space-y-2">
-                    {s.includes.map(item => (
-                      <li key={item} className={`flex items-center gap-2 text-[13px] ${s.featured ? 'text-white/70' : 'text-text-2'}`}>
-                        <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] flex-shrink-0 ${s.featured ? 'bg-red/20 text-red-light' : 'bg-red/10 text-red'}`}>✓</span>
-                        {item}
-                      </li>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1.5px', color: t.featured ? 'rgba(255,255,255,0.4)' : 'var(--text3)', marginBottom: 14 }}>Includes</div>
+                  <ul className="service-check-list">
+                    {t.includes.map(item => (
+                      <li key={item} className="service-check" style={{ color: t.featured ? 'rgba(255,255,255,0.8)' : undefined }}>{item}</li>
                     ))}
                   </ul>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </>

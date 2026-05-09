@@ -3,15 +3,15 @@ import SectionLabel from '@/components/SectionLabel'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Market Domination -- Full Contractor Marketing System',
-  description: 'Google + Meta Ads, monthly content shoots, and full GoHighLevel automation. $5,000/month. One contractor per trade per market.',
+  title: 'Market Domination — Tier 3 · Full Marketing System for Contractors',
+  description: 'Google Ads + Meta Ads + monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market. $5,000/month.',
 }
 
 export default function MarketDominationPage() {
   return (
     <>
       <section className="page-hero">
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }} aria-hidden="true">
           <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
         <div className="page-hero-inner">
@@ -20,7 +20,7 @@ export default function MarketDominationPage() {
           <h1>Own Your Market.<br /><span className="red">Lock Out the Competition.</span></h1>
           <p>Google Ads + Meta Ads + 3&ndash;5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market &mdash; permanently locked in.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact" className="btn btn-secondary btn-lg">Check Availability &mdash; $5,000/mo <span className="arrow">&#8594;</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -29,26 +29,31 @@ export default function MarketDominationPage() {
       <section className="section">
         <div className="section-inner">
           <div className="section-head center">
-            <SectionLabel>The System</SectionLabel>
+            <SectionLabel>What&apos;s Included</SectionLabel>
             <h2>Five Pillars.<br /><span className="red">Total Market Control.</span></h2>
             <p>Every channel, every touchpoint, managed by our team. You get an unfair advantage &mdash; and your competitor cannot buy their way in.</p>
           </div>
-          <div className="services-grid">
+          <div className="services-grid" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
             {[
               {
-                num: '01', title: 'Meta Ads',
-                body: 'We run Facebook and Instagram campaigns that put your best work in front of homeowners in your ZIP. Retargeting, lookalike audiences, and scroll-stopping creative.',
+                num: '01', title: 'Google Ads + SEO',
+                body: 'Everything in the Booked Solid System — search campaigns, local SEO, and GBP management — fully managed every month.',
+                checks: ['Google Ads management', 'Local SEO', 'Google Business Profile', 'Weekly reporting', 'Bid optimization'],
+              },
+              {
+                num: '02', title: 'Meta Ads',
+                body: 'Facebook and Instagram campaigns that put your best work in front of homeowners in your ZIP. Retargeting, lookalike audiences, and scroll-stopping creative.',
                 checks: ['Campaign strategy + launch', 'Ad creative from your shoots', 'Audience targeting', 'Retargeting sequences', 'Weekly optimization'],
               },
               {
-                num: '02', title: 'Monthly Content Shoots',
+                num: '03', title: 'Monthly Content Shoots',
                 body: '3&ndash;5 on-location shoots per month. We come to your jobsite, capture the work, and deliver edited photos and short-form video ready to run as ads.',
-                checks: ['3-5 shoots per month', 'Professional editing', 'Short-form video cuts', 'Before & after sets', 'Ad-ready deliverables'],
+                checks: ['3–5 shoots per month', 'Professional editing', 'Short-form video cuts', 'Before & after sets', 'Ad-ready deliverables'],
               },
               {
-                num: '03', title: 'Google Ads + SEO',
-                body: 'Everything in the Booked Solid System -- search campaigns, local SEO, and GBP management -- included and fully managed.',
-                checks: ['Google Ads management', 'Local SEO', 'Google Business Profile', 'Weekly reporting', 'Bid optimization'],
+                num: '04', title: 'Full Pipeline Automation',
+                body: 'GoHighLevel set up, configured, and managed for you. Lead follow-up, reminders, review generation, referral sequence, missed call text-back, and a live dashboard.',
+                checks: ['Instant lead follow-up texts', 'Appointment reminders', 'Review request sequences', 'Referral automation', 'Missed call text-back', 'Live lead dashboard'],
               },
             ].map(c => (
               <div key={c.num} className="service-card">
@@ -61,28 +66,17 @@ export default function MarketDominationPage() {
               </div>
             ))}
           </div>
-          <div className="services-grid" style={{ marginTop: 24, gridTemplateColumns: 'repeat(2, 1fr)' }}>
-            {[
-              {
-                num: '04', title: 'Full Pipeline Automation',
-                body: 'GoHighLevel is set up, configured, and managed for you. Lead follow-up, reminders, review generation, referral sequence, missed call text-back, and a live dashboard.',
-                checks: ['Instant lead follow-up texts', 'Appointment reminders', 'Review request sequences', 'Referral automation', 'Missed call text-back', 'Live lead dashboard'],
-              },
-              {
-                num: '05', title: 'Monthly Deliverables',
-                body: 'Every month you receive edited content, a performance report, and a strategy call.',
-                checks: ['Edited photos + video delivered', 'Ad performance report', 'SEO ranking report', 'Cost-per-lead breakdown', 'Monthly strategy call'],
-              },
-            ].map(c => (
-              <div key={c.num} className="service-card">
-                <div className="service-card-num">{c.num}</div>
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-                <ul className="service-check-list">
-                  {c.checks.map(ch => <li key={ch} className="service-check">{ch}</li>)}
-                </ul>
-              </div>
-            ))}
+          <div className="services-grid" style={{ marginTop: 24, gridTemplateColumns: '1fr' }}>
+            <div className="service-card">
+              <div className="service-card-num">05</div>
+              <h3>Monthly Deliverables</h3>
+              <p>Every month you receive edited content, a performance report, and a strategy call.</p>
+              <ul className="service-check-list">
+                {['Edited photos + video delivered', 'Ad performance report', 'SEO ranking report', 'Cost-per-lead breakdown', 'Monthly strategy call'].map(ch => (
+                  <li key={ch} className="service-check">{ch}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -102,7 +96,7 @@ export default function MarketDominationPage() {
               <div className="pricing-setup">$2,500 setup fee &middot; 90-day lead guarantee</div>
               <div className="pricing-desc">
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
-                  {['Google + Meta Ads', '3-5 content shoots/month', 'GoHighLevel automation', 'Live lead dashboard', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
+                  {['Google + Meta Ads', '3–5 content shoots/month', 'GoHighLevel automation', 'Live lead dashboard', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
@@ -147,7 +141,7 @@ export default function MarketDominationPage() {
               <div className="how-head">
                 <SectionLabel light>Exclusivity</SectionLabel>
                 <h2 style={{ color: '#fff', fontSize: 56, marginBottom: 16 }}>One Contractor.<br /><span style={{ color: 'var(--red-light)' }}>One Market.</span></h2>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>Once you are locked in, your direct competitor in the same trade cannot buy our service in your market. Ever. This is not a 12-month clause &mdash; it is permanent for as long as you stay.</p>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>Once you&apos;re locked in, your direct competitor in the same trade cannot buy our service in your market. Ever. This is not a 12-month clause &mdash; it is permanent for as long as you stay.</p>
               </div>
               <div className="steps-col">
                 {[
@@ -165,7 +159,7 @@ export default function MarketDominationPage() {
             </div>
             <div className="cta-panel">
               <div className="badge badge-dark"><span className="pulse" />90-Day Guarantee</div>
-              <h3>If your leads do not cover the retainer in 90 days &mdash; your next month is free.</h3>
+              <h3>If your leads don&apos;t cover the retainer in 90 days &mdash; your next month is free.</h3>
               <p>We put our money where our mouth is. No negotiation.</p>
               <ul className="cta-panel-feats">
                 <li>Carolinas only &mdash; NC &amp; SC</li>
