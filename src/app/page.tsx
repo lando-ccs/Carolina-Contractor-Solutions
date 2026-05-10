@@ -54,7 +54,7 @@ function Hero() {
         <div className="hero-visual">
           <div className="hero-device">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/heromockups.webp" alt="Contractor website mockup" className="hero-desktop" />
+            <img src="/assets/portfolio/heromockups.webp" alt="Contractor website mockup" className="hero-desktop" />
           </div>
         </div>
       </div>
@@ -289,7 +289,7 @@ function Portfolio() {
               </div>
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
               </div>
             </div>
             <div className="port-card-footer">
@@ -310,7 +310,7 @@ function Portfolio() {
                 <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
               </div>
               <div className="browser-screen">
-                <video src="/assets/cblhero.mp4" autoPlay loop muted playsInline />
+                <video src="/assets/portfolio/cblhero.mp4" autoPlay loop muted playsInline />
               </div>
             </div>
             <div className="port-card-footer">
@@ -332,7 +332,7 @@ function Portfolio() {
               </div>
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/Desktop.webp" alt="CourteSea Concrete website" style={{ objectPosition: 'top left' }} />
+                <img src="/assets/portfolio/Desktop.webp" alt="CourteSea Concrete website" style={{ objectPosition: 'top left' }} />
               </div>
             </div>
             <div className="port-card-footer">

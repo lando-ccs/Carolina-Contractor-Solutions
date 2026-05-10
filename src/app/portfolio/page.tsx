@@ -30,7 +30,7 @@ export default function PortfolioPage() {
               <div className="site-card-screen">
                 <div className="dots"><span/><span/><span/></div>
                 <div className="site-card-inner">
-                  <img src="/assets/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                  <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
                   <div className="site-card-inner-content">
                     <span className="tag tag-light" style={{ fontSize: 10 }}>Pressure Washing</span>
                   </div>
