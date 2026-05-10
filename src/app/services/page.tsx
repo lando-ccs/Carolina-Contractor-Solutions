@@ -13,11 +13,11 @@ const tiers = [
     num: '01',
     tier: 'Tier 1',
     title: 'Web Care Plan',
-    price: '$500/mo',
+    price: 'From $500 build · $500/mo',
     badge: 'Nationwide',
-    body: 'A professional contractor site built in 5–7 days, with monthly updates included. No setup fee. Month-to-month after 3 months. Built to rank locally and book jobs.',
+    body: 'A professional contractor site built to rank locally and book jobs. Website build starts at $500, then $500/month for ongoing updates, hosting, and support.',
     cta: 'Learn More',
-    includes: ['Custom design + copywriting', 'Mobile-first build', 'SEO + local schema', 'Call tracking', '3–5 updates/month included', '30-day support'],
+    includes: ['Build from $500 one-time', 'Custom design + copywriting', 'Mobile-first build', 'SEO + local schema', '$500/mo ongoing care', 'Hosting + updates included'],
   },
   {
     href: '/services/booked-solid',
@@ -38,9 +38,9 @@ const tiers = [
     title: 'Market Domination',
     price: '$5,000/mo',
     badge: 'Carolinas Only · One Per Market',
-    body: 'Google Ads + Meta Ads + 3–5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market — permanently locked in.',
+    body: 'Google + Meta Ads, monthly on-location content shoots, and full brand production. One contractor per trade per market — permanently locked in.',
     cta: 'Check Availability',
-    includes: ['Google + Meta Ads', '3–5 monthly content shoots', 'GoHighLevel CRM + automation', 'Live lead dashboard', '90-day lead guarantee', 'Permanent market exclusivity'],
+    includes: ['Google + Meta Ads', 'Monthly content shoots', 'Ad & organic creative', 'Brand story + photography', '90-day lead guarantee', 'Permanent market exclusivity'],
   },
 ]
 

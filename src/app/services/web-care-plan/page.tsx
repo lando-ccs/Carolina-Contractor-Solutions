@@ -3,8 +3,8 @@ import SectionLabel from '@/components/SectionLabel'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Web Care Plan — $500/Month Contractor Websites',
-  description: 'A professional contractor website built in 5–7 days. Updates, hosting, and support included. $500/month with no setup fee.',
+  title: 'Web Care Plan — Contractor Websites Built & Maintained | CCS',
+  description: 'Professional contractor websites starting at $500, then $500/month for ongoing maintenance, updates, and hosting. Built for the trades.',
 }
 
 export default function WebCarePlanPage() {
@@ -17,9 +17,9 @@ export default function WebCarePlanPage() {
           <div className="badge badge-dark">Tier 1 — Available Nationwide</div>
           <SectionLabel light>Web Care Plan</SectionLabel>
           <h1>Your Site, Built.<br /><span className="red">Maintained. Done.</span></h1>
-          <p>A conversion-focused contractor website built in 5–7 days. Includes hosting, 3–5 updates per month, and zero setup fees. No contracts after the 3-month minimum.</p>
+          <p>A professional website built for your contracting business — starting at $500 for the build, then $500/month to keep it sharp. Updates, hosting, and support all included.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Get Started — $500/mo <span className="arrow">→</span></Link>
+            <Link href="/contact" className="btn btn-secondary btn-lg">Book a Call <span className="arrow">→</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -30,8 +30,8 @@ export default function WebCarePlanPage() {
         <div className="section-inner">
           <div className="section-head center">
             <SectionLabel>What You Get</SectionLabel>
-            <h2>Everything in One<br /><span className="red">Monthly Rate.</span></h2>
-            <p>No hidden fees. No a-la-carte add-ons. Just a professionally built and maintained contractor website.</p>
+            <h2>Built Once.<br /><span className="red">Maintained Monthly.</span></h2>
+            <p>The build is a one-time cost. The monthly covers everything after — updates, hosting, security, and support.</p>
           </div>
           <div className="services-grid">
             {[
@@ -71,19 +71,41 @@ export default function WebCarePlanPage() {
       <section className="section alt">
         <div className="section-inner">
           <div className="section-head center">
-            <SectionLabel>Pricing</SectionLabel>
-            <h2>Simple.<br /><span className="red">Transparent.</span></h2>
-            <p>Three options. All include the same site quality — you choose how you'd like to commit.</p>
+            <SectionLabel>Pricing — Step 1</SectionLabel>
+            <h2>The<br /><span className="red">Website Build.</span></h2>
+            <p>A one-time fee to design and build your site. Priced based on scope — most contractor sites fall between $500 and $2,000.</p>
           </div>
+
+          <div className="pricing-grid-2col" style={{ maxWidth: 480, marginBottom: 64 }}>
+            <div className="pricing-card">
+              <div className="pricing-tier">One-Time</div>
+              <div className="pricing-name">Website Build</div>
+              <div className="pricing-price"><span className="pricing-price-prefix">Starting at</span>$500</div>
+              <div className="pricing-setup">Priced per project · Most sites $500–$2,000</div>
+              <div className="pricing-desc">
+                <ul className="service-check-list" style={{ marginBottom: 24 }}>
+                  {['Custom design from scratch', 'We write all the copy', 'Mobile-first build', 'Local SEO basics', 'Live in 5–7 business days'].map(f => <li key={f} className="service-check">{f}</li>)}
+                </ul>
+                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get a Quote →</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="section-head center">
+            <SectionLabel>Pricing — Step 2</SectionLabel>
+            <h2>The<br /><span className="red">Web Care Plan.</span></h2>
+            <p>After your build is live, pick how you want to handle ongoing care. Same site quality across all three — choose how you'd like to commit.</p>
+          </div>
+
           <div className="pricing-grid">
             <div className="pricing-card">
               <div className="pricing-tier">Month-to-Month</div>
               <div className="pricing-name">Web Care Plan</div>
               <div className="pricing-price">$500<span>/mo</span></div>
-              <div className="pricing-setup">3-month minimum, then month-to-month · No setup fee</div>
+              <div className="pricing-setup">3-month minimum, then month-to-month</div>
               <div className="pricing-desc">
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
-                  {['Site built in 5–7 days', '3–5 updates/month', 'Hosting included', 'SSL + backups', 'Email support'].map(f => <li key={f} className="service-check">{f}</li>)}
+                  {['3–5 updates/month', 'Hosting + SSL + backups', 'Uptime monitoring', 'Email support', '24–48 hr turnaround'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
@@ -132,9 +154,9 @@ export default function WebCarePlanPage() {
               <h3>Ready to get a site that actually books jobs?</h3>
               <p>Fill out a short form and we'll have your site spec ready within 48 hours.</p>
               <ul className="cta-panel-feats">
-                <li>No setup fee</li>
+                <li>Build quoted per project — starts at $500</li>
                 <li>Site live in 5–7 days</li>
-                <li>3-month minimum, then flexible</li>
+                <li>$500/mo after — 3-month minimum</li>
                 <li>30-day satisfaction guarantee</li>
               </ul>
               <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>

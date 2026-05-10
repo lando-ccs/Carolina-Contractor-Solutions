@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Which service are you interested in? *</label>
                     <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="" disabled>Select a service...</option>
-                      <option value="web-care-plan">Web Care Plan — $500/mo (Website + maintenance)</option>
+                      <option value="web-care-plan">Web Care Plan — from $500 build + $500/mo care</option>
                       <option value="booked-solid">Booked Solid System — $2,000/mo (Google Ads + SEO)</option>
                       <option value="market-domination">Market Domination — $5,000/mo (Full system)</option>
                       <option value="not-sure">Not sure yet — let&apos;s talk</option>

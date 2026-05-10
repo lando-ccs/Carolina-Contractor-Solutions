@@ -25,66 +25,74 @@ export default function PortfolioPage() {
 
       <section className="section">
         <div className="section-inner">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '48px', alignItems: 'center' }}>
-            <img
-              src="/assets/portfolio/Fighting Grime@2x (1).webp"
-              alt="Fighting Grime website"
-              style={{ width: '100%', borderRadius: '8px' }}
-            />
-            <div>
-              <div className="badge badge-dark" style={{ display: 'inline-flex', marginBottom: '16px' }}>Pressure Washing · Charlotte, NC</div>
-              <h2>Fighting Grime<br /><span className="red">Pressure Washing</span></h2>
-              <p style={{ color: 'var(--text2)', fontSize: '16px', lineHeight: 1.6, margin: '16px 0 20px' }}>
-                Charlotte-based pressure washing company. Built a conversion-focused site from scratch — local SEO, click-to-call structure, and a design that earns trust in under five seconds.
-              </p>
-              <div className="badge badge-red" style={{ display: 'inline-flex', marginBottom: '24px' }}>Web Care Plan</div>
-              <div>
-                <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Live Site →</a>
+          <div className="portfolio-grid">
+
+            {/* Fighting Grime */}
+            <div className="port-card">
+              <div className="browser-frame">
+                <div className="browser-bar">
+                  <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+                </div>
+                <div className="browser-screen">
+                  <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                </div>
+              </div>
+              <div className="port-card-footer">
+                <span className="port-trade">Pressure Washing</span>
+                <h4>Fighting Grime Pressure Washing</h4>
+                <span className="port-sub">Website Design · Myrtle Beach, SC</span>
+                <p className="port-desc">Charlotte-based pressure washing company. Built a conversion-focused site from scratch — local SEO, click-to-call structure, and a design that earns trust in under five seconds.</p>
+                <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                  View Live Site
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="section alt">
-        <div className="section-inner">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: '48px', alignItems: 'center' }}>
-            <div>
-              <div className="badge badge-dark" style={{ display: 'inline-flex', marginBottom: '16px' }}>Cleaning Services · Charlotte, NC</div>
-              <h2>Zuly Iyalode<br /><span className="red">Cleaning</span></h2>
-              <p style={{ color: 'var(--text2)', fontSize: '16px', lineHeight: 1.6, margin: '16px 0 20px' }}>
-                Cleaning company site with a strong brand presence, mobile-first build, and lead capture built into every page.
-              </p>
-              <div className="badge badge-red" style={{ display: 'inline-flex' }}>Web Care Plan</div>
-            </div>
-            <img
-              src="/assets/portfolio/zuly@2x (1).webp"
-              alt="Zuly Iyalode Cleaning website"
-              style={{ width: '100%', borderRadius: '8px' }}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-inner">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '48px', alignItems: 'center' }}>
-            <img
-              src="/assets/cblmockupvideo-ezgif.com-optiwebp.webp"
-              alt="Carolina Beach Landscaping site preview"
-              style={{ width: '100%', display: 'block' }}
-            />
-            <div>
-              <div className="badge badge-dark" style={{ display: 'inline-flex', marginBottom: '16px' }}>Landscaping · Carolina Beach, NC</div>
-              <h2>Carolina Beach<br /><span className="red">Landscaping</span></h2>
-              <p style={{ color: 'var(--text2)', fontSize: '16px', lineHeight: 1.6, margin: '16px 0 20px' }}>
-                Full brand build for a Carolina Beach landscaping company — custom video hero, coastal market SEO, and a site that looks as good as the work they do.
-              </p>
-              <div className="badge badge-red" style={{ display: 'inline-flex', marginBottom: '24px' }}>Market Domination</div>
-              <div>
-                <a href="https://caroliabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Live Site →</a>
+            {/* Carolina Beach Landscaping */}
+            <div className="port-card">
+              <div className="browser-frame">
+                <div className="browser-bar">
+                  <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+                </div>
+                <div className="browser-screen">
+                  <video src="/assets/portfolio/cblhero.mp4" autoPlay loop muted playsInline />
+                </div>
+              </div>
+              <div className="port-card-footer">
+                <span className="port-trade">Landscaping</span>
+                <h4>Carolina Beach Landscaping</h4>
+                <span className="port-sub">Website Design · Photo &amp; Video · Carolina Beach, NC</span>
+                <p className="port-desc">Full brand build for a Carolina Beach landscaping company — custom video hero, coastal market SEO, and a site that looks as good as the work they do.</p>
+                <a href="https://carolinabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                  View Live Site
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
               </div>
             </div>
+
+            {/* Zuly Iyalode Cleaning */}
+            <div className="port-card">
+              <div className="browser-frame">
+                <div className="browser-bar">
+                  <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+                </div>
+                <div className="browser-screen">
+                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
+                </div>
+              </div>
+              <div className="port-card-footer">
+                <span className="port-trade">Cleaning</span>
+                <h4>Zuly Iyalode Cleaning</h4>
+                <span className="port-sub">Cleaning Services · Charlotte, NC</span>
+                <p className="port-desc">Cleaning company site with a strong brand presence, mobile-first build, and lead capture built into every page.</p>
+                <a href="https://zulyiyalodecleaning.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                  View Live Site
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

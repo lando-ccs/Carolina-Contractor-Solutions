@@ -149,7 +149,7 @@ function Services() {
           <Link href="/services/web-care-plan" className="service-card">
             <div className="service-card-num">01</div>
             <h3>Web Care Plan</h3>
-            <p>A professional contractor site built in 5–7 days. Updates included. No setup fee. Month-to-month after 3 months.</p>
+            <p>A professional contractor site built in 5–7 days. Starting at $500 to build, then $500/month for ongoing updates, hosting, and support.</p>
             <ul className="service-check-list">
               <li className="service-check">Custom design + copywriting</li>
               <li className="service-check">Mobile-first build</li>

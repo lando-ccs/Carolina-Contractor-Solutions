@@ -430,6 +430,7 @@ nav {
 .port-card-footer h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
 .port-sub   { font-size: 12px; color: var(--text); display: block; margin-bottom: 12px; }
 .port-trade { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--red); display: block; margin-bottom: 6px; }
+.port-desc  { font-size: 13px; color: var(--text2); line-height: 1.6; margin: 10px 0 0; }
 .port-link  { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--navy); margin-top: 10px; opacity: 0.7; transition: opacity 0.2s; }
 .port-link:hover { opacity: 1; }
 .port-link svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -653,6 +654,7 @@ footer { background: #001130; padding: 64px 48px 0; }
 .section.dark .cta-panel-feats li::before { background: #fff; color: var(--navy); }
 /* pricing */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pricing-grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto; }
 .pricing-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 40px 36px; display: flex; flex-direction: column; position: relative; transition: transform 0.25s, box-shadow 0.25s; }
 .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,40,104,0.12); }
 .pricing-card.featured { background: var(--navy); border-color: var(--navy); color: #fff; }
@@ -663,6 +665,8 @@ footer { background: #001130; padding: 64px 48px 0; }
 .pricing-card.featured .pricing-name { color: #fff; }
 .pricing-price { font-family: var(--font-h); font-size: 32px; color: var(--navy); line-height: 1; margin-bottom: 4px; }
 .pricing-price span { font-family: var(--font-b); font-size: 16px; font-weight: 500; color: var(--text); }
+.pricing-price .pricing-price-prefix { display: block; font-family: var(--font-b); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2); margin-bottom: 6px; }
+.pricing-card.featured .pricing-price .pricing-price-prefix { color: rgba(255,255,255,0.5); }
 .pricing-card.featured .pricing-price { color: #fff; }
 .pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.5); }
 .pricing-setup { font-size: 13px; color: var(--text); margin-bottom: 20px; }
@@ -733,6 +737,7 @@ footer { background: #001130; padding: 64px 48px 0; }
   .cta-banner h2 { font-size: 42px; }
   .section { padding: 72px 24px; }
   .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-grid-2col { grid-template-columns: 1fr; }
   .service-full-wrap { padding: 0 0 64px !important; }
   .service-full-card { grid-template-columns: 1fr; }
   .service-full-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; }
@@ -757,6 +762,27 @@ footer { background: #001130; padding: 64px 48px 0; }
   .service-full-card { padding: 32px 24px; }
   .page-hero h1 { font-size: 40px; }
 }
+/* ── Portfolio feature rows (image ↔ text alternating) ── */
+.port-feature-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.port-feature-grid.reverse {
+  grid-template-columns: 1fr 1.4fr;
+}
+@media (max-width: 900px) {
+  .port-feature-grid,
+  .port-feature-grid.reverse {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* reverse: show text before image on mobile */
+  .port-feature-grid.reverse > *:first-child { order: 2; }
+  .port-feature-grid.reverse > *:last-child  { order: 1; }
+}
+
 @media (max-width: 1080px) {
   .section-inner { max-width: 88vw; }
 }
