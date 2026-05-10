@@ -10,14 +10,30 @@ type FormState = { name: string; company: string; phone: string; email: string; 
 export default function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: '', company: '', phone: '', email: '', trade: '', market: '', service: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please try calling or emailing us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -121,9 +137,10 @@ export default function ContactPage() {
                     <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Anything else we should know?</label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Current monthly revenue, biggest challenge, how you heard about us..." style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none', resize: 'vertical' }} />
                   </div>
-                  <button type="submit" className="btn btn-secondary btn-lg" style={{ width: '100%', justifyContent: 'center' }}>
-                    Submit &amp; Check Availability <span className="arrow">&#8594;</span>
+                  <button type="submit" disabled={loading} className="btn btn-secondary btn-lg" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
+                    {loading ? 'Sending...' : 'Submit & Check Availability'} <span className="arrow">&#8594;</span>
                   </button>
+                  {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}
                   <p style={{ fontSize: 12, color: 'var(--text)', textAlign: 'center', marginTop: 12 }}>We respond within one business day &middot; No spam, ever</p>
                 </form>
               )}

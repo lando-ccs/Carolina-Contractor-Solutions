@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
+import type { ChangeEvent, FormEvent } from 'react'
 
 // ── Ticker ────────────────────────────────────────────────────────────────────
 function Ticker() {
@@ -414,7 +416,37 @@ function Testimonials() {
 }
 
 // ── Contact ───────────────────────────────────────────────────────────────────
+type HomeFormState = { name: string; phone: string; email: string; trade: string }
+
 function Contact() {
+  const [form, setForm] = useState<HomeFormState>({ name: '', phone: '', email: '', trade: '' })
+  const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  }
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, company: '', market: '', service: 'not-sure', message: '' }),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please call or email us directly.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <section className="contact" id="contact">
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -470,39 +502,52 @@ function Contact() {
 
         <div className="contact-right">
           <div className="contact-form-card">
-            <h3>Book Your Free Call</h3>
-            <p className="form-sub">Takes 30 seconds. We'll reach out within 24 hours.</p>
+            {sent ? (
+              <div style={{ textAlign: 'center', padding: '24px 8px' }}>
+                <div style={{ fontSize: 48, marginBottom: 12, color: 'var(--navy)' }}>&#10003;</div>
+                <h3 style={{ marginBottom: 8 }}>Got It — We&apos;ll Be in Touch.</h3>
+                <p style={{ color: 'var(--text)', lineHeight: 1.6 }}>We&apos;ll reach out within one business day to set up your free strategy call.</p>
+              </div>
+            ) : (
+              <>
+                <h3>Book Your Free Call</h3>
+                <p className="form-sub">Takes 30 seconds. We&apos;ll reach out within 24 hours.</p>
 
-            <form>
-              <div className="input-group">
-                <label className="input-label">Name</label>
-                <input className="input" type="text" placeholder="Your name" />
-              </div>
-              <div className="form-row">
-                <div className="input-group">
-                  <label className="input-label">Phone Number</label>
-                  <input className="input" type="tel" placeholder="(843) 000-0000" />
-                </div>
-                <div className="input-group">
-                  <label className="input-label">Email</label>
-                  <input className="input" type="email" placeholder="you@yourbusiness.com" />
-                </div>
-              </div>
-              <div className="input-group">
-                <label className="input-label">Trade</label>
-                <select className="input">
-                  <option value="" disabled>Select...</option>
-                  <option>Roofing</option>
-                  <option>HVAC</option>
-                  <option>Concrete & Hardscaping</option>
-                  <option>Landscaping</option>
-                  <option>Pressure Washing</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <button type="submit" className="submit-btn">Submit</button>
-              <p className="form-note">We'll get back within 24 hours. No Spam Ever.</p>
-            </form>
+                <form onSubmit={handleSubmit}>
+                  <div className="input-group">
+                    <label className="input-label">Name</label>
+                    <input className="input" type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
+                  </div>
+                  <div className="form-row">
+                    <div className="input-group">
+                      <label className="input-label">Phone Number</label>
+                      <input className="input" type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="(843) 000-0000" required />
+                    </div>
+                    <div className="input-group">
+                      <label className="input-label">Email</label>
+                      <input className="input" type="email" name="email" value={form.email} onChange={handleChange} placeholder="you@yourbusiness.com" required />
+                    </div>
+                  </div>
+                  <div className="input-group">
+                    <label className="input-label">Trade</label>
+                    <select className="input" name="trade" value={form.trade} onChange={handleChange} required>
+                      <option value="" disabled>Select...</option>
+                      <option>Roofing</option>
+                      <option>HVAC</option>
+                      <option>Concrete & Hardscaping</option>
+                      <option>Landscaping</option>
+                      <option>Pressure Washing</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <button type="submit" disabled={loading} className="submit-btn" style={{ opacity: loading ? 0.7 : 1 }}>
+                    {loading ? 'Sending...' : 'Submit'}
+                  </button>
+                  {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}
+                  <p className="form-note">We&apos;ll get back within 24 hours. No Spam Ever.</p>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </div>
