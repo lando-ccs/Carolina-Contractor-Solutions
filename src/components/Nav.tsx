@@ -40,7 +40,7 @@ export default function Nav() {
           {/* Logo */}
           <Link href="/" className="nav-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/ccslogowhite (1).webp" alt="Carolina Contractor Solutions" />
+            <img src="/assets/newccslogo.webp" alt="Carolina Contractor Solutions" />
           </Link>
 
           {/* Desktop links */}
