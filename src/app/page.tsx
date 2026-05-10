@@ -259,12 +259,12 @@ function HowItWorks() {
 // ── Portfolio ─────────────────────────────────────────────────────────────────
 function Portfolio() {
   const photos = [
-    { src: '/assets/12-DSC00208.webp',                           alt: 'Carolina Beach Landscaping crew' },
-    { src: '/assets/17-DSC00213.webp',                           alt: 'Carolina Beach Landscaping crew' },
-    { src: '/assets/19-DSC00220.webp',                           alt: 'Carolina Beach Landscaping crew' },
     { src: '/assets/1-Fighting Grime Pics - 00000003.webp',      alt: 'Fighting Grime pressure washing' },
-    { src: '/assets/2-Fighting Grime Pics - 00000006.webp',      alt: 'Fighting Grime pressure washing' },
+    { src: '/assets/17-DSC00213.webp',                           alt: 'Carolina Beach Landscaping crew' },
     { src: '/assets/3-Fighting Grime Pics - 00000005.webp',      alt: 'Fighting Grime pressure washing' },
+    { src: '/assets/12-DSC00208.webp',                           alt: 'Carolina Beach Landscaping crew' },
+    { src: '/assets/2-Fighting Grime Pics - 00000006.webp',      alt: 'Fighting Grime pressure washing' },
+    { src: '/assets/19-DSC00220.webp',                           alt: 'Carolina Beach Landscaping crew' },
   ]
   const allPhotos = [...photos, ...photos]
 
@@ -296,7 +296,7 @@ function Portfolio() {
               <h4>Fighting Grime Pressure Washing</h4>
               <span className="port-sub">Website Design · Myrtle Beach, SC</span>
               <span className="port-trade">Pressure Washing</span>
-              <a href="https://fightinggrimpressurewashing.com" target="_blank" rel="noopener noreferrer" className="port-link">
+              <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="port-link">
                 View Live Site
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
@@ -324,7 +324,7 @@ function Portfolio() {
             </div>
           </div>
 
-          {/* CourteSea Concrete */}
+          {/* Zuly Iyalode Cleaning */}
           <div className="port-card">
             <div className="browser-frame">
               <div className="browser-bar">
@@ -332,14 +332,14 @@ function Portfolio() {
               </div>
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/portfolio/Desktop.webp" alt="CourteSea Concrete website" style={{ objectPosition: 'top left' }} />
+                <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
               </div>
             </div>
             <div className="port-card-footer">
-              <h4>CourteSea Concrete</h4>
-              <span className="port-sub">Website Design · Murrells Inlet, SC</span>
-              <span className="port-trade">Concrete</span>
-              <a href="#" className="port-link">
+              <h4>Zuly Iyalode Cleaning</h4>
+              <span className="port-sub">Cleaning Services · Charlotte, NC</span>
+              <span className="port-trade">Cleaning</span>
+              <a href="https://zulyiyalodecleaning.com" target="_blank" rel="noopener noreferrer" className="port-link">
                 View Live Site
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
@@ -402,7 +402,7 @@ function Testimonials() {
                 <span className="tcard-tag">Logo</span>
                 <span className="tcard-tag">Photos</span>
               </div>
-              <a href="https://fightinggrimpressurewashing.com" target="_blank" rel="noopener noreferrer" className="btn btn-red" style={{ fontSize: 13, padding: '9px 18px' }}>
+              <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="btn btn-red" style={{ fontSize: 13, padding: '9px 18px' }}>
                 View Website →
               </a>
             </div>

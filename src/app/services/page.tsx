@@ -48,9 +48,7 @@ export default function ServicesPage() {
   return (
     <>
       <section className="page-hero" style={{ minHeight: 'auto', paddingBottom: 64 }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }} aria-hidden="true">
-          <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
+        <img className="page-hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
         <div className="page-hero-inner">
           <SectionLabel light>Services</SectionLabel>
           <h1>Three Tiers.<br /><span className="red">One Goal.</span></h1>

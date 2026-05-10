@@ -11,9 +11,7 @@ export default function RoofersPage() {
   return (
     <>
       <section className="page-hero">
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }}>
-          <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
+        <img className="page-hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
         <div className="page-hero-inner">
           <div className="badge badge-dark">Roofing Contractors</div>
           <SectionLabel light>Roofers</SectionLabel>

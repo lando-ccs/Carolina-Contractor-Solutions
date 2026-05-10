@@ -5,10 +5,10 @@ import type { ChangeEvent, FormEvent } from 'react'
 import SectionLabel from '@/components/SectionLabel'
 import Link from 'next/link'
 
-type FormState = { name: string; company: string; phone: string; email: string; trade: string; market: string; message: string }
+type FormState = { name: string; company: string; phone: string; email: string; trade: string; market: string; service: string; message: string }
 
 export default function ContactPage() {
-  const [form, setForm] = useState<FormState>({ name: '', company: '', phone: '', email: '', trade: '', market: '', message: '' })
+  const [form, setForm] = useState<FormState>({ name: '', company: '', phone: '', email: '', trade: '', market: '', service: '', message: '' })
   const [sent, setSent] = useState(false)
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
@@ -23,9 +23,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="page-hero">
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }}>
-          <img src="/assets/scsvg 1.webp" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
+        <img className="page-hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
         <div className="page-hero-inner">
           <div className="badge badge-dark">Free Consultation</div>
           <SectionLabel light>Contact</SectionLabel>
@@ -107,6 +105,16 @@ export default function ContactPage() {
                       <option>Pressure Washing</option>
                       <option>Plumbing</option>
                       <option>Other</option>
+                    </select>
+                  </div>
+                  <div style={{ marginBottom: 20 }}>
+                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Which service are you interested in? *</label>
+                    <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}>
+                      <option value="" disabled>Select a service...</option>
+                      <option value="web-care-plan">Web Care Plan — $500/mo (Website + maintenance)</option>
+                      <option value="booked-solid">Booked Solid System — $2,000/mo (Google Ads + SEO)</option>
+                      <option value="market-domination">Market Domination — $5,000/mo (Full system)</option>
+                      <option value="not-sure">Not sure yet — let&apos;s talk</option>
                     </select>
                   </div>
                   <div style={{ marginBottom: 28 }}>
