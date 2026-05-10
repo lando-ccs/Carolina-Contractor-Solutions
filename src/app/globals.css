@@ -296,7 +296,7 @@ nav {
 .service-card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 24px 56px rgba(0,40,104,0.14); border-color: var(--navy); }
 .service-card.featured { background: var(--navy); border-color: var(--navy); }
 .service-card.featured:hover { border-color: #fff; }
-.service-card-num { font-family: var(--font-h); font-size: 52px; color: var(--text); line-height: 1; margin-bottom: 16px; transition: color 0.25s; }
+.service-card-num { font-family: var(--font-h); font-size: 52px; color: #E0E4ED; line-height: 1; margin-bottom: 16px; transition: color 0.25s; }
 .service-card:hover .service-card-num { color: var(--red); }
 .service-card.featured .service-card-num { color: rgba(255,255,255,0.12); }
 .service-card.featured:hover .service-card-num { color: var(--red); }
