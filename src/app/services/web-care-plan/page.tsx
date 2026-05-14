@@ -172,22 +172,22 @@ export default function WebCarePlanPage() {
         <div className="service-full-card">
           <div className="service-full-left">
             <div className="badge badge-navy"><span className="pulse" />Next Level</div>
-            <SectionLabel>Ready to Get More Leads?</SectionLabel>
-            <h3>Add the Booked Solid System</h3>
-            <p>Once your site is live, step up to the Booked Solid System — Google Ads, SEO, and Google Business Profile management that fills your pipeline. Carolinas only.</p>
-            <Link href="/services/booked-solid" className="btn btn-secondary btn-lg">
-              See Booked Solid System <span className="arrow">→</span>
+            <SectionLabel>Ready to Own Your Market?</SectionLabel>
+            <h3>Step Up to Market Domination</h3>
+            <p>Once your site is live, step up to Market Domination — Google Ads, Meta Ads, monthly content shoots, and full campaign management. One contractor per trade per market. Carolinas only.</p>
+            <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+              See Market Domination <span className="arrow">→</span>
             </Link>
           </div>
           <div className="service-full-right">
-            <p className="includes-label">Booked Solid Adds</p>
+            <p className="includes-label">Market Domination Adds</p>
             <ul className="includes-grid">
-              <li>Google Ads Management</li>
-              <li>Local SEO</li>
-              <li>Google Business Profile</li>
-              <li>Weekly Optimization</li>
-              <li>Monthly Reporting</li>
-              <li>60-Day Lead Guarantee</li>
+              <li>Google + Meta Ads</li>
+              <li>Monthly content shoots</li>
+              <li>Local SEO + GBP</li>
+              <li>Ad creative production</li>
+              <li>Weekly optimization</li>
+              <li>90-Day Lead Guarantee</li>
             </ul>
           </div>
         </div>

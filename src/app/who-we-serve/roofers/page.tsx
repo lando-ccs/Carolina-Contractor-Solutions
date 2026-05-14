@@ -54,14 +54,13 @@ export default function RoofersPage() {
             <div className="how-head">
               <SectionLabel light>Available Systems</SectionLabel>
               <h2 style={{ color: '#fff', fontSize: 48, marginBottom: 16 }}>Pick Your<br /><span style={{ color: 'var(--red-light)' }}>Level.</span></h2>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>All three tiers are available for roofing contractors. One contractor per trade per market in the Carolinas.</p>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>Both tiers are available for roofing contractors. One contractor per trade per market in the Carolinas.</p>
             </div>
             <div className="cta-panel">
               <div className="badge badge-dark"><span className="pulse" />Carolinas Only</div>
               <h3>Check if your roofing market is still available.</h3>
               <ul className="cta-panel-feats">
                 <li>Web Care Plan — $500/month nationwide</li>
-                <li>Booked Solid System — $2,000/month + ad spend</li>
                 <li>Market Domination — $5,000/month + ad spend</li>
                 <li>One roofer per market in NC &amp; SC</li>
               </ul>

@@ -161,26 +161,13 @@ function Services() {
             <span className="service-cta">Learn More →</span>
           </Link>
 
-          {/* Booked Solid System — featured */}
-          <Link href="/services/booked-solid" className="service-card featured">
-            <div className="service-card-num">02</div>
-            <h3>Booked Solid System</h3>
-            <p>Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine for contractors in the Carolinas.</p>
-            <ul className="service-check-list">
-              <li className="service-check">Google Ads campaigns</li>
-              <li className="service-check">Local SEO + GBP management</li>
-              <li className="service-check">Weekly optimization</li>
-              <li className="service-check">60-day lead guarantee</li>
-            </ul>
-            <span className="service-cta">Learn More →</span>
-          </Link>
         </div>
 
-        {/* Tier 3 — Market Domination */}
+        {/* Tier 2 — Market Domination */}
         <div className="full-service-banner">
           <div className="fs-left">
-            <div className="service-card-num" style={{ color: 'rgba(255,255,255,0.12)', marginBottom: 12, fontSize: 52, fontFamily: 'var(--font-h)', lineHeight: 1 }}>03</div>
-            <div className="fs-badge">Tier 3 &middot; Carolinas Only &middot; One Per Market</div>
+            <div className="service-card-num" style={{ color: 'rgba(255,255,255,0.12)', marginBottom: 12, fontSize: 52, fontFamily: 'var(--font-h)', lineHeight: 1 }}>02</div>
+            <div className="fs-badge">Tier 2 &middot; Carolinas Only &middot; One Per Market</div>
             <h3>Market Domination</h3>
             <p>Google Ads + Meta Ads + 3&ndash;5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market &mdash; permanently locked in.</p>
           </div>

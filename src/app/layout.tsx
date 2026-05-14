@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     default: 'Carolina Contractor Solutions — Marketing for Contractors in NC & SC',
     template: '%s | Carolina Contractor Solutions',
   },
-  description: 'Done-for-you marketing for contractors across the Carolinas. Websites, content shoots, and the Booked Solid System — a complete lead acquisition engine for roofers, landscapers, and HVAC companies.',
+  description: 'Done-for-you marketing for contractors across the Carolinas. Websites, content shoots, Google Ads, and Meta Ads that turn local searchers into booked jobs for roofers, landscapers, HVAC, and more.',
   keywords: ['contractor marketing', 'roofing marketing', 'HVAC marketing', 'landscaping marketing', 'North Carolina', 'South Carolina', 'contractor website'],
   openGraph: {
     type: 'website',

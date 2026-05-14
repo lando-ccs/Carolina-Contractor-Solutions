@@ -35,7 +35,7 @@ export default function MarketDominationPage() {
             {[
               {
                 num: '01', title: 'Google Ads + SEO',
-                body: 'Everything in the Booked Solid System — search campaigns, local SEO, and GBP management — fully managed every month.',
+                body: 'Search campaigns, local SEO, and Google Business Profile management — fully managed every month.',
                 checks: ['Google Ads management', 'Local SEO', 'Google Business Profile', 'Weekly reporting', 'Bid optimization'],
               },
               {

@@ -65,22 +65,13 @@ export default function Nav() {
                     <span className="nav-drop-desc">Tier 1 — Sites built to rank locally and book jobs</span>
                   </div>
                 </Link>
-                <Link href="/services/booked-solid" className="nav-drop-item">
-                  <div className="nav-drop-icon">
-                    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                  </div>
-                  <div>
-                    <span className="nav-drop-title">Booked Solid System</span>
-                    <span className="nav-drop-desc">Tier 2 — Google Ads + SEO that keep your phone ringing</span>
-                  </div>
-                </Link>
                 <Link href="/services/market-domination" className="nav-drop-item">
                   <div className="nav-drop-icon">
                     <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   </div>
                   <div>
                     <span className="nav-drop-title">Market Domination</span>
-                    <span className="nav-drop-desc">Tier 3 — The full system to own your market</span>
+                    <span className="nav-drop-desc">Tier 2 — The full system to own your market</span>
                   </div>
                 </Link>
               </div>
@@ -161,7 +152,6 @@ export default function Nav() {
       <div className={`nav-mobile${mobileOpen ? ' open' : ''}`}>
         <p className="mobile-section-label">Services</p>
         <Link href="/services/web-care-plan"       className="mobile-link" onClick={() => setMobileOpen(false)}>Web Care Plan</Link>
-        <Link href="/services/booked-solid"       className="mobile-link" onClick={() => setMobileOpen(false)}>Booked Solid System</Link>
         <Link href="/services/market-domination"  className="mobile-link" onClick={() => setMobileOpen(false)}>Market Domination</Link>
         <p className="mobile-section-label">Who We Serve</p>
         <Link href="/who-we-serve/roofers"      className="mobile-link" onClick={() => setMobileOpen(false)}>Roofers</Link>

@@ -4,10 +4,23 @@ import SectionLabel from '@/components/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'Services — 3 Tiers for Contractor Marketing',
-  description: 'Three service tiers for contractors in the Carolinas: Web Care Plan, Booked Solid System, and Market Domination. Pick what fits your goals.',
+  description: 'Service tiers for contractors in the Carolinas: Web Care Plan and Market Domination. Pick what fits your goals.',
 }
 
-const tiers = [
+type Tier = {
+  href: string
+  num: string
+  tier: string
+  title: string
+  price: string
+  badge: string
+  body: string
+  cta: string
+  includes: string[]
+  featured?: boolean
+}
+
+const tiers: Tier[] = [
   {
     href: '/services/web-care-plan',
     num: '01',
@@ -20,21 +33,9 @@ const tiers = [
     includes: ['Build from $500 one-time', 'Custom design + copywriting', 'Mobile-first build', 'SEO + local schema', '$500/mo ongoing care', 'Hosting + updates included'],
   },
   {
-    href: '/services/booked-solid',
+    href: '/services/market-domination',
     num: '02',
     tier: 'Tier 2',
-    title: 'Booked Solid System',
-    price: '$2,000/mo',
-    badge: 'Carolinas Only',
-    body: 'Google Ads + SEO + Google Business Profile management. A complete done-for-you lead machine that keeps your phone ringing every month.',
-    cta: 'See the System',
-    includes: ['Google Ads management', 'Local SEO', 'Google Business Profile', 'Weekly optimization', '60-day lead guarantee', 'Monthly reporting'],
-    featured: true,
-  },
-  {
-    href: '/services/market-domination',
-    num: '03',
-    tier: 'Tier 3',
     title: 'Market Domination',
     price: '$5,000/mo',
     badge: 'Carolinas Only · One Per Market',

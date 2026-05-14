@@ -52,9 +52,9 @@ export default function CleaningPage() {
         <div className="cta-footer-inner">
           <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}><span className="pulse" />Available Nationwide</div>
           <h2>Ready to Get<br />More<br /><span className="red">Bookings?</span></h2>
-          <p>Start with a Web Care Plan available nationwide, or add the Booked Solid System in the Carolinas.</p>
+          <p>Start with a Web Care Plan available nationwide, or step up to Market Domination in the Carolinas.</p>
           <Link href="/contact" className="btn btn-secondary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
-          <p className="cta-footer-disclaimer">Web Care Plan available everywhere · Booked Solid System — Carolinas only</p>
+          <p className="cta-footer-disclaimer">Web Care Plan available everywhere · Market Domination — Carolinas only</p>
         </div>
       </section>
     </>

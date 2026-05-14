@@ -18,7 +18,6 @@ export async function POST(req: Request) {
 
     const serviceLabel: Record<string, string> = {
       'web-care-plan': 'Web Care Plan — from $500 build + $500/mo',
-      'booked-solid': 'Booked Solid System — $2,000/mo',
       'market-domination': 'Market Domination — $5,000/mo',
       'not-sure': 'Not sure yet — let\'s talk',
     }

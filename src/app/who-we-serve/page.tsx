@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 }
 
 const trades = [
-  { href: '/who-we-serve/roofers',     title: 'Roofers',     body: 'Storm damage, repair & replacement — we get you in front of homeowners the moment they search.', systems: ['Market Domination', 'Booked Solid System', 'Web Care Plan'] },
-  { href: '/who-we-serve/hvac',        title: 'HVAC',        body: 'Install and service calls that actually ring your phone. We target homeowners by ZIP and season.',   systems: ['Market Domination', 'Booked Solid System', 'Web Care Plan'] },
-  { href: '/who-we-serve/landscapers', title: 'Landscapers', body: 'Design-build, lawn care, hardscape — we shoot the work and turn it into campaigns that book.',       systems: ['Market Domination', 'Booked Solid System', 'Web Care Plan'] },
-  { href: '/who-we-serve/cleaning',    title: 'Cleaning',    body: 'Stand out in a crowded market with a site that builds trust and turns visitors into appointments.',    systems: ['Booked Solid System', 'Web Care Plan'] },
+  { href: '/who-we-serve/roofers',     title: 'Roofers',     body: 'Storm damage, repair & replacement — we get you in front of homeowners the moment they search.', systems: ['Market Domination', 'Web Care Plan'] },
+  { href: '/who-we-serve/hvac',        title: 'HVAC',        body: 'Install and service calls that actually ring your phone. We target homeowners by ZIP and season.',   systems: ['Market Domination', 'Web Care Plan'] },
+  { href: '/who-we-serve/landscapers', title: 'Landscapers', body: 'Design-build, lawn care, hardscape — we shoot the work and turn it into campaigns that book.',       systems: ['Market Domination', 'Web Care Plan'] },
+  { href: '/who-we-serve/cleaning',    title: 'Cleaning',    body: 'Stand out in a crowded market with a site that builds trust and turns visitors into appointments.',    systems: ['Web Care Plan'] },
 ]
 
 export default function WhoWeServePage() {
