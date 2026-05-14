@@ -4,7 +4,7 @@ import SectionLabel from '@/components/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'Services — 3 Tiers for Contractor Marketing',
-  description: 'Service tiers for contractors in the Carolinas: Web Care Plan and Market Domination. Pick what fits your goals.',
+  description: 'Service tiers for contractors in the Carolinas: Build Only, Web Care Plan, and Market Domination. Pick what fits your goals.',
 }
 
 type Tier = {
@@ -22,9 +22,20 @@ type Tier = {
 
 const tiers: Tier[] = [
   {
-    href: '/services/web-care-plan',
+    href: '/services/build-only',
     num: '01',
     tier: 'Tier 1',
+    title: 'Build Only',
+    price: '$500–$2,000 one-time',
+    badge: 'Nationwide',
+    body: 'A professional contractor website built once. You own the code, the domain, and the hosting account. No subscription, no contract — just a real site for your business.',
+    cta: 'Learn More',
+    includes: ['$500–$2,000 one-time', 'Custom 3–7 page build', 'Mobile-first + local SEO', 'You own everything', '21-day bug-fix warranty', '7–10 day delivery'],
+  },
+  {
+    href: '/services/web-care-plan',
+    num: '02',
+    tier: 'Tier 2',
     title: 'Web Care Plan',
     price: 'From $500 build · $500/mo',
     badge: 'Nationwide',
@@ -34,8 +45,8 @@ const tiers: Tier[] = [
   },
   {
     href: '/services/market-domination',
-    num: '02',
-    tier: 'Tier 2',
+    num: '03',
+    tier: 'Tier 3',
     title: 'Market Domination',
     price: '$5,000/mo',
     badge: 'Carolinas Only · One Per Market',
@@ -83,7 +94,7 @@ export default function ServicesPage() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                       <Link
                         href={t.href}
-                        className={t.featured ? 'btn btn-secondary' : 'btn btn-primary'}
+                        className="btn btn-primary"
                       >
                         {t.cta} &#8594;
                       </Link>

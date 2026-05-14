@@ -33,6 +33,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Services</h4>
           <ul>
+            <li><Link href="/services/build-only">Build Only</Link></li>
             <li><Link href="/services/web-care-plan">Web Care Plan</Link></li>
             <li><Link href="/services/market-domination">Market Domination</Link></li>
           </ul>

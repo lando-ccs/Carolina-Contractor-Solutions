@@ -19,7 +19,7 @@ export default function WebCarePlanPage() {
           <h1>Your Site, Built.<br /><span className="red">Maintained. Done.</span></h1>
           <p>A professional website built for your contracting business — starting at $500 for the build, then $500/month to keep it sharp. Updates, hosting, and support all included.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Book a Call <span className="arrow">→</span></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Book a Call <span className="arrow">→</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -37,21 +37,21 @@ export default function WebCarePlanPage() {
             {[
               {
                 num: '01',
-                title: 'Site Built in 5–7 Days',
-                body: 'We write the copy, design the pages, and launch your site in less than a week. You approve before it goes live.',
-                checks: ['Custom design from scratch', 'We write all the copy', 'Mobile-first build', 'Speed-optimized'],
+                title: 'Site Built in 7–10 Days',
+                body: 'We write the copy, design the pages, and launch your site in 7–10 business days from the discovery call. Plus a 21-day post-launch bug-fix warranty — anything broken, free to fix.',
+                checks: ['Custom design from scratch', 'We write all the copy', 'Mobile-first build', '21-day bug-fix warranty'],
               },
               {
                 num: '02',
-                title: '3–5 Updates/Month',
-                body: 'Need a new service added? Photo gallery updated? Seasonal promo? Just send us a message. We handle it.',
-                checks: ['Text & image updates', 'New page additions', 'Form & CTA changes', 'Seasonal promotions'],
+                title: 'Up to 5 Updates/Month',
+                body: 'Copy edits, image swaps, pricing changes, seasonal banners, a new portfolio entry. Text Lando — no tickets, no portal — and it ships inside 48 hours.',
+                checks: ['Text & image updates', 'New page additions', 'Pricing & banner changes', '48-hour turnaround'],
               },
               {
                 num: '03',
                 title: 'Hosting & Security Included',
-                body: 'Your site lives on fast, reliable hosting with SSL included. No extra bills. No renewal surprises.',
-                checks: ['Fast CDN hosting', 'SSL certificate', 'Daily backups', 'Uptime monitoring'],
+                body: 'Vercel hosting, SSL, and uptime monitoring all included. Same-business-day response if your site goes down. No extra bills, no renewal surprises.',
+                checks: ['Vercel hosting + SSL', 'Same-day downtime response', 'Quarterly site health check', 'Annual free section refresh'],
               },
             ].map(c => (
               <div key={c.num} className="service-card">
@@ -84,7 +84,7 @@ export default function WebCarePlanPage() {
               <div className="pricing-setup">Priced per project · Most sites $500–$2,000</div>
               <div className="pricing-desc">
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
-                  {['Custom design from scratch', 'We write all the copy', 'Mobile-first build', 'Local SEO basics', 'Live in 5–7 business days'].map(f => <li key={f} className="service-check">{f}</li>)}
+                  {['Custom design from scratch', 'We write all the copy', 'Mobile-first build', 'Local SEO basics', 'Live in 7–10 business days', '21-day bug-fix warranty'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get a Quote →</Link>
               </div>
@@ -105,7 +105,7 @@ export default function WebCarePlanPage() {
               <div className="pricing-setup">3-month minimum, then month-to-month</div>
               <div className="pricing-desc">
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
-                  {['3–5 updates/month', 'Hosting + SSL + backups', 'Uptime monitoring', 'Email support', '24–48 hr turnaround'].map(f => <li key={f} className="service-check">{f}</li>)}
+                  {['Up to 5 updates/month', 'Vercel hosting + SSL', 'Uptime monitoring', 'Text Lando — no tickets', '48-hour turnaround'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
@@ -121,7 +121,7 @@ export default function WebCarePlanPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in monthly plan', '6 months paid upfront', 'Priority support queue', 'Quarterly review call', 'Free strategy session'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
+                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
             </div>
 
@@ -159,7 +159,7 @@ export default function WebCarePlanPage() {
                 <li>$500/mo after — 3-month minimum</li>
                 <li>30-day satisfaction guarantee</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Start Your Site <span className="arrow">→</span>
               </Link>
             </div>
@@ -172,10 +172,10 @@ export default function WebCarePlanPage() {
         <div className="service-full-card">
           <div className="service-full-left">
             <div className="badge badge-navy"><span className="pulse" />Next Level</div>
-            <SectionLabel>Ready to Own Your Market?</SectionLabel>
+            <SectionLabel>Need the Full Marketing Operation?</SectionLabel>
             <h3>Step Up to Market Domination</h3>
-            <p>Once your site is live, step up to Market Domination — Google Ads, Meta Ads, monthly content shoots, and full campaign management. One contractor per trade per market. Carolinas only.</p>
-            <Link href="/services/market-domination" className="btn btn-secondary btn-lg">
+            <p>Market Domination handles ads, content, and pipeline — Google + Meta ads, monthly content shoots, GBP management, and Zapier automations. One contractor per trade per market. Carolinas only.</p>
+            <Link href="/services/market-domination" className="btn btn-primary btn-lg">
               See Market Domination <span className="arrow">→</span>
             </Link>
           </div>
@@ -183,11 +183,11 @@ export default function WebCarePlanPage() {
             <p className="includes-label">Market Domination Adds</p>
             <ul className="includes-grid">
               <li>Google + Meta Ads</li>
-              <li>Monthly content shoots</li>
+              <li>3 content shoots/mo</li>
               <li>Local SEO + GBP</li>
-              <li>Ad creative production</li>
-              <li>Weekly optimization</li>
-              <li>90-Day Lead Guarantee</li>
+              <li>Zapier automations</li>
+              <li>Monthly strategy call</li>
+              <li>No-hostage handoff</li>
             </ul>
           </div>
         </div>

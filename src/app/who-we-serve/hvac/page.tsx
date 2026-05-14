@@ -18,7 +18,7 @@ export default function HvacPage() {
           <h1>More Install Calls.<br /><span className="red">Year Round.</span></h1>
           <p>We target homeowners by ZIP code, home age, and season — then put your HVAC company in front of them at the exact moment they need help. One HVAC company per market in the Carolinas.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
             <Link href="/services/market-domination" className="btn btn-outline-light btn-lg">See the Full System</Link>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function HvacPage() {
                 <li>Market Domination — $5,000/month + ad spend</li>
                 <li>One HVAC company per market</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Check My Market <span className="arrow">&#8594;</span></Link>
+              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check My Market <span className="arrow">&#8594;</span></Link>
             </div>
           </div>
         </div>

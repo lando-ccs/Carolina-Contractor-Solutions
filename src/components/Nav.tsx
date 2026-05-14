@@ -56,13 +56,22 @@ export default function Nav() {
                 Services <ChevronIcon />
               </button>
               <div className="nav-dropdown-menu">
+                <Link href="/services/build-only" className="nav-drop-item">
+                  <div className="nav-drop-icon">
+                    <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  </div>
+                  <div>
+                    <span className="nav-drop-title">Build Only</span>
+                    <span className="nav-drop-desc">Tier 1 — One-time website build. You own everything</span>
+                  </div>
+                </Link>
                 <Link href="/services/web-care-plan" className="nav-drop-item">
                   <div className="nav-drop-icon">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                   </div>
                   <div>
                     <span className="nav-drop-title">Web Care Plan</span>
-                    <span className="nav-drop-desc">Tier 1 — Sites built to rank locally and book jobs</span>
+                    <span className="nav-drop-desc">Tier 2 — Sites built to rank locally and book jobs</span>
                   </div>
                 </Link>
                 <Link href="/services/market-domination" className="nav-drop-item">
@@ -71,7 +80,7 @@ export default function Nav() {
                   </div>
                   <div>
                     <span className="nav-drop-title">Market Domination</span>
-                    <span className="nav-drop-desc">Tier 2 — The full system to own your market</span>
+                    <span className="nav-drop-desc">Tier 3 — The full system to own your market</span>
                   </div>
                 </Link>
               </div>
@@ -151,6 +160,7 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div className={`nav-mobile${mobileOpen ? ' open' : ''}`}>
         <p className="mobile-section-label">Services</p>
+        <Link href="/services/build-only"          className="mobile-link" onClick={() => setMobileOpen(false)}>Build Only</Link>
         <Link href="/services/web-care-plan"       className="mobile-link" onClick={() => setMobileOpen(false)}>Web Care Plan</Link>
         <Link href="/services/market-domination"  className="mobile-link" onClick={() => setMobileOpen(false)}>Market Domination</Link>
         <p className="mobile-section-label">Who We Serve</p>

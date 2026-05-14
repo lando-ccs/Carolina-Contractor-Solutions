@@ -18,7 +18,7 @@ export default function CleaningPage() {
           <h1>More Bookings.<br /><span className="red">Less Chasing.</span></h1>
           <p>Residential, commercial, move-out, pressure washing — we build the site and run the ads that turn searchers into booked appointments. No market exclusivity required.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
             <Link href="/services/web-care-plan" className="btn btn-outline-light btn-lg">See Web Care Plan</Link>
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function CleaningPage() {
           <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}><span className="pulse" />Available Nationwide</div>
           <h2>Ready to Get<br />More<br /><span className="red">Bookings?</span></h2>
           <p>Start with a Web Care Plan available nationwide, or step up to Market Domination in the Carolinas.</p>
-          <Link href="/contact" className="btn btn-secondary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
+          <Link href="/contact" className="btn btn-primary btn-lg">Get Started <span className="arrow">&#8594;</span></Link>
           <p className="cta-footer-disclaimer">Web Care Plan available everywhere · Market Domination — Carolinas only</p>
         </div>
       </section>

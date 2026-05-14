@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Market Domination — Tier 3 · Full Marketing System for Contractors',
-  description: 'Google Ads + Meta Ads + monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market. $5,000/month.',
+  description: 'Google Ads + Meta Ads + monthly on-location content shoots + full lead automation pipeline. One contractor per trade per market. $5,000/month.',
 }
 
 export default function MarketDominationPage() {
@@ -16,9 +16,9 @@ export default function MarketDominationPage() {
           <div className="badge badge-dark"><span className="pulse" />Tier 3 &mdash; Carolinas Only &middot; One Per Market</div>
           <SectionLabel light>Market Domination</SectionLabel>
           <h1>Own Your Market.<br /><span className="red">Lock Out the Competition.</span></h1>
-          <p>Google Ads + Meta Ads + 3&ndash;5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market &mdash; permanently locked in.</p>
+          <p>Google Ads + Meta Ads + 3 monthly on-location content shoots + full lead automation pipeline. One contractor per trade per market &mdash; permanently locked in.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Check Availability &mdash; $5,000/mo <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Check Availability &mdash; $5,000/mo <span className="arrow">&#8594;</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -45,12 +45,12 @@ export default function MarketDominationPage() {
               },
               {
                 num: '03', title: 'Monthly Content Shoots',
-                body: '3&ndash;5 on-location shoots per month. We come to your jobsite, capture the work, and deliver edited photos and short-form video ready to run as ads.',
-                checks: ['3–5 shoots per month', 'Professional editing', 'Short-form video cuts', 'Before & after sets', 'Ad-ready deliverables'],
+                body: '3 on-location shoots per month. We come to your jobsite, capture the work, and deliver edited photos and short-form video ready to run as ads. Drone footage included once our Part 107 cert is live (June 2026+).',
+                checks: ['3 shoots per month', '30–50 edited photos/mo', '6–10 short-form videos/mo', 'Before & after sets', 'Drone footage (post-Part 107)'],
               },
               {
-                num: '04', title: 'Full Pipeline Automation',
-                body: 'GoHighLevel set up, configured, and managed for you. Lead follow-up, reminders, review generation, referral sequence, missed call text-back, and a live dashboard.',
+                num: '04', title: 'Lead Automation Pipeline',
+                body: 'Automated follow-up set up and managed for you. Instant lead texts, appointment reminders, review generation, referral sequence, missed call text-back, and a live dashboard.',
                 checks: ['Instant lead follow-up texts', 'Appointment reminders', 'Review request sequences', 'Referral automation', 'Missed call text-back', 'Live lead dashboard'],
               },
             ].map(c => (
@@ -76,6 +76,22 @@ export default function MarketDominationPage() {
               </ul>
             </div>
           </div>
+          <div style={{ marginTop: 24 }}>
+            <div className="service-card">
+              <div className="service-card-num">06</div>
+              <h3>Zapier Automation</h3>
+              <p>Up to 3 active automations wired into your workflow. Light, dependable plumbing &mdash; not a bloated CRM. The three flows almost every contractor wants:</p>
+              <ul className="service-check-list">
+                {[
+                  'Website form → instant SMS + email to you, logged to a Google Sheet',
+                  'Job marked complete → automated review request to the customer',
+                  'Lead aged 7 days without contact → reminder ping back to you',
+                ].map(ch => (
+                  <li key={ch} className="service-check">{ch}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -94,7 +110,7 @@ export default function MarketDominationPage() {
               <div className="pricing-setup">$2,500 setup fee &middot; 90-day lead guarantee</div>
               <div className="pricing-desc">
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
-                  {['Google + Meta Ads', '3–5 content shoots/month', 'GoHighLevel automation', 'Live lead dashboard', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
+                  {['Google + Meta Ads', '3 content shoots/month', 'Lead automation pipeline', 'Live lead dashboard', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
                 <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
@@ -109,7 +125,7 @@ export default function MarketDominationPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in M2M plan', 'Reduced setup fee', 'Priority market lock', 'Dedicated account manager', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
+                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
             </div>
             <div className="pricing-card">
@@ -156,17 +172,18 @@ export default function MarketDominationPage() {
               </div>
             </div>
             <div className="cta-panel">
-              <div className="badge badge-dark"><span className="pulse" />90-Day Guarantee</div>
-              <h3>If your leads don&apos;t cover the retainer in 90 days &mdash; your next month is free.</h3>
-              <p>We put our money where our mouth is. No negotiation.</p>
+              <div className="badge badge-dark"><span className="pulse" />Two Guarantees, Stacked</div>
+              <h3>Performance &mdash; or your next month is free.</h3>
+              <p>We agree on a target cost-per-lead in onboarding based on your market. If we don&apos;t hit it within 90 days, the next month is on us.</p>
+              <h3 style={{ marginTop: 20 }}>No hostage. Cancel and keep everything.</h3>
+              <p>If you ever cancel, you walk away with everything &mdash; Google + Meta ad accounts, creative library, website code, contact list, GBP. No fight, no ransom.</p>
               <ul className="cta-panel-feats">
                 <li>Carolinas only &mdash; NC &amp; SC</li>
                 <li>Permanent market exclusivity</li>
-                <li>90-day lead guarantee</li>
                 <li>$1,500&ndash;$3,000 ad spend recommended</li>
                 <li>No ad spend markup ever</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Check My Market <span className="arrow">&#8594;</span>
               </Link>
             </div>

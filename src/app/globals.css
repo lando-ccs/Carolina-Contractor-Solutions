@@ -117,10 +117,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: 10px; font-weight: 800; line-height: 1;
 }
 /* inner-page compat */
-.btn-primary     { background: var(--navy); color: #fff; border: 2px solid var(--navy); padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }
-.btn-primary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
-.btn-secondary   { background: var(--red);  color: #fff; border: 2px solid var(--red);  padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }
-.btn-secondary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-primary     { background: var(--red);  color: #fff; border: 2px solid var(--red);  padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }
+.btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-secondary   { background: var(--navy); color: #fff; border: 2px solid var(--navy); padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }
+.btn-secondary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
 .btn-outline     { background: transparent; color: var(--navy); border: 2px solid var(--navy); padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }
 .btn-outline:hover { background: var(--navy); color: #fff; }
 .btn-outline-light { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); padding: 14px 24px; border-radius: var(--r-sm); font-size: 15px; }

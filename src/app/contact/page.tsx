@@ -127,6 +127,7 @@ export default function ContactPage() {
                     <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Which service are you interested in? *</label>
                     <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="" disabled>Select a service...</option>
+                      <option value="build-only">Build Only — $500–$2,000 one-time website build</option>
                       <option value="web-care-plan">Web Care Plan — from $500 build + $500/mo care</option>
                       <option value="market-domination">Market Domination — $5,000/mo (Full system)</option>
                       <option value="not-sure">Not sure yet — let&apos;s talk</option>
@@ -136,7 +137,7 @@ export default function ContactPage() {
                     <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Anything else we should know?</label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Current monthly revenue, biggest challenge, how you heard about us..." style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none', resize: 'vertical' }} />
                   </div>
-                  <button type="submit" disabled={loading} className="btn btn-secondary btn-lg" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
+                  <button type="submit" disabled={loading} className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
                     {loading ? 'Sending...' : 'Submit & Check Availability'} <span className="arrow">&#8594;</span>
                   </button>
                   {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}

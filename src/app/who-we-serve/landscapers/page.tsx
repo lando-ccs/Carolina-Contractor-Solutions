@@ -18,7 +18,7 @@ export default function LandscapersPage() {
           <h1>Show the Work.<br /><span className="red">Book the Jobs.</span></h1>
           <p>Design-build, lawn care, hardscape, irrigation — we shoot your best projects and turn them into campaigns that fill your estimate calendar. One landscaper per market in the Carolinas.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-secondary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact" className="btn btn-primary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -63,7 +63,7 @@ export default function LandscapersPage() {
                 <li>Market Domination — $5,000/month + ad spend</li>
                 <li>One landscaper per market in NC &amp; SC</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>Check My Market <span className="arrow">&#8594;</span></Link>
+              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check My Market <span className="arrow">&#8594;</span></Link>
             </div>
           </div>
         </div>

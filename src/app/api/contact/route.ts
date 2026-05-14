@@ -17,6 +17,7 @@ export async function POST(req: Request) {
     })
 
     const serviceLabel: Record<string, string> = {
+      'build-only': 'Build Only — $500–$2,000 one-time',
       'web-care-plan': 'Web Care Plan — from $500 build + $500/mo',
       'market-domination': 'Market Domination — $5,000/mo',
       'not-sure': 'Not sure yet — let\'s talk',

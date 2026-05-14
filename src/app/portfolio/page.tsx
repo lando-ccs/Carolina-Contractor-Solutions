@@ -106,7 +106,7 @@ export default function PortfolioPage() {
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '17px', lineHeight: 1.6, marginBottom: '32px' }}>
             We only take one contractor per trade per market. Book a call and we&apos;ll tell you if your market is still open.
           </p>
-          <Link href="/contact" className="btn btn-secondary btn-lg">Book a Discovery Call <span className="arrow">→</span></Link>
+          <Link href="/contact" className="btn btn-primary btn-lg">Book a Discovery Call <span className="arrow">→</span></Link>
         </div>
       </section>
     </>

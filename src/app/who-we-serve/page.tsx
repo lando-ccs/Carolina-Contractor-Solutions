@@ -52,7 +52,7 @@ export default function WhoWeServePage() {
           <div className="badge badge-dark" style={{ margin: '0 auto 24px' }}><span className="pulse" />Now Accepting Clients</div>
           <h2>See If Your<br />Market Is<br /><span className="red">Available.</span></h2>
           <p>One contractor per trade per market. Check if your spot is still open.</p>
-          <Link href="/contact" className="btn btn-secondary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
+          <Link href="/contact" className="btn btn-primary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
           <p className="cta-footer-disclaimer">Carolinas only — NC &amp; SC</p>
         </div>
       </section>
