@@ -76,7 +76,7 @@ export default function WebCarePlanPage() {
             <p>A one-time fee to design and build your site. Priced based on scope — most contractor sites fall between $500 and $2,000.</p>
           </div>
 
-          <div className="pricing-grid-2col" style={{ maxWidth: 480, marginBottom: 64 }}>
+          <div className="pricing-grid-2col" style={{ gridTemplateColumns: '1fr', maxWidth: 640, marginBottom: 64 }}>
             <div className="pricing-card">
               <div className="pricing-tier">One-Time</div>
               <div className="pricing-name">Website Build</div>
