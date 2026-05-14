@@ -167,14 +167,14 @@ function Services() {
         <div className="full-service-banner">
           <div className="fs-left">
             <div className="service-card-num" style={{ color: 'rgba(255,255,255,0.12)', marginBottom: 12, fontSize: 52, fontFamily: 'var(--font-h)', lineHeight: 1 }}>02</div>
-            <div className="fs-badge">Tier 2 &middot; Carolinas Only &middot; One Per Market</div>
+            <div className="fs-badge">Tier 2 &middot; Premium &middot; One Per Market</div>
             <h3>Market Domination</h3>
-            <p>Google Ads + Meta Ads + 3&ndash;5 monthly on-location content shoots + full GoHighLevel pipeline automation. One contractor per trade per market &mdash; permanently locked in.</p>
+            <p>For contractors ready to run a full marketing operation. Google + Meta Ads, 3 monthly on-location content shoots, and automated follow-up that turns leads into booked jobs. One contractor per trade per market &mdash; permanently locked in.</p>
           </div>
           <ul className="fs-features">
             <li><span className="checkmark">✓</span> Google + Meta Ads</li>
-            <li><span className="checkmark">✓</span> 3–5 monthly content shoots</li>
-            <li><span className="checkmark">✓</span> GoHighLevel CRM + automation</li>
+            <li><span className="checkmark">✓</span> 3 monthly content shoots</li>
+            <li><span className="checkmark">✓</span> Automated lead follow-up</li>
             <li><span className="checkmark">✓</span> Live lead dashboard</li>
             <li><span className="checkmark">✓</span> 90-day lead guarantee</li>
             <li><span className="checkmark">✓</span> Permanent market exclusivity</li>
@@ -215,29 +215,13 @@ function HowItWorks() {
             <div className="step">
               <div className="step-num">02</div>
               <h3>We Build & Shoot</h3>
-              <p>We handle the website design, show up to your location for the content shoot, and set up your ad campaigns — all while you focus on the work.</p>
+              <p>We handle the website design and — if you're on a marketing plan — show up to your location for the content shoot and set up your ad campaigns. You focus on the work.</p>
             </div>
             <div className="step">
               <div className="step-num">03</div>
               <h3>Leads Come In</h3>
-              <p>Your site goes live, ads start running, and GHL automatically follows up with every lead. You wake up to booked appointments.</p>
+              <p>Your site goes live and automated follow-up reaches every lead within minutes. You wake up to booked appointments instead of chasing missed calls.</p>
             </div>
-          </div>
-        </div>
-
-        <div className="hiw-right">
-          <div className="promo-card">
-            <div className="promo-badge">Only 3 Spots Available!</div>
-            <h3>Free 60-Day Ad Campaign<br /><span className="red">On Us!</span></h3>
-            <p>Sign on for a website and we launch a free 60-day Meta campaign to go with it. You cover the ad spend. We handle the shoot, the build, and the campaigns. Hit the ground running from day one. Only 3 spots available.</p>
-            <ul className="promo-list">
-              <li><span className="checkmark">✓</span> On-location shoot included</li>
-              <li><span className="checkmark">✓</span> Full Meta setup & launch</li>
-              <li><span className="checkmark">✓</span> 60 days. Zero setup fees.</li>
-            </ul>
-            <a href="#contact" className="btn btn-red" style={{ width: '100%', justifyContent: 'center', fontSize: 15 }}>
-              Claim Your Free Campaign →
-            </a>
           </div>
         </div>
       </div>

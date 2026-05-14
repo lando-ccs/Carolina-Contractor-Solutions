@@ -366,9 +366,8 @@ nav {
   width: 90%; max-width: 1400px;
   opacity: 0.05; pointer-events: none; z-index: 0;
 }
-.hiw-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
-.hiw-left { align-self: start; padding-bottom: 120px; }
-.hiw-right { align-self: flex-start; position: sticky; top: 100px; }
+.hiw-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 1; }
+.hiw-left { align-self: start; }
 .hiw-h2 { font-family: var(--font-h); font-size: 52px; color: var(--navy); line-height: 1.05; margin-bottom: 16px; }
 .hiw-h2 .red { color: var(--red); }
 .hiw-sub { font-size: 16px; color: var(--text2); line-height: 1.7; margin-bottom: 48px; }
@@ -718,10 +717,7 @@ footer { background: #001130; padding: 64px 48px 0; }
   .hero-btns { justify-content: center; }
   .hero-device { width: 100%; padding-bottom: 0; }
   .hero-visual { justify-content: center; }
-  .hiw-inner { grid-template-columns: 1fr; }
   .hiw-left { padding-bottom: 0; }
-  .hiw-right { position: static; top: auto; }
-  .promo-card { position: static; }
   .contact-inner { grid-template-columns: 1fr; gap: 40px; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
