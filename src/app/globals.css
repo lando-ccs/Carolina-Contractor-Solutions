@@ -677,6 +677,7 @@ footer { background: #001130; padding: 64px 48px 0; }
 .pricing-card.featured .service-check { color: var(--border); }
 .pricing-card.featured .service-check::before { background: rgba(255,255,255,0.14); color: #fff; }
 .pricing-card.featured:hover .service-check::before { background: rgba(255,255,255,0.20); }
+.pricing-card .service-check-list { border-top: none; padding-top: 0; margin-top: 0; }
 .pricing-card .service-check { color: var(--text); }
 /* service-full-card for inner pages */
 .service-full-wrap { margin-top: 32px; }
