@@ -19,7 +19,7 @@ export default function RoofersPage() {
           <p>We put your roofing company in front of homeowners the moment they search for storm damage, repair, or full replacement — and we lock out your local competitor from doing the same.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
             <Link href="/contact" className="btn btn-primary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
-            <Link href="/services/market-domination" className="btn btn-outline-light btn-lg">See the Full System</Link>
+            <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
       </section>

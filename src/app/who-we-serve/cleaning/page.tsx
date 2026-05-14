@@ -35,7 +35,7 @@ export default function CleaningPage() {
             {[
               { num: '01', title: 'Conversion-First Website', body: 'A site that answers the three questions every homeowner has: Are you trustworthy? What do you charge? How do I book? In that order.', checks: ['Clear trust signals', 'Online booking integration', 'Before & after gallery', 'Review showcase section'] },
               { num: '02', title: 'Google Ads for Cleaning', body: 'We target high-intent searches — "house cleaning near me," "move-out cleaning [city]," "recurring maid service" — in your exact service ZIPs.', checks: ['High-intent keyword targeting', 'Service-type campaign split', 'ZIP code targeting', 'Call extension setup'] },
-              { num: '03', title: 'Review Automation', body: 'Every completed job triggers a review request. We set up GoHighLevel to automatically ask for reviews at the right moment — without you lifting a finger.', checks: ['Post-job review requests', 'Google + Facebook', 'Review monitoring', 'Response templates'] },
+              { num: '03', title: 'Review Automation', body: 'Every completed job triggers a review request. We wire up a light Zapier flow that asks for reviews at the right moment — without you lifting a finger.', checks: ['Post-job review requests', 'Google + Facebook', 'Review monitoring', 'Response templates'] },
             ].map(c => (
               <div key={c.num} className="service-card">
                 <div className="service-card-num">{c.num}</div>
@@ -44,6 +44,36 @@ export default function CleaningPage() {
                 <ul className="service-check-list">{c.checks.map(ch => <li key={ch} className="service-check">{ch}</li>)}</ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-head center">
+            <SectionLabel>Featured Work</SectionLabel>
+            <h2>See It<br /><span className="red">Live.</span></h2>
+          </div>
+          <div className="portfolio-grid">
+            <div className="port-card">
+              <div className="browser-frame">
+                <div className="browser-bar">
+                  <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+                </div>
+                <div className="browser-screen">
+                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
+                </div>
+              </div>
+              <div className="port-card-footer">
+                <span className="port-trade">Cleaning</span>
+                <h4>Zuly Iyalode Cleaning</h4>
+                <span className="port-sub">Cleaning Services · Myrtle Beach, SC</span>
+                <a href="https://zulyiyalodecleaning.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                  View Live Site
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

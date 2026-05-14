@@ -47,6 +47,36 @@ export default function LandscapersPage() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-head center">
+            <SectionLabel>Featured Work</SectionLabel>
+            <h2>See It<br /><span className="red">Live.</span></h2>
+          </div>
+          <div className="portfolio-grid">
+            <div className="port-card">
+              <div className="browser-frame">
+                <div className="browser-bar">
+                  <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
+                </div>
+                <div className="browser-screen">
+                  <video src="/assets/portfolio/cblhero.mp4" autoPlay loop muted playsInline />
+                </div>
+              </div>
+              <div className="port-card-footer">
+                <span className="port-trade">Landscaping</span>
+                <h4>Carolina Beach Landscaping</h4>
+                <span className="port-sub">Website Design · Photo &amp; Video · Myrtle Beach, SC</span>
+                <a href="https://caroliabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                  View Live Site
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section dark">
         <div className="section-inner">
           <div className="how-grid">

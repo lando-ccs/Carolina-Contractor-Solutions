@@ -11,7 +11,10 @@ export default function PlumbingPage() {
           <SectionLabel>Plumbing</SectionLabel>
           <h1 className="font-heading text-[52px] text-navy leading-[1.0] mb-6">Fast Site.<br/><span className="text-red">First Call Wins.</span></h1>
           <p className="text-[18px] text-text-2 leading-relaxed max-w-3xl mb-8">Emergency plumbing calls go to whoever loads fastest and looks most trustworthy. We build plumbing sites that check both boxes and make it effortless to call or book — available nationwide.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-4 bg-navy text-white font-semibold text-[15px] rounded-sm hover:bg-navy-light transition-colors">Get a Quote →</Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-4 bg-navy text-white font-semibold text-[15px] rounded-sm hover:bg-navy-light transition-colors">Get a Quote →</Link>
+            <Link href="/portfolio" className="inline-flex items-center gap-2 px-7 py-4 border border-navy/30 text-navy font-semibold text-[15px] rounded-sm hover:bg-navy/5 transition-colors">View Our Work</Link>
+          </div>
         </div>
       </section>
     </>
