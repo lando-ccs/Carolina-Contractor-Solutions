@@ -18,7 +18,7 @@ export default function MarketDominationPage() {
           <h1>Own Your Market.<br /><span className="red">Lock Out the Competition.</span></h1>
           <p>Google Ads + Meta Ads + 3 monthly on-location content shoots + full lead automation pipeline. One contractor per trade per market &mdash; permanently locked in.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-primary btn-lg">Check Availability &mdash; $5,000/mo <span className="arrow">&#8594;</span></Link>
+            <Link href="/contact?service=market-domination" className="btn btn-primary btn-lg">Check Availability &mdash; $5,000/mo <span className="arrow">&#8594;</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function MarketDominationPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Google + Meta Ads', '3 content shoots/month', 'Lead automation pipeline', 'Live lead dashboard', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
+                <Link href="/contact?service=market-domination" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
             </div>
             <div className="pricing-card featured">
@@ -125,7 +125,7 @@ export default function MarketDominationPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in M2M plan', 'Reduced setup fee', 'Priority market lock', 'Dedicated account manager', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
+                <Link href="/contact?service=market-domination" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
             </div>
             <div className="pricing-card">
@@ -137,13 +137,13 @@ export default function MarketDominationPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in 3-month plan', 'Setup completely waived', 'First refusal on adjacent markets', 'Quarterly deep-dive call', '90-day lead guarantee'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
+                <Link href="/contact?service=market-domination" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check Availability &#8594;</Link>
               </div>
             </div>
           </div>
           <p style={{ textAlign: 'center', fontSize: 14, color: 'var(--text)', marginTop: 20 }}>
             Carolinas only. One contractor per trade per market &mdash; permanently locked.{' '}
-            <Link href="/contact" style={{ color: 'var(--navy)', fontWeight: 600 }}>Check availability now &#8594;</Link>
+            <Link href="/contact?service=market-domination" style={{ color: 'var(--navy)', fontWeight: 600 }}>Check availability now &#8594;</Link>
           </p>
         </div>
       </section>
@@ -183,7 +183,7 @@ export default function MarketDominationPage() {
                 <li>$1,500&ndash;$3,000 ad spend recommended</li>
                 <li>No ad spend markup ever</li>
               </ul>
-              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="/contact?service=market-domination" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Check My Market <span className="arrow">&#8594;</span>
               </Link>
             </div>

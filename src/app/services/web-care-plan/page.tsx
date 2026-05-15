@@ -19,7 +19,7 @@ export default function WebCarePlanPage() {
           <h1>Your Site, Built.<br /><span className="red">Maintained. Done.</span></h1>
           <p>A professional website built for your contracting business — starting at $500 for the build, then $500/month to keep it sharp. Updates, hosting, and support all included.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link href="/contact" className="btn btn-primary btn-lg">Book a Call <span className="arrow">→</span></Link>
+            <Link href="/contact?service=web-care-plan" className="btn btn-primary btn-lg">Book a Call <span className="arrow">→</span></Link>
             <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function WebCarePlanPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Custom design from scratch', 'We write all the copy', 'Mobile-first build', 'Local SEO basics', 'Live in 7–10 business days', '21-day bug-fix warranty'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get a Quote →</Link>
+                <Link href="/contact?service=web-care-plan" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get a Quote →</Link>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function WebCarePlanPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Up to 5 updates/month', 'Vercel hosting + SSL', 'Uptime monitoring', 'Text Lando — no tickets', '48-hour turnaround'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
+                <Link href="/contact?service=web-care-plan" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ export default function WebCarePlanPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in monthly plan', '6 months paid upfront', 'Priority support queue', 'Quarterly review call', 'Free strategy session'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
+                <Link href="/contact?service=web-care-plan" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
             </div>
 
@@ -134,7 +134,7 @@ export default function WebCarePlanPage() {
                 <ul className="service-check-list" style={{ marginBottom: 24 }}>
                   {['Everything in monthly plan', '12 months paid upfront', 'Highest priority support', 'Monthly strategy calls', 'Free redesign at 12 months'].map(f => <li key={f} className="service-check">{f}</li>)}
                 </ul>
-                <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
+                <Link href="/contact?service=web-care-plan" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Get Started →</Link>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function WebCarePlanPage() {
                 <li>$500/mo after — 3-month minimum</li>
                 <li>30-day satisfaction guarantee</li>
               </ul>
-              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="/contact?service=web-care-plan" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
                 Start Your Site <span className="arrow">→</span>
               </Link>
             </div>

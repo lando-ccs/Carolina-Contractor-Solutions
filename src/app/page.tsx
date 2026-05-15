@@ -69,7 +69,7 @@ function WhyCCS() {
   return (
     <section className="why-ccs" id="why-ccs">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="why-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <img className="why-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" loading="lazy" />
       <div className="why-inner">
         <div className="why-header">
           <div className="section-label">Why Choose CCS?</div>
@@ -199,7 +199,7 @@ function HowItWorks() {
   return (
     <section className="how-it-works" id="how-it-works">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="hiw-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <img className="hiw-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" loading="lazy" />
       <div className="hiw-inner">
         <div className="hiw-left">
           <div className="section-label">How It Works</div>
@@ -262,7 +262,7 @@ function Portfolio() {
               </div>
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" loading="lazy" />
               </div>
             </div>
             <div className="port-card-footer">
@@ -290,7 +290,7 @@ function Portfolio() {
               <h4>Carolina Beach Landscaping</h4>
               <span className="port-sub">Website Design · Photo & Video · Myrtle Beach, SC</span>
               <span className="port-trade">Landscaping</span>
-              <a href="#" className="port-link">
+              <a href="https://caroliabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="port-link">
                 View Live Site
                 <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
@@ -305,12 +305,12 @@ function Portfolio() {
               </div>
               <div className="browser-screen">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
+                <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" loading="lazy" />
               </div>
             </div>
             <div className="port-card-footer">
               <h4>Zuly Iyalode Cleaning</h4>
-              <span className="port-sub">Cleaning Services · Charlotte, NC</span>
+              <span className="port-sub">Cleaning Services · Myrtle Beach, SC</span>
               <span className="port-trade">Cleaning</span>
               <a href="https://zulyiyalodecleaning.com" target="_blank" rel="noopener noreferrer" className="port-link">
                 View Live Site
@@ -330,7 +330,7 @@ function Portfolio() {
             {allPhotos.map((p, i) => (
               <div key={i} className="photo-item">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.src} alt={p.alt} />
+                <img src={p.src} alt={p.alt} loading="lazy" />
               </div>
             ))}
           </div>
@@ -345,7 +345,7 @@ function Testimonials() {
   return (
     <section className="testimonials" id="testimonials">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="test-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+      <img className="test-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" loading="lazy" />
       <div className="testimonials-inner">
         <div className="test-header">
           <div className="section-label center">Client Reviews</div>
@@ -361,7 +361,7 @@ function Testimonials() {
               <div className="tcard-author">
                 <div className="tcard-avatar">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/assets/fightinggrimelogo.webp" alt="Fighting Grime Pressure Washing logo" />
+                  <img src="/assets/fightinggrimelogo.webp" alt="Fighting Grime Pressure Washing logo" loading="lazy" />
                 </div>
                 <div>
                   <div className="tcard-name">Fighting Grime Pressure Washing</div>
@@ -421,7 +421,7 @@ function Contact() {
   return (
     <section className="contact" id="contact">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="contact-bg" src="/assets/scsvg 1.webp" alt="" aria-hidden="true" />
+      <img className="contact-bg" src="/assets/scsvg 1.webp" alt="" aria-hidden="true" loading="lazy" />
 
       <div className="contact-inner">
         <div className="contact-left">

@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+
+export const metadata: Metadata = {
+  title: 'Marketing for Pressure Washing Companies in NC & SC — CCS',
+  description: 'Websites, Google Ads, and done-for-you marketing for pressure washing contractors across North and South Carolina. Residential and commercial campaigns.',
+}
+
 export default function PressureWashingPage() {
   return (
     <>
@@ -28,7 +35,7 @@ export default function PressureWashingPage() {
                   <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
                 </div>
                 <div className="browser-screen">
-                  <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" />
+                  <img src="/assets/portfolio/Fighinting Grime Home.webp" alt="Fighting Grime Pressure Washing website" loading="lazy" />
                 </div>
               </div>
               <div className="port-card-footer">

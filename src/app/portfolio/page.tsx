@@ -41,7 +41,7 @@ export default function PortfolioPage() {
                 <span className="port-trade">Pressure Washing</span>
                 <h4>Fighting Grime Pressure Washing</h4>
                 <span className="port-sub">Website Design · Myrtle Beach, SC</span>
-                <p className="port-desc">Charlotte-based pressure washing company. Built a conversion-focused site from scratch — local SEO, click-to-call structure, and a design that earns trust in under five seconds.</p>
+                <p className="port-desc">Myrtle Beach-based pressure washing company. Built a conversion-focused site from scratch — local SEO, click-to-call structure, and a design that earns trust in under five seconds.</p>
                 <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="port-link">
                   View Live Site
                   <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -62,9 +62,9 @@ export default function PortfolioPage() {
               <div className="port-card-footer">
                 <span className="port-trade">Landscaping</span>
                 <h4>Carolina Beach Landscaping</h4>
-                <span className="port-sub">Website Design · Photo &amp; Video · Carolina Beach, NC</span>
+                <span className="port-sub">Website Design · Photo &amp; Video · Myrtle Beach, SC</span>
                 <p className="port-desc">Full brand build for a Carolina Beach landscaping company — custom video hero, coastal market SEO, and a site that looks as good as the work they do.</p>
-                <a href="https://carolinabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="port-link">
+                <a href="https://caroliabeachlandscaping.com" target="_blank" rel="noopener noreferrer" className="port-link">
                   View Live Site
                   <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </a>
@@ -78,13 +78,13 @@ export default function PortfolioPage() {
                   <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
                 </div>
                 <div className="browser-screen">
-                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
+                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" loading="lazy" />
                 </div>
               </div>
               <div className="port-card-footer">
                 <span className="port-trade">Cleaning</span>
                 <h4>Zuly Iyalode Cleaning</h4>
-                <span className="port-sub">Cleaning Services · Charlotte, NC</span>
+                <span className="port-sub">Cleaning Services · Myrtle Beach, SC</span>
                 <p className="port-desc">Cleaning company site with a strong brand presence, mobile-first build, and lead capture built into every page.</p>
                 <a href="https://zulyiyalodecleaning.com" target="_blank" rel="noopener noreferrer" className="port-link">
                   View Live Site

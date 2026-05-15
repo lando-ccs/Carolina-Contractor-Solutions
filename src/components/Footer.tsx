@@ -7,7 +7,7 @@ export default function Footer() {
         {/* Brand col */}
         <div className="footer-brand">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/newccsfooterlogo.webp" alt="Carolina Contractor Solutions" />
+          <img src="/assets/newccsfooterlogo.webp" alt="Carolina Contractor Solutions" loading="lazy" />
           <p className="footer-tagline">Done-for-you marketing for contractors across the Carolinas.</p>
           <div className="footer-contact-info">
             <a href="tel:8437429776">(843) 742-9776</a>

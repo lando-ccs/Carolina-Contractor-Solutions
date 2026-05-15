@@ -1,14 +1,30 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
+import { useSearchParams } from 'next/navigation'
 import SectionLabel from '@/components/SectionLabel'
 import Link from 'next/link'
 
 type FormState = { name: string; company: string; phone: string; email: string; trade: string; market: string; service: string; message: string }
 
-export default function ContactPage() {
-  const [form, setForm] = useState<FormState>({ name: '', company: '', phone: '', email: '', trade: '', market: '', service: '', message: '' })
+const VALID_SERVICES = ['build-only', 'web-care-plan', 'market-domination', 'not-sure'] as const
+
+function ContactPageInner() {
+  const searchParams = useSearchParams()
+  const initialService = (() => {
+    const s = searchParams.get('service')
+    return s && (VALID_SERVICES as readonly string[]).includes(s) ? s : ''
+  })()
+  const [form, setForm] = useState<FormState>({ name: '', company: '', phone: '', email: '', trade: '', market: '', service: initialService, message: '' })
+
+  useEffect(() => {
+    const s = searchParams.get('service')
+    if (s && (VALID_SERVICES as readonly string[]).includes(s)) {
+      setForm(f => (f.service ? f : { ...f, service: s }))
+    }
+  }, [searchParams])
+
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -97,8 +113,8 @@ export default function ContactPage() {
                     { label: 'Email Address *', name: 'email',   type: 'email', placeholder: 'john@smithroofing.com' },
                     { label: 'City / Service Area *', name: 'market', type: 'text', placeholder: 'Charlotte, NC' },
                   ].map(f => (
-                    <div key={f.name} style={{ marginBottom: 20 }}>
-                      <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>{f.label}</label>
+                    <div key={f.name} style={{ marginBottom: 24 }}>
+                      <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>{f.label}</label>
                       <input
                         type={f.type}
                         name={f.name}
@@ -106,13 +122,13 @@ export default function ContactPage() {
                         onChange={handleChange}
                         placeholder={f.placeholder}
                         required
-                        style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}
+                        style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' }}
                       />
                     </div>
                   ))}
-                  <div style={{ marginBottom: 20 }}>
-                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Trade / Industry *</label>
-                    <select name="trade" value={form.trade} onChange={handleChange} required style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}>
+                  <div style={{ marginBottom: 24 }}>
+                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>Trade / Industry *</label>
+                    <select name="trade" value={form.trade} onChange={handleChange} required style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="">Select your trade</option>
                       <option>Roofing</option>
                       <option>HVAC</option>
@@ -123,9 +139,9 @@ export default function ContactPage() {
                       <option>Other</option>
                     </select>
                   </div>
-                  <div style={{ marginBottom: 20 }}>
-                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Which service are you interested in? *</label>
-                    <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none' }}>
+                  <div style={{ marginBottom: 24 }}>
+                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>Which service are you interested in? *</label>
+                    <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="" disabled>Select a service...</option>
                       <option value="build-only">Build Only — $500–$2,000 one-time website build</option>
                       <option value="web-care-plan">Web Care Plan — from $500 build + $500/mo care</option>
@@ -134,8 +150,8 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div style={{ marginBottom: 28 }}>
-                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 6 }}>Anything else we should know?</label>
-                    <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Current monthly revenue, biggest challenge, how you heard about us..." style={{ width: '100%', padding: '12px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 15, color: 'var(--text)', background: '#fff', outline: 'none', resize: 'vertical' }} />
+                    <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 8 }}>Anything else we should know?</label>
+                    <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Current monthly revenue, biggest challenge, how you heard about us..." style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none', resize: 'vertical' }} />
                   </div>
                   <button type="submit" disabled={loading} className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
                     {loading ? 'Sending...' : 'Submit & Check Availability'} <span className="arrow">&#8594;</span>
@@ -149,5 +165,13 @@ export default function ContactPage() {
         </div>
       </section>
     </>
+  )
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactPageInner />
+    </Suspense>
   )
 }

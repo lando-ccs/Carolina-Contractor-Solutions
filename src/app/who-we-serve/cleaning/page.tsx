@@ -61,7 +61,7 @@ export default function CleaningPage() {
                   <div className="b-dot r" /><div className="b-dot y" /><div className="b-dot g" />
                 </div>
                 <div className="browser-screen">
-                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" />
+                  <img src="/assets/portfolio/zulydesktophome.webp" alt="Zuly Iyalode Cleaning website" loading="lazy" />
                 </div>
               </div>
               <div className="port-card-footer">

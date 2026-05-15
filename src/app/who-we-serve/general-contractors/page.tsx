@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+
+export const metadata: Metadata = {
+  title: 'Marketing for General Contractors in NC & SC — CCS',
+  description: 'Websites, Google Ads, and done-for-you marketing for general contractors across North and South Carolina. Build your brand and book bigger jobs.',
+}
+
 export default function GeneralContractorsPage() {
   return (
     <>

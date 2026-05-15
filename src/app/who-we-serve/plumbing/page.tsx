@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+
+export const metadata: Metadata = {
+  title: 'Marketing for Plumbers in NC & SC — CCS',
+  description: 'Websites, Google Ads, and done-for-you marketing for plumbing contractors across North and South Carolina. Service calls, repairs, and emergency campaigns.',
+}
+
 export default function PlumbingPage() {
   return (
     <>
