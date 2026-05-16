@@ -1,26 +1,71 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Marketing for General Contractors in NC & SC — CCS',
-  description: 'Websites, Google Ads, and done-for-you marketing for general contractors across North and South Carolina. Build your brand and book bigger jobs.',
+  title: 'Marketing for Concrete & Hardscaping Contractors in NC & SC — CCS',
+  description: 'Concrete and hardscaping marketing in NC & SC. Drone footage, premium project galleries, and ads that win the bigger jobs.',
 }
 
-export default function GeneralContractorsPage() {
+export default function ConcreteHardscapingPage() {
   return (
     <>
-      <section className="bg-bg pt-[72px] pb-20 px-6 lg:px-12">
-        <div className="max-w-5xl mx-auto pt-12">
-          <div className="inline-flex items-center gap-2 bg-navy/10 border border-navy/20 rounded-full px-4 py-1.5 mb-6">
-            <span className="text-[11px] font-bold text-navy uppercase tracking-widest">Websites · Nationwide</span>
+      <section className="page-hero">
+        <img className="page-hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
+        <div className="page-hero-inner">
+          <div className="badge badge-dark">Concrete &amp; Hardscaping Contractors</div>
+          <SectionLabel light>Concrete &amp; Hardscaping</SectionLabel>
+          <h1>Premium Work.<br /><span className="red">Premium Presence.</span></h1>
+          <p>Driveways, patios, retaining walls, walkways — your finished projects deserve a site that matches the work. We build sites that capture serious leads from homeowners ready to spend.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+            <Link href="/contact" className="btn btn-primary btn-lg">Check My Market <span className="arrow">&#8594;</span></Link>
+            <Link href="/portfolio" className="btn btn-outline-light btn-lg">View Our Work</Link>
           </div>
-          <SectionLabel>General Contractors</SectionLabel>
-          <h1 className="font-heading text-[52px] text-navy leading-[1.0] mb-6">A Site That Reflects<br/><span className="text-red">Your Quality of Work.</span></h1>
-          <p className="text-[18px] text-text-2 leading-relaxed max-w-3xl mb-8">Remodels, additions, new builds — your site should be as polished as your finished projects. We build contractor websites that capture high-quality leads from homeowners actively looking — available nationwide.</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-4 bg-navy text-white font-semibold text-[15px] rounded-sm hover:bg-navy-light transition-colors">Get a Quote →</Link>
-            <Link href="/portfolio" className="inline-flex items-center gap-2 px-7 py-4 border border-navy/30 text-navy font-semibold text-[15px] rounded-sm hover:bg-navy/5 transition-colors">View Our Work</Link>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-head center">
+            <SectionLabel>Why Hardscapers Choose CCS</SectionLabel>
+            <h2>We Know<br /><span className="red">Hardscape Leads.</span></h2>
+            <p>Hardscape work is judged by sight and won on intent. We build around the photography and target the homeowners ready to spend.</p>
+          </div>
+          <div className="services-grid">
+            {[
+              { num: '01', title: 'Visual-First Sites', body: 'Hardscape work is judged by sight. We design around the photography — large galleries, project case studies, finished-product hero shots.', checks: ['Full-screen project galleries', 'Before/after sections', 'Material catalogs', 'Aspirational design'] },
+              { num: '02', title: 'Drone Footage', body: 'Aerial shots of completed driveways and patios show scale and finish. We bring the drone to your shoots starting July 2026 (post-Part 107 cert).', checks: ['Aerial photography', 'Drone reels for ads', 'Job-site overviews', 'Property showcase video'] },
+              { num: '03', title: 'Big-Ticket Keyword Targeting', body: 'Homeowners searching "stamped concrete patio cost" or "retaining wall installer" are ready to spend. We target high-intent searches.', checks: ['High-intent keyword research', 'Service-specific landing pages', 'Premium positioning copy', 'Quote-form conversion focus'] },
+            ].map(c => (
+              <div key={c.num} className="service-card">
+                <div className="service-card-num">{c.num}</div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+                <ul className="service-check-list">{c.checks.map(ch => <li key={ch} className="service-check">{ch}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section dark">
+        <div className="section-inner">
+          <div className="how-grid">
+            <div className="how-head">
+              <SectionLabel light>Available Systems</SectionLabel>
+              <h2 style={{ color: '#fff', fontSize: 48, marginBottom: 16 }}>Pick Your<br /><span style={{ color: 'var(--red-light)' }}>Level.</span></h2>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.65 }}>Both tiers are available for concrete and hardscaping contractors. One contractor per trade per market in the Carolinas.</p>
+            </div>
+            <div className="cta-panel">
+              <div className="badge badge-dark"><span className="pulse" />Carolinas Only</div>
+              <h3>Check if your hardscaping market is still available.</h3>
+              <ul className="cta-panel-feats">
+                <li>Web Care Plan — $500/month nationwide</li>
+                <li>Market Domination — $5,000/month + ad spend</li>
+                <li>One hardscaper per market in NC &amp; SC</li>
+              </ul>
+              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Check My Market <span className="arrow">&#8594;</span></Link>
+            </div>
           </div>
         </div>
       </section>
