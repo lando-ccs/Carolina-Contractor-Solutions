@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Marketing for Landscapers in NC & SC — CCS',
-  description: 'Websites, Google Ads, content shoots, and done-for-you marketing for landscaping contractors in North and South Carolina.',
+  description: 'Landscaping marketing in NC & SC. Design-build leads, monthly content shoots, and campaigns that fill your estimate calendar.',
 }
 
 export default function LandscapersPage() {

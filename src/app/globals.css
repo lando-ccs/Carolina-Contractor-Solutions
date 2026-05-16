@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,11 +20,11 @@
   --text3:       #8A9BB0;
   --border:      #DDE3ED;
   --font-h:      'Anton', sans-serif;
-  --font-b:      'DM Sans', sans-serif;
+  --font-b:      'Geist', sans-serif;
   --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px;
   /* inner-page compat aliases */
   --font-heading: 'Anton', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-body:    'Geist', sans-serif;
   --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 20px;
   --dur: 200ms; --ease-out: cubic-bezier(0.2,0.7,0.2,1);
 }

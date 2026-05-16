@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Marketing for HVAC Companies in NC & SC — CCS',
-  description: 'Google Ads, SEO, and done-for-you marketing for HVAC contractors in North and South Carolina. Install and service call campaigns.',
+  description: 'HVAC marketing in NC & SC. Service and install calls every season — ZIP-targeted ads, fast sites, and content that books.',
 }
 
 export default function HvacPage() {

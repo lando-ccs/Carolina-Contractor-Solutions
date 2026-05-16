@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Who We Serve — Contractor Marketing in NC & SC',
-  description: 'CCS works with contractors across the Carolinas: roofers, HVAC, landscapers, concrete & hardscaping, cleaning, plumbing, pressure washing.',
+  description: 'Marketing built for the trades — roofers, HVAC, landscapers, hardscapers, cleaners, plumbers, pressure washers. One contractor per market in NC & SC.',
 }
 
 const trades = [

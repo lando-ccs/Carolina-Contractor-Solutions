@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Marketing for Roofers in NC & SC — CCS',
-  description: 'Google Ads, SEO, and done-for-you marketing for roofing contractors in North and South Carolina. Storm damage, repair, and replacement campaigns.',
+  description: 'Storm-season ready websites and Google Ads for roofers in NC & SC. Get in front of homeowners the moment they search.',
 }
 
 export default function RoofersPage() {

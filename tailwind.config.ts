@@ -32,7 +32,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ['Anton', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        body: ['Geist', 'sans-serif'],
       },
       borderRadius: {
         sm: '8px',
