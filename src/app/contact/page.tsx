@@ -144,7 +144,7 @@ function ContactPageInner() {
                     <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="" disabled>Select a service...</option>
                       <option value="build-only">Build Only — $500–$2,000 one-time website build</option>
-                      <option value="web-care-plan">Web Care Plan — from $500 build + $500/mo care</option>
+                      <option value="web-care-plan">Web Care Plan — Build (Starting at $500) + $500/mo care</option>
                       <option value="market-domination">Market Domination — $5,000/mo (Full system)</option>
                       <option value="not-sure">Not sure yet — let&apos;s talk</option>
                     </select>
