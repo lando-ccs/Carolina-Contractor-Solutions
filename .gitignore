@@ -7,6 +7,10 @@ node_modules/
 
 # Build
 dist/
+tsconfig.tsbuildinfo
+
+# Claude Code
+.claude/
 
 # Env
 .env
