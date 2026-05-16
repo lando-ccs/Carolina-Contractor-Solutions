@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Marketing for Cleaning Companies in NC & SC — CCS',
-  description: 'Websites and Google Ads for residential and commercial cleaning businesses in North and South Carolina. Stand out and book more appointments.',
+  description: 'Cleaning company marketing in NC & SC. Sites that build trust fast and turn visitors into recurring contracts.',
 }
 
 export default function CleaningPage() {

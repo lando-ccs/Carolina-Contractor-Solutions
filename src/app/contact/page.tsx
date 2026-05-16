@@ -98,13 +98,13 @@ function ContactPageInner() {
             {/* Right */}
             <div>
               {sent ? (
-                <div style={{ padding: 48, background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', textAlign: 'center' }}>
+                <div style={{ padding: 'clamp(28px, 6vw, 48px)', background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', textAlign: 'center' }}>
                   <div style={{ fontSize: 48, marginBottom: 16 }}>&#10003;</div>
                   <h3 style={{ fontSize: 28, color: 'var(--navy)', marginBottom: 12 }}>Got It &mdash; We&apos;ll Be in Touch.</h3>
                   <p style={{ color: 'var(--text)', lineHeight: 1.65 }}>We&apos;ll reach out within one business day to schedule your discovery call.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', padding: 40 }}>
+                <form onSubmit={handleSubmit} style={{ background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', padding: 'clamp(24px, 5vw, 40px)' }}>
                   <h3 style={{ fontSize: 24, color: 'var(--navy)', marginBottom: 28 }}>Tell Us About Your Business</h3>
                   {[
                     { label: 'Full Name *',     name: 'name',    type: 'text',  placeholder: 'John Smith' },
@@ -144,7 +144,7 @@ function ContactPageInner() {
                     <select name="service" value={form.service} onChange={handleChange} required style={{ width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' }}>
                       <option value="" disabled>Select a service...</option>
                       <option value="build-only">Build Only — $500–$2,000 one-time website build</option>
-                      <option value="web-care-plan">Web Care Plan — from $500 build + $500/mo care</option>
+                      <option value="web-care-plan">Web Care Plan — Build (Starting at $500) + $500/mo care</option>
                       <option value="market-domination">Market Domination — $5,000/mo (Full system)</option>
                       <option value="not-sure">Not sure yet — let&apos;s talk</option>
                     </select>
