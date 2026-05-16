@@ -583,6 +583,30 @@ select.input { cursor: pointer; }
 }
 .cta-note { font-size: 13px; color: rgba(255,255,255,0.45); margin: 0; }
 
+/* ── CLOSING CTA (cta-footer) ── */
+.cta-footer {
+  background: var(--navy-dark); padding: 112px 48px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-footer::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(227,18,18,0.10), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(0,53,128,0.35), transparent 45%);
+  pointer-events: none;
+}
+.cta-footer-inner {
+  max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+.cta-footer h2 { font-family: var(--font-h); font-size: 56px; color: #fff; line-height: 1.05; margin: 0; }
+.cta-footer h2 .red { color: var(--red); }
+.cta-footer p {
+  font-size: 17px; color: rgba(255,255,255,0.68); line-height: 1.65;
+  margin: 0; max-width: 560px;
+}
+.cta-footer-disclaimer { font-size: 13px; color: rgba(255,255,255,0.45); margin: 0; }
+
 /* ── FOOTER ── */
 footer { background: #001130; padding: 64px 48px 0; }
 .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -599,7 +623,8 @@ footer { background: #001130; padding: 64px 48px 0; }
 .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--red); display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
 .footer-col h4::before { content: ''; width: 16px; height: 2px; background: var(--red); border-radius: 1px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.footer-col ul li a { display: inline-block; padding: 6px 0; font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-col ul li { padding: 6px 0; font-size: 13px; color: rgba(255,255,255,0.55); }
+.footer-col ul li a { display: inline-block; padding: 0; font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
 .footer-col ul li a:hover { color: var(--red); }
 .footer-bottom { max-width: 1280px; margin: 0 auto; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
@@ -759,8 +784,8 @@ footer { background: #001130; padding: 64px 48px 0; }
   }
   .fs-cta { padding-left: 0; padding-top: 28px; border-left: none; border-top: 1px solid rgba(255,255,255,0.14); }
   .fs-features { grid-template-columns: 1fr; }
-  .cta-banner { padding: 80px 24px; }
-  .cta-banner h2 { font-size: 42px; }
+  .cta-banner, .cta-footer { padding: 80px 24px; }
+  .cta-banner h2, .cta-footer h2 { font-size: 42px; }
   .section { padding: 72px 24px; }
   /* Mobile: full-width content + matching edge padding so hero and
      section content share the same left edge (no centered vw inset) */
@@ -780,7 +805,7 @@ footer { background: #001130; padding: 64px 48px 0; }
   .nav-inner { padding: 0 24px; }
   .hero-inner { padding: 72px 24px; }
   .why-ccs, .services-section, .how-it-works, .portfolio-section,
-  .testimonials, .contact, .cta-banner { padding-left: 24px; padding-right: 24px; }
+  .testimonials, .contact, .cta-banner, .cta-footer { padding-left: 24px; padding-right: 24px; }
   footer { padding-left: 24px; padding-right: 24px; }
   .section { padding-left: 24px; padding-right: 24px; }
   .page-hero { padding-left: 24px; padding-right: 24px; }
@@ -789,7 +814,7 @@ footer { background: #001130; padding: 64px 48px 0; }
   .form-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .services-h2, .test-h2, .cta-banner h2 { font-size: 38px; }
+  .services-h2, .test-h2, .cta-banner h2, .cta-footer h2 { font-size: 38px; }
   .service-full-card { padding: 32px 24px; }
   .page-hero h1 { font-size: 40px; }
   .btn-navy, .btn-red, .btn-ghost,
