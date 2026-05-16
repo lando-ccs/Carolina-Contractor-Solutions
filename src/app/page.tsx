@@ -104,7 +104,7 @@ function WhyCCS() {
             </div>
           </Link>
 
-          <Link href="/who-we-serve/general-contractors" className="industry-card">
+          <Link href="/who-we-serve/concrete-hardscaping" className="industry-card">
             <div className="industry-icon">
               <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
             </div>
@@ -485,6 +485,7 @@ function Contact() {
                 <p className="form-sub">Takes 30 seconds. We&apos;ll reach out within 24 hours.</p>
 
                 <form onSubmit={handleSubmit}>
+                  <input type="hidden" name="service" value="not-sure" />
                   <div className="input-group">
                     <label className="input-label">Name</label>
                     <input className="input" type="text" name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
@@ -517,6 +518,9 @@ function Contact() {
                   {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}
                   <p className="form-note">We&apos;ll get back within 24 hours. No Spam Ever.</p>
                 </form>
+                <p className="form-contact-link">
+                  Want to talk specifics? <Link href="/contact">Visit our contact page →</Link>
+                </p>
               </>
             )}
           </div>

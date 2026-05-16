@@ -124,7 +124,7 @@ export default function Nav() {
                     <span className="nav-drop-desc">More maintenance contracts, less chasing referrals</span>
                   </div>
                 </Link>
-                <Link href="/who-we-serve/general-contractors" className="nav-drop-item">
+                <Link href="/who-we-serve/concrete-hardscaping" className="nav-drop-item">
                   <div className="nav-drop-icon">
                     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
                   </div>
@@ -133,11 +133,13 @@ export default function Nav() {
                     <span className="nav-drop-desc">Premium work deserves a presence that matches it</span>
                   </div>
                 </Link>
+                <div className="nav-drop-divider" />
+                <Link href="/who-we-serve" className="nav-drop-all">View All Trades →</Link>
               </div>
             </div>
 
             <Link href="/portfolio" className="nav-link">Our Work</Link>
-            <Link href="/contact"   className="nav-link">Resources</Link>
+            <Link href="/contact"   className="nav-link">Contact</Link>
           </div>
 
           {/* Desktop CTA */}
@@ -167,7 +169,7 @@ export default function Nav() {
         <Link href="/who-we-serve/roofers"      className="mobile-link" onClick={() => setMobileOpen(false)}>Roofers</Link>
         <Link href="/who-we-serve/hvac"         className="mobile-link" onClick={() => setMobileOpen(false)}>HVAC</Link>
         <Link href="/who-we-serve/landscapers"  className="mobile-link" onClick={() => setMobileOpen(false)}>Landscapers</Link>
-        <Link href="/who-we-serve/general-contractors" className="mobile-link" onClick={() => setMobileOpen(false)}>Concrete & Hardscaping</Link>
+        <Link href="/who-we-serve/concrete-hardscaping" className="mobile-link" onClick={() => setMobileOpen(false)}>Concrete & Hardscaping</Link>
         <Link href="/portfolio" className="mobile-link" onClick={() => setMobileOpen(false)}>Our Work</Link>
         <Link href="/contact"   className="mobile-link" onClick={() => setMobileOpen(false)}>Contact</Link>
         <Link href="#contact" className="mobile-cta" onClick={() => setMobileOpen(false)}>Book a Call</Link>

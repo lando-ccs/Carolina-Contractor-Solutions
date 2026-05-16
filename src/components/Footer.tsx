@@ -43,12 +43,12 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Serving</h4>
           <ul>
-            <li><a href="#">Myrtle Beach, SC</a></li>
-            <li><a href="#">Charleston, SC</a></li>
-            <li><a href="#">Charlotte, NC</a></li>
-            <li><a href="#">Greenville, SC</a></li>
-            <li><a href="#">Asheville, NC</a></li>
-            <li><a href="#">Surrounding Areas</a></li>
+            <li>Myrtle Beach, SC</li>
+            <li>Charleston, SC</li>
+            <li>Charlotte, NC</li>
+            <li>Greenville, SC</li>
+            <li>Asheville, NC</li>
+            <li>Surrounding Areas</li>
           </ul>
         </div>
 

@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/who-we-serve/cleaning', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/who-we-serve/plumbing', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/who-we-serve/pressure-washing', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/who-we-serve/general-contractors', priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/who-we-serve/concrete-hardscaping', priority: 0.7, changeFrequency: 'monthly' },
   ]
 
   return routes.map(({ path, priority, changeFrequency }) => ({
