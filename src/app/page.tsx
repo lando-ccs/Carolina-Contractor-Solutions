@@ -153,46 +153,49 @@ function Services() {
           <p className="services-sub">Most contractors in the Carolinas live off word of mouth and hope the slow months don&apos;t last. We build the presence that keeps your phone ringing when referrals go quiet.</p>
         </div>
 
-        <div className="services-grid-2col">
-          <Link href="/services/web-care-plan" className="service-card">
+        <div className="services-grid">
+          <Link href="/services/build-only" className="service-card">
             <div className="service-card-num">01</div>
-            <h3>Web Care Plan</h3>
-            <p>A professional contractor site built in 5–7 days. Starting at $500 to build, then $500/month for ongoing updates, hosting, and support.</p>
+            <h3>Build Only</h3>
+            <p>A real contractor site, built once and yours to keep. No monthly bill.</p>
             <ul className="service-check-list">
-              <li className="service-check">Custom design + copywriting</li>
-              <li className="service-check">Mobile-first build</li>
-              <li className="service-check">SEO &amp; local schema</li>
-              <li className="service-check">3–5 updates/month included</li>
+              <li className="service-check">$500–$2,000 one-time</li>
+              <li className="service-check">Custom 3–7 page build</li>
+              <li className="service-check">Mobile-first + local SEO</li>
+              <li className="service-check">You own everything</li>
+              <li className="service-check">21-day bug-fix warranty</li>
             </ul>
             <span className="service-cta">Learn More →</span>
           </Link>
-        </div>
 
-        {/* Tier 2 — Market Domination */}
-        <div className="full-service-banner">
-          <div className="fs-left">
-            <div className="service-card-num" style={{ color: 'rgba(255,255,255,0.12)', marginBottom: 12, fontSize: 52, fontFamily: 'var(--font-h)', lineHeight: 1 }}>02</div>
-            <div className="fs-badge">Tier 2 · Premium · One Per Market</div>
+          <Link href="/services/web-care-plan" className="service-card">
+            <div className="service-card-num">02</div>
+            <h3>Web Care Plan</h3>
+            <p>Your site built, then kept sharp every month — updates, hosting, support handled.</p>
+            <ul className="service-check-list">
+              <li className="service-check">From $500 build · $500/mo</li>
+              <li className="service-check">Custom design + copywriting</li>
+              <li className="service-check">SEO &amp; local schema</li>
+              <li className="service-check">Up to 5 update requests/month</li>
+              <li className="service-check">Hosting + updates included</li>
+            </ul>
+            <span className="service-cta">Learn More →</span>
+          </Link>
+
+          <Link href="/services/market-domination" className="service-card featured">
+            <div className="service-card-tier-badge">One Per Market</div>
+            <div className="service-card-num">03</div>
             <h3>Market Domination</h3>
-            <p>For contractors ready to run a full marketing operation. Google + Meta Ads, 3 monthly on-location content shoots, and automated follow-up that turns leads into booked jobs. One contractor per trade per market — permanently locked in.</p>
-          </div>
-          <ul className="fs-features">
-            <li><span className="checkmark">✓</span> Google + Meta Ads</li>
-            <li><span className="checkmark">✓</span> 3 monthly content shoots</li>
-            <li><span className="checkmark">✓</span> Automated lead follow-up</li>
-            <li><span className="checkmark">✓</span> Live lead dashboard</li>
-            <li><span className="checkmark">✓</span> 90-day lead guarantee</li>
-            <li><span className="checkmark">✓</span> Permanent market exclusivity</li>
-          </ul>
-          <div className="fs-cta">
-            <Link href="/services/market-domination" className="btn btn-red" style={{ width: '100%', justifyContent: 'center', fontSize: 15 }}>
-              <svg style={{ width: 16, height: 16, stroke: '#fff', fill: 'none', strokeWidth: 2, strokeLinecap: 'round', strokeLinejoin: 'round' }} viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 11 19.79 19.79 0 0 1 1.97 2.4 2 2 0 0 1 3.97.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-              See Full System →
-            </Link>
-            <div className="fs-price">90-day lead guarantee included</div>
-          </div>
+            <p>The full lead operation — ads, content, automated follow-up, and your market locked.</p>
+            <ul className="service-check-list">
+              <li className="service-check">$5,000/mo + ad spend</li>
+              <li className="service-check">Google + Meta Ads</li>
+              <li className="service-check">3 monthly content shoots</li>
+              <li className="service-check">Automated lead follow-up</li>
+              <li className="service-check">Permanent market exclusivity</li>
+            </ul>
+            <span className="service-cta">See Full System →</span>
+          </Link>
         </div>
       </div>
     </section>
