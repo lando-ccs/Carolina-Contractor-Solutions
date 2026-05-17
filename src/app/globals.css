@@ -817,14 +817,14 @@ footer { background: #001130; padding: 64px 48px 0; }
   }
   .fs-cta { padding-left: 0; padding-top: 28px; border-left: none; border-top: 1px solid rgba(255,255,255,0.14); }
   .fs-features { grid-template-columns: 1fr; }
-  .cta-banner, .cta-footer { padding: 80px 3vw; }
+  .cta-banner, .cta-footer { padding: 80px 2vw; }
   .cta-banner h2, .cta-footer h2 { font-size: 42px; }
-  .section { padding: 72px 3vw; }
-  /* Mobile: content sits at 94vw (3vw edge padding each side) so hero
+  .section { padding: 72px 2vw; }
+  /* Mobile: content sits at 96vw (2vw edge padding each side) so hero
      and section content share the same left edge. Homepage hero and the
      nav bar keep their own 24px edge; full-bleed tickers are unaffected. */
   .section-inner { max-width: 100%; }
-  .page-hero { padding-left: 3vw; padding-right: 3vw; }
+  .page-hero { padding-left: 2vw; padding-right: 2vw; }
   .pricing-grid { grid-template-columns: 1fr; }
   .pricing-grid-2col { grid-template-columns: 1fr; }
   .service-full-wrap { padding: 0 0 64px !important; }
@@ -839,10 +839,10 @@ footer { background: #001130; padding: 64px 48px 0; }
   .nav-inner { padding: 0 24px; }
   .hero-inner { padding: 72px 24px; }
   .why-ccs, .services-section, .how-it-works, .portfolio-section,
-  .testimonials, .contact, .cta-banner, .cta-footer { padding-left: 3vw; padding-right: 3vw; }
-  footer { padding-left: 3vw; padding-right: 3vw; }
-  .section { padding-left: 3vw; padding-right: 3vw; }
-  .page-hero { padding-left: 3vw; padding-right: 3vw; }
+  .testimonials, .contact, .cta-banner, .cta-footer { padding-left: 2vw; padding-right: 2vw; }
+  footer { padding-left: 2vw; padding-right: 2vw; }
+  .section { padding-left: 2vw; padding-right: 2vw; }
+  .page-hero { padding-left: 2vw; padding-right: 2vw; }
   .hero-h1 { font-size: 44px; }
   .industry-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
@@ -850,7 +850,12 @@ footer { background: #001130; padding: 64px 48px 0; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .services-h2, .test-h2, .cta-banner h2, .cta-footer h2 { font-size: 38px; }
   .service-full-card { padding: 32px 24px; }
-  .page-hero h1 { font-size: 40px; }
+  /* Desktop .page-hero vertical padding (calc(96px+68px) / 96px) is far
+     too large on mobile and crushes the hero content into a tight band.
+     Rebalance: still clear the ~64px fixed nav, but proportionate. */
+  .page-hero { padding-top: calc(64px + 48px); padding-bottom: 64px; }
+  .page-hero h1 { font-size: 38px; line-height: 1.12; margin-bottom: 16px; }
+  .page-hero p { font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
   .btn-navy, .btn-red, .btn-ghost,
   .btn-primary, .btn-secondary, .btn-outline, .btn-outline-light {
     min-height: 48px;
