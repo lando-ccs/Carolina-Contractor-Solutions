@@ -663,7 +663,7 @@ footer { background: #001130; padding: 64px 48px 0; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
 
 /* ── INNER PAGE STYLES ── */
-.page-hero { padding: calc(96px + 68px) 48px 80px; background: var(--navy); position: relative; overflow: hidden; }
+.page-hero { padding: calc(96px + 68px) 48px 96px; background: var(--navy); position: relative; overflow: hidden; }
 .page-hero-map {
   position: absolute; top: 50%; right: -4%;
   transform: translateY(-50%);
@@ -824,7 +824,9 @@ footer { background: #001130; padding: 64px 48px 0; }
      and section content share the same left edge. Homepage hero and the
      nav bar keep their own 24px edge; full-bleed tickers are unaffected. */
   .section-inner { max-width: 100%; }
-  .page-hero { padding-left: 2vw; padding-right: 2vw; }
+  /* Hero/header content sits wide (~97vw, 1.5vw edge padding) on mobile
+     so the header doesn't read as compressed. */
+  .page-hero { padding-left: 1.5vw; padding-right: 1.5vw; }
   .pricing-grid { grid-template-columns: 1fr; }
   .pricing-grid-2col { grid-template-columns: 1fr; }
   .service-full-wrap { padding: 0 0 64px !important; }
@@ -837,12 +839,12 @@ footer { background: #001130; padding: 64px 48px 0; }
 }
 @media (max-width: 600px) {
   .nav-inner { padding: 0 24px; }
-  .hero-inner { padding: 72px 24px; }
+  .hero-inner { padding: 72px 1.5vw; }
   .why-ccs, .services-section, .how-it-works, .portfolio-section,
   .testimonials, .contact, .cta-banner, .cta-footer { padding-left: 2vw; padding-right: 2vw; }
   footer { padding-left: 2vw; padding-right: 2vw; }
   .section { padding-left: 2vw; padding-right: 2vw; }
-  .page-hero { padding-left: 2vw; padding-right: 2vw; }
+  .page-hero { padding-left: 1.5vw; padding-right: 1.5vw; }
   .hero-h1 { font-size: 44px; }
   .industry-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
@@ -1012,7 +1014,9 @@ footer { background: #001130; padding: 64px 48px 0; }
    ════════════════════════════════════════════════════════════════════════════ */
 
 /* ── PAGE-HERO POLISH (refines existing .page-hero) ── */
-.page-hero { padding: calc(96px + 68px) 48px 96px; }
+/* NOTE: padding is set on the base .page-hero rule (and overridden in the
+   mobile media queries). Do NOT re-declare the `padding` shorthand here —
+   it sits after the media queries and would clobber the mobile 1.5vw edge. */
 .page-hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
