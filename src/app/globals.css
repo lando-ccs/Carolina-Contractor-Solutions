@@ -52,6 +52,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes num-pulse-red {
+  0%   { color: var(--navy); }
+  25%  { color: var(--red); }
+  75%  { color: var(--red); }
+  100% { color: var(--navy); }
+}
 
 /* ── Scroll Reveal ── */
 .reveal {
@@ -97,6 +103,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .trades-grid > .reveal { transition-delay: 0ms; }
   .hero-badge, .hero-h1, .hero-sub, .hero-btns, .hero-device { animation: none; }
   .ticker-track, .photo-track { animation-duration: 0s; }
+  .service-card.has-pulsed .service-card-num { animation: none; }
   * { transition-duration: 0.01ms !important; transition-delay: 0ms !important; animation-duration: 0.01ms !important; }
 }
 
@@ -348,6 +355,9 @@ nav {
 .service-card:hover .service-card-num { color: var(--red); }
 .service-card.featured .service-card-num { color: rgba(255,255,255,0.12); }
 .service-card.featured:hover .service-card-num { color: var(--red); }
+.service-card.has-pulsed .service-card-num {
+  animation: num-pulse-red 1.4s var(--ease-out) both;
+}
 .service-card h3 { font-family: var(--font-h); font-size: 24px; color: var(--navy); margin-bottom: 12px; }
 .service-card.featured h3 { color: #fff; }
 .service-card > p { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 20px; flex: 1; }
@@ -873,4 +883,52 @@ footer { background: #001130; padding: 64px 48px 0; }
 }
 @media (max-width: 640px) {
   .section-inner { max-width: 100%; }
+}
+
+/* ── Trade page: empathy / "what we do" lead ── */
+.pain-lead { max-width: 760px; margin: 0 auto; text-align: center; }
+.pain-lead p { font-size: 22px; line-height: 1.6; color: var(--text); font-weight: 500; }
+.section.dark .pain-lead p { color: rgba(255,255,255,0.85); }
+
+/* ── Trade page: service tier card price line ── */
+.tier-price {
+  font-family: var(--font-h); font-size: 20px; color: var(--navy);
+  margin-bottom: 14px !important; flex: none !important;
+}
+.service-card.featured .tier-price { color: #fff; }
+
+/* ── FAQ accordion ── */
+.faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+  transition: border-color 0.2s var(--ease-out);
+}
+.faq-item[open] { border-color: var(--navy); }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 22px 28px;
+  font-family: var(--font-h); font-size: 18px; color: var(--navy);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; font-family: var(--font-b); font-size: 26px; font-weight: 400;
+  color: var(--red); flex-shrink: 0; line-height: 1;
+  transition: transform 0.2s var(--ease-out);
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--red); }
+.faq-answer { padding: 0 28px 24px; font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* ── Trade page: final CTA phone + text link ── */
+.cta-phone { font-family: var(--font-h); font-size: 30px; color: #fff; text-decoration: none; transition: color 0.2s var(--ease-out); }
+.cta-phone:hover { color: var(--red); }
+.cta-text-link { font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: underline; transition: color 0.2s var(--ease-out); }
+.cta-text-link:hover { color: var(--red); }
+
+@media (max-width: 900px) {
+  .pain-lead p { font-size: 19px; }
+  .faq-item summary { font-size: 16px; padding: 18px 20px; }
+  .faq-answer { padding: 0 20px 20px; }
+  .cta-phone { font-size: 24px; }
 }
