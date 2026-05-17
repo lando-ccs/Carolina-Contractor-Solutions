@@ -51,6 +51,9 @@ export default function ScrollReveal() {
             const delay = groupDelay(el)
             el.style.transitionDelay = `${delay}ms`
             el.classList.add('is-visible')
+            // .has-pulsed drives the one-time numbered-card pulse. We never
+            // remove it and unobserve immediately, so it fires once per card.
+            el.classList.add('has-pulsed')
             observer.unobserve(el)
           }
         })
