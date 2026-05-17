@@ -231,6 +231,7 @@ function HowItWorks() {
 function Portfolio() { return <OurWork /> }
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
+// Placeholder until first real reviews come in. Real reviews live on /reviews.
 function Testimonials() {
   return (
     <section className="testimonials" id="testimonials">
@@ -239,37 +240,17 @@ function Testimonials() {
       <div className="testimonials-inner">
         <div className="test-header">
           <div className="section-label center">Client Reviews</div>
-          <h2 className="test-h2">What Our <span className="red">Clients Say.</span></h2>
-          <p className="test-sub">Real results from real contractors across the Carolinas.</p>
+          <h2 className="test-h2">First-Mover <span className="red">Advantage.</span></h2>
+          <p className="test-sub">We&apos;re collecting our first wave of client reviews. Worked with us? Be one of the first on the wall.</p>
         </div>
 
-        <div className="tcard-wrap">
-          <div className="tcard">
-            <div className="tcard-top">
-              <div className="tcard-stars">⭐⭐⭐⭐⭐</div>
-              <div className="tcard-quote">First time my website actually books jobs instead of just sitting there. The phone rings now — that&apos;s all I needed.</div>
-              <div className="tcard-author">
-                <div className="tcard-avatar">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/assets/fightinggrimelogo.webp" alt="Fighting Grime Pressure Washing logo" loading="lazy" />
-                </div>
-                <div>
-                  <div className="tcard-name">Fighting Grime Pressure Washing</div>
-                  <div className="tcard-role">Owner — Myrtle Beach, SC</div>
-                </div>
-              </div>
-            </div>
-            <div className="tcard-bottom">
-              <div className="tcard-tags">
-                <span className="tcard-tag">Website</span>
-                <span className="tcard-tag">Logo</span>
-                <span className="tcard-tag">Photos</span>
-              </div>
-              <a href="https://fightinggrimepressurewashing.com" target="_blank" rel="noopener noreferrer" className="btn btn-red" style={{ fontSize: 13, padding: '9px 18px' }}>
-                View Website →
-              </a>
-            </div>
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, marginTop: 8 }}>
+          <Link href="/leave-a-review" className="btn btn-primary btn-lg">
+            Leave a Review <span className="arrow">&rarr;</span>
+          </Link>
+          <Link href="/reviews" style={{ fontSize: 14, color: '#fff', textDecoration: 'underline', opacity: 0.7 }}>
+            See all reviews &rarr;
+          </Link>
         </div>
       </div>
     </section>

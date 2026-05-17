@@ -39,6 +39,16 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* Pages col */}
+        <div className="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><Link href="/portfolio">Our Work</Link></li>
+            <li><Link href="/reviews">Reviews</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+          </ul>
+        </div>
+
         {/* Serving col */}
         <div className="footer-col">
           <h4>Serving</h4>
