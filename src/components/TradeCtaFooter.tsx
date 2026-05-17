@@ -16,16 +16,18 @@ interface Props {
 
 /**
  * Closing CTA block used at the bottom of every trade page.
- * Defaults match the "Carolinas Only · One Per Market" pattern; props override
- * for trades that have nationwide availability (cleaning, etc.).
+ * Defaults close on the core "get a site that books jobs" pitch. The
+ * one-per-market exclusivity claim is Market-Domination-only and lives on
+ * that services page — never default it onto trade pages, which also pitch
+ * Build Only and Web Care.
  */
 export default function TradeCtaFooter({
-  badge = 'Carolinas Only · One Per Market',
-  headingTop = 'Your Market',
-  headingBottom = 'Might Still Be Open.',
-  body = "We work with one contractor per trade per market. Check if yours is taken.",
+  badge = 'Sites Live In 7–10 Days',
+  headingTop = 'Get A Site That',
+  headingBottom = 'Actually Books Jobs.',
+  body = "Tell us about your business and we'll have your site spec ready within 48 hours. No retainer required to start.",
   href = '/contact?service=not-sure',
-  ctaLabel = 'Check My Market',
+  ctaLabel = 'Start My Site',
 }: Props) {
   return (
     <section className="cta-footer">

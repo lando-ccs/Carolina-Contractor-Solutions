@@ -160,10 +160,7 @@ export default function CleaningPage() {
         </div>
       </section>
 
-      <TradeCtaFooter
-        badge="Web Care Nationwide · Market Domination Carolinas Only"
-        body="Web Care is available everywhere. Market Domination is one contractor per market — check if yours is taken."
-      />
+      <TradeCtaFooter />
     </>
   )
 }
