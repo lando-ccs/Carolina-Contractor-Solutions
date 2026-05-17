@@ -2,35 +2,68 @@
 
 import { useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
+import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
 
-type FormState = { name: string; business: string; role: string; city: string; review: string }
-
-const MIN = 50
-const MAX = 500
+type FormState = {
+  name: string
+  business: string
+  role: string
+  city: string
+  rating: number
+  review: string
+  consent: boolean
+}
 
 export default function LeaveAReviewPage() {
-  const [form, setForm] = useState<FormState>({ name: '', business: '', role: '', city: '', review: '' })
-  const [rating, setRating] = useState(0)
-  const [hover, setHover] = useState(0)
-  const [photo, setPhoto] = useState<File | null>(null)
-  const [consent, setConsent] = useState(false)
+  const [form, setForm] = useState<FormState>({
+    name: '',
+    business: '',
+    role: '',
+    city: '',
+    rating: 0,
+    review: '',
+    consent: false,
+  })
+  const [hoverRating, setHoverRating] = useState(0)
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+    const target = e.target
+    const name = target.name
+    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+      setForm(f => ({ ...f, [name]: target.checked }))
+    } else {
+      setForm(f => ({ ...f, [name]: target.value }))
+    }
+  }
+
+  function setRating(r: number) {
+    setForm(f => ({ ...f, rating: r }))
   }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setError('')
-    if (rating < 1) { setError('Please pick a star rating.'); return }
-    if (form.review.length < MIN || form.review.length > MAX) {
-      setError(`Your review needs to be between ${MIN} and ${MAX} characters.`); return
+
+    if (!form.consent) {
+      setError('Please check the consent box so we can use your review.')
+      return
     }
-    if (!consent) { setError('Please check the consent box so we can publish your review.'); return }
+    if (form.rating < 1) {
+      setError('Please pick a rating.')
+      return
+    }
+    if (form.review.length < 50) {
+      setError('Your review needs at least 50 characters.')
+      return
+    }
+    if (form.review.length > 500) {
+      setError('Your review is over 500 characters. Trim it down a bit.')
+      return
+    }
 
     setLoading(true)
     try {
@@ -39,23 +72,22 @@ export default function LeaveAReviewPage() {
       data.append('business', form.business)
       data.append('role', form.role)
       data.append('city', form.city)
-      data.append('rating', String(rating))
+      data.append('rating', String(form.rating))
       data.append('review', form.review)
-      data.append('consent', String(consent))
-      if (photo) data.append('photo', photo)
+      data.append('consent', String(form.consent))
 
-      const res = await fetch('/api/review', { method: 'POST', body: data })
+      const res = await fetch('/api/review', {
+        method: 'POST',
+        body: data,
+      })
       if (!res.ok) throw new Error('Failed')
       setSent(true)
     } catch {
-      setError('Something went wrong. Please try again, or email us directly.')
+      setError('Something went wrong. Please try again, or text us at (843) 742-9776.')
     } finally {
       setLoading(false)
     }
   }
-
-  const inputStyle = { width: '100%', padding: '14px 14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: 16, color: 'var(--text)', background: '#fff', outline: 'none' } as const
-  const labelStyle = { display: 'block', fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 8 } as const
 
   return (
     <>
@@ -63,114 +95,118 @@ export default function LeaveAReviewPage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img className="page-hero-map" src="/assets/Carolinas-bg-img 1.webp" alt="" aria-hidden="true" />
         <div className="page-hero-inner">
-          <div className="badge badge-dark">60 Seconds, Tops</div>
-          <SectionLabel light>Leave a Review</SectionLabel>
-          <h1>Worked With Us?<br /><span className="red">Tell It Straight.</span></h1>
-          <p>No essay required. A few honest sentences about what changed for your business goes a long way for the next contractor deciding whether to pull the trigger.</p>
+          <div className="badge badge-dark">Leave a Review</div>
+          <SectionLabel light>Tell Your Story</SectionLabel>
+          <h1>Help the Next<br /><span className="red">Contractor Decide.</span></h1>
+          <p>Takes about a minute. Your honest take goes a long way for the next business owner deciding if we&apos;re a fit.</p>
         </div>
       </section>
 
       <section className="section">
         <div className="section-inner" style={{ maxWidth: 720 }}>
           {sent ? (
-            <div style={{ padding: 'clamp(28px, 6vw, 48px)', background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', textAlign: 'center' }}>
-              <div style={{ fontSize: 48, marginBottom: 16 }}>&#10003;</div>
-              <h3 style={{ fontSize: 28, color: 'var(--navy)', marginBottom: 12 }}>Thanks &mdash; We Got It.</h3>
-              <p style={{ color: 'var(--text)', lineHeight: 1.65 }}>We&apos;ll give it a quick read and get it up on the site shortly. Appreciate you taking the time.</p>
+            <div className="review-empty">
+              <div style={{ fontSize: 56, color: 'var(--navy)', marginBottom: 8 }}>✓</div>
+              <h2>Got It.<br /><span className="red">Thank You.</span></h2>
+              <p>Your review is on its way to Lando. We&apos;ll add it to the wall once it&apos;s approved.</p>
+              <Link href="/" className="btn btn-primary btn-lg">Back to Home <span className="arrow">&#8594;</span></Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ background: 'var(--bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', padding: 'clamp(24px, 5vw, 40px)' }}>
-              <h3 style={{ fontSize: 24, color: 'var(--navy)', marginBottom: 28 }}>Your Review</h3>
+            <div className="contact-form-card">
+              <h3>Tell us how it went</h3>
+              <p className="form-sub">All fields except role are required. Reviews are moderated before they go live.</p>
 
-              {[
-                { label: 'Your Name *', name: 'name', placeholder: 'John Smith', required: true },
-                { label: 'Business Name *', name: 'business', placeholder: 'Smith Roofing LLC', required: true },
-                { label: 'Your Role', name: 'role', placeholder: 'Owner', required: false },
-                { label: 'City / State *', name: 'city', placeholder: 'Charlotte, NC', required: true },
-              ].map(f => (
-                <div key={f.name} style={{ marginBottom: 24 }}>
-                  <label style={labelStyle}>{f.label}</label>
-                  <input
-                    type="text"
-                    name={f.name}
-                    value={form[f.name as keyof FormState]}
+              <form onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="input-group">
+                    <label className="input-label">Your Name *</label>
+                    <input className="input" type="text" name="name" value={form.name} onChange={handleChange} placeholder="John Smith" required />
+                  </div>
+                  <div className="input-group">
+                    <label className="input-label">Business Name *</label>
+                    <input className="input" type="text" name="business" value={form.business} onChange={handleChange} placeholder="Smith Roofing LLC" required />
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="input-group">
+                    <label className="input-label">Your Role</label>
+                    <input className="input" type="text" name="role" value={form.role} onChange={handleChange} placeholder="Owner, Operations Manager, etc." />
+                  </div>
+                  <div className="input-group">
+                    <label className="input-label">City + State *</label>
+                    <input className="input" type="text" name="city" value={form.city} onChange={handleChange} placeholder="Myrtle Beach, SC" required />
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <label className="input-label">Your Rating *</label>
+                  <div className="star-picker" role="radiogroup" aria-label="Star rating">
+                    {[1, 2, 3, 4, 5].map(n => {
+                      const filled = n <= (hoverRating || form.rating)
+                      return (
+                        <button
+                          type="button"
+                          key={n}
+                          className="star-btn"
+                          onMouseEnter={() => setHoverRating(n)}
+                          onMouseLeave={() => setHoverRating(0)}
+                          onClick={() => setRating(n)}
+                          aria-label={`${n} star${n > 1 ? 's' : ''}`}
+                          aria-pressed={form.rating === n}
+                          style={{ color: filled ? 'var(--red)' : 'rgba(0,40,104,0.18)' }}
+                        >
+                          ★
+                        </button>
+                      )
+                    })}
+                    <span style={{ fontSize: 13, color: 'var(--text2)', marginLeft: 12, alignSelf: 'center' }}>
+                      {form.rating > 0 ? `${form.rating} of 5` : 'Pick a rating'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <label className="input-label">Your Review *</label>
+                  <textarea
+                    className="input"
+                    name="review"
+                    value={form.review}
                     onChange={handleChange}
-                    placeholder={f.placeholder}
-                    required={f.required}
-                    style={inputStyle}
+                    placeholder="What did we build for you? How has it changed your business?"
+                    rows={6}
+                    maxLength={500}
+                    required
+                    style={{ resize: 'vertical', minHeight: 140, fontFamily: 'inherit' }}
                   />
+                  <div style={{ fontSize: 12, color: 'var(--text2)', marginTop: 6, textAlign: 'right' }}>
+                    {form.review.length} / 500 — minimum 50 characters
+                  </div>
                 </div>
-              ))}
 
-              <div style={{ marginBottom: 24 }}>
-                <label style={labelStyle}>Rating *</label>
-                <div className="star-picker" role="radiogroup" aria-label="Rating">
-                  {[1, 2, 3, 4, 5].map(n => (
-                    <button
-                      key={n}
-                      type="button"
-                      className={`star-btn${n <= (hover || rating) ? ' on' : ''}`}
-                      aria-label={`${n} star${n > 1 ? 's' : ''}`}
-                      aria-pressed={n === rating}
-                      onMouseEnter={() => setHover(n)}
-                      onMouseLeave={() => setHover(0)}
-                      onClick={() => setRating(n)}
-                    >
-                      ★
-                    </button>
-                  ))}
-                  <span className="star-picker-label">{rating ? `${rating} of 5` : 'Tap to rate'}</span>
+                <div className="input-group" style={{ marginTop: 8 }}>
+                  <label style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 13, color: 'var(--text)', lineHeight: 1.5, cursor: 'pointer' }}>
+                    <input
+                      type="checkbox"
+                      name="consent"
+                      checked={form.consent}
+                      onChange={handleChange}
+                      required
+                      style={{ marginTop: 3, width: 16, height: 16, flexShrink: 0 }}
+                    />
+                    <span>I agree that Carolina Contractor Solutions can use this review on their website and marketing materials.</span>
+                  </label>
                 </div>
-              </div>
 
-              <div style={{ marginBottom: 24 }}>
-                <label style={labelStyle}>Your Review *</label>
-                <textarea
-                  name="review"
-                  value={form.review}
-                  onChange={handleChange}
-                  rows={5}
-                  minLength={MIN}
-                  maxLength={MAX}
-                  required
-                  placeholder="What did we build for you, and what changed after? Be specific — the phone rings more, you stopped chasing referrals, whatever it is."
-                  style={{ ...inputStyle, resize: 'vertical' }}
-                />
-                <p style={{ fontSize: 12, color: form.review.length < MIN ? 'var(--text)' : 'var(--navy)', marginTop: 6, textAlign: 'right' }}>
-                  {form.review.length} / {MAX} {form.review.length < MIN && `(${MIN - form.review.length} more to go)`}
-                </p>
-              </div>
+                <button type="submit" disabled={loading} className="submit-btn" style={{ opacity: loading ? 0.7 : 1 }}>
+                  {loading ? 'Sending...' : 'Submit Review'}
+                </button>
 
-              <div style={{ marginBottom: 24 }}>
-                <label style={labelStyle}>Photo or Logo (optional)</label>
-                <input
-                  type="file"
-                  name="photo"
-                  accept="image/*"
-                  onChange={e => setPhoto(e.target.files?.[0] ?? null)}
-                  style={{ ...inputStyle, padding: '10px 14px' }}
-                />
-              </div>
+                {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}
 
-              <label style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 28, cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={consent}
-                  onChange={e => setConsent(e.target.checked)}
-                  required
-                  style={{ marginTop: 3, width: 18, height: 18, flexShrink: 0, accentColor: 'var(--red)' }}
-                />
-                <span style={{ fontSize: 13, color: 'var(--text)', lineHeight: 1.55 }}>
-                  I&apos;m good with Carolina Contractor Solutions publishing this review (with my name, business, and city) on their website and marketing. *
-                </span>
-              </label>
-
-              <button type="submit" disabled={loading} className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
-                {loading ? 'Sending...' : 'Submit Review'} <span className="arrow">&#8594;</span>
-              </button>
-              {error && <p style={{ color: 'var(--red)', fontSize: 13, textAlign: 'center', marginTop: 10 }}>{error}</p>}
-              <p style={{ fontSize: 12, color: 'var(--text)', textAlign: 'center', marginTop: 12 }}>Reviewed before it goes live &middot; No spam, ever</p>
-            </form>
+                <p className="form-note">Moderated before going live. Usually approved within a day.</p>
+              </form>
+            </div>
           )}
         </div>
       </section>

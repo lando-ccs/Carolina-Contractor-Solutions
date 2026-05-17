@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/SectionLabel'
+import OurWork from '@/components/OurWork'
+import ContactSection from '@/components/ContactSection'
 
 export const metadata: Metadata = {
   title: 'Reviews — Carolina Contractor Solutions',
@@ -19,17 +21,7 @@ type Review = {
 
 // Approved reviews only. New submissions arrive by email and get added here
 // after a quick review — see src/app/api/review/route.ts.
-const reviews: Review[] = [
-  {
-    rating: 5,
-    text: 'First time my website actually books jobs instead of just sitting there. The phone rings now — that’s all I needed.',
-    name: 'Owner',
-    business: 'Fighting Grime Pressure Washing',
-    city: 'Myrtle Beach, SC',
-    trade: 'Pressure Washing',
-    photo: '/assets/fightinggrimelogo.webp',
-  },
-]
+const reviews: Review[] = []
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -56,28 +48,45 @@ export default function ReviewsPage() {
 
       <section className="section">
         <div className="section-inner">
-          <div className="review-grid">
-            {reviews.map((r, i) => (
-              <article className="review-card" key={i}>
-                <Stars rating={r.rating} />
-                <p className="review-card-text">&ldquo;{r.text}&rdquo;</p>
-                <div className="review-card-author">
-                  {r.photo && (
-                    <div className="review-card-avatar">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={r.photo} alt={`${r.business} logo`} loading="lazy" />
+          {reviews.length > 0 ? (
+            <div className="review-grid">
+              {reviews.map((r, i) => (
+                <article className="review-card" key={i}>
+                  <Stars rating={r.rating} />
+                  <p className="review-card-text">&ldquo;{r.text}&rdquo;</p>
+                  <div className="review-card-author">
+                    {r.photo && (
+                      <div className="review-card-avatar">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={r.photo} alt={`${r.business} logo`} loading="lazy" />
+                      </div>
+                    )}
+                    <div>
+                      <div className="review-card-name">{r.name} &mdash; {r.business}</div>
+                      <div className="review-card-city">{r.city}</div>
                     </div>
-                  )}
-                  <div>
-                    <div className="review-card-name">{r.name} &mdash; {r.business}</div>
-                    <div className="review-card-city">{r.city}</div>
                   </div>
-                </div>
-                <span className="review-card-pill">{r.trade}</span>
-              </article>
-            ))}
-          </div>
+                  <span className="review-card-pill">{r.trade}</span>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="review-empty">
+              <SectionLabel center>First-Mover Advantage</SectionLabel>
+              <h2>We&apos;re Collecting<br /><span className="red">Our First Wave.</span></h2>
+              <p>Reviews are rolling in. If you&apos;ve worked with us, your honest take helps the next contractor decide. Be one of the first on the wall.</p>
+              <Link href="/leave-a-review" className="btn btn-primary btn-lg">
+                Leave a Review <span className="arrow">&#8594;</span>
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
 
+      <OurWork />
+
+      <section className="section">
+        <div className="section-inner">
           <div className="review-cta">
             <h2>Worked With Us?</h2>
             <p>Takes about a minute. Your honest take helps the next contractor decide.</p>
@@ -87,6 +96,8 @@ export default function ReviewsPage() {
           </div>
         </div>
       </section>
+
+      <ContactSection />
     </>
   )
 }
