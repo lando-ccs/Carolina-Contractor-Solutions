@@ -66,6 +66,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p className="footer-copy">© 2026 Carolina Contractor Solutions</p>
+        <Link href="/reviews" className="footer-bottom-link">Reviews</Link>
       </div>
     </footer>
   )

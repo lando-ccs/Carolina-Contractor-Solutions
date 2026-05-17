@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/web-care-plan', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/services/market-domination', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/portfolio', priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/reviews', priority: 0.7, changeFrequency: 'weekly' },
     { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/who-we-serve', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/who-we-serve/roofers', priority: 0.7, changeFrequency: 'monthly' },

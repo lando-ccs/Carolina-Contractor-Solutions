@@ -139,6 +139,7 @@ export default function Nav() {
             </div>
 
             <Link href="/portfolio" className="nav-link">Our Work</Link>
+            <Link href="/reviews"   className="nav-link">Reviews</Link>
             <Link href="/contact"   className="nav-link">Contact</Link>
           </div>
 
@@ -171,6 +172,7 @@ export default function Nav() {
         <Link href="/who-we-serve/landscapers"  className="mobile-link" onClick={() => setMobileOpen(false)}>Landscapers</Link>
         <Link href="/who-we-serve/concrete-hardscaping" className="mobile-link" onClick={() => setMobileOpen(false)}>Concrete & Hardscaping</Link>
         <Link href="/portfolio" className="mobile-link" onClick={() => setMobileOpen(false)}>Our Work</Link>
+        <Link href="/reviews"   className="mobile-link" onClick={() => setMobileOpen(false)}>Reviews</Link>
         <Link href="/contact"   className="mobile-link" onClick={() => setMobileOpen(false)}>Contact</Link>
         <Link href="#contact" className="mobile-cta" onClick={() => setMobileOpen(false)}>Book a Call</Link>
       </div>
